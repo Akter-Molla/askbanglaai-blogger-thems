@@ -1,0 +1,2965 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:default='true' b:js='false' b:mobile='false' b:templateUrl='http://www.blogger.com/openid-server.g' b:version='2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes' name='viewport'/>
+    <b:include data='blog' name='all-head-content'/>
+    <title><data:blog.pageTitle/></title>
+    
+    <!-- Premium Fonts & Icons -->
+    <link href='https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Noto+Sans+Bengali:wght@300;400;500;600;700&amp;family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
+
+    <b:skin version='2'><![CDATA[
+        :root {
+            --sidebar-bg: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            --main-bg: #f8fafc;
+            --accent-blue: #6366f1;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-cyan: #06b6d4;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --input-bg: #f1f5f9;
+            --hover-color: #f1f5f9;
+            --user-msg-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --user-msg-text: #ffffff;
+            --bot-msg-bg: #ffffff;
+            --bot-msg-border: #e2e8f0;
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --card-shadow-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 10px -5px rgba(0, 0, 0, 0.04);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 60%, #667eea 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            font-family: 'Plus Jakarta Sans', 'Hind Siliguri', 'Noto Sans Bengali', system-ui, sans-serif;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 75% 65%, rgba(240, 147, 251, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+            animation: particles 15s ease infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes particles {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            33% { opacity: 0.7; transform: scale(1.05); }
+            66% { opacity: 0.9; transform: scale(1.02); }
+        }
+
+        /* Hide Blogger Default Elements */
+        .sidebar, #sidebar, .footer, #footer, .header, #header,
+        .blog-pager, .date-header, .post-footer, .comments,
+        .widget, .Attribution, .blog-posts, .main-nav, .main-section,
+        .navbar, #navbar, #navbar-iframe, .region-inner, .content-outer,
+        .main-inner, .column-center-outer, .column-right-outer {
+            display: none !important;
+        }
+
+        /* Full Page Container */
+        .chat-container {
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(30px);
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            border: none;
+            border-radius: 0;
+        }
+
+        .chat-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 90%, rgba(99, 102, 241, 0.05) 0%, transparent 30%),
+                radial-gradient(circle at 90% 10%, rgba(240, 147, 251, 0.05) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Sidebar */
+        .sidebar-panel {
+            width: 340px;
+            background: var(--sidebar-bg);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+            position: relative;
+            z-index: 2;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            flex-shrink: 0;
+        }
+
+        .sidebar-panel.collapsed {
+            width: 0;
+            min-width: 0;
+            overflow: hidden;
+            border-right: none;
+        }
+
+        .sidebar-header {
+            padding: 32px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .sidebar-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .sidebar-header h3 i {
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, #6366f1, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sidebar-subtitle {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        .close-sidebar-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: rgba(255,255,255,0.7);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .close-sidebar-btn:hover {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .category-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 16px;
+        }
+
+        .category-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .category-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .category-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .category-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.4);
+            padding: 8px 18px 4px;
+            font-weight: 600;
+        }
+
+        .category-item {
+            padding: 14px 18px;
+            margin-bottom: 4px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .category-item::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: var(--accent-blue);
+            border-radius: 0 3px 3px 0;
+            transition: height 0.3s ease;
+        }
+
+        .category-item:hover { 
+            background: rgba(255,255,255,0.06);
+            transform: translateX(4px);
+            color: white;
+        }
+
+        .category-item:hover::after {
+            height: 60%;
+        }
+
+        .category-item.active { 
+            background: rgba(99, 102, 241, 0.2);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+            color: white;
+            font-weight: 600;
+        }
+
+        .category-item.active::after {
+            height: 70%;
+            background: var(--accent-blue);
+        }
+
+        .category-item .icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: var(--transition-bounce);
+        }
+
+        .category-item:hover .icon {
+            transform: scale(1.1) rotate(-10deg);
+        }
+
+        .category-item.active .icon {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .category-stats {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            margin-left: auto;
+        }
+
+        /* Admin Panel Button */
+        .admin-btn {
+            margin: 16px 20px 24px;
+            padding: 15px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+            letter-spacing: 0.01em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .admin-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .admin-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .admin-btn:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+        }
+        .admin-btn:active {
+            transform: translateY(0);
+        }
+
+        .admin-btn .badge {
+            background: rgba(255,255,255,0.3);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Main Chat Area */
+        .main-chat {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            min-width: 0;
+        }
+
+        .chat-header {
+            padding: 20px 28px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-shrink: 0;
+            z-index: 5;
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            padding: 10px 12px;
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+            border: none;
+            background: transparent;
+        }
+        .menu-toggle:hover { 
+            background: var(--hover-color);
+            color: var(--accent-blue);
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .current-category {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulseDot 2s ease infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+        }
+
+        .pending-badge {
+            margin-left: auto;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #92400e;
+            padding: 9px 18px;
+            border-radius: 24px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
+            border: none;
+        }
+        .pending-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.25);
+        }
+
+        .pending-badge .count {
+            background: #f59e0b;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            min-width: 24px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* Messages Area */
+        .messages-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            scroll-behavior: smooth;
+        }
+
+        .messages-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .messages-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .messages-container::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 10px;
+        }
+
+        .messages-container::-webkit-scrollbar-thumb:hover {
+            background: #cbd5e1;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .welcome-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .welcome-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 16px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-smooth);
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .feature-card .feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .feature-card .feature-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .quick-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        /* Message Rows */
+        .message-row {
+            display: flex;
+            gap: 12px;
+            animation: messageSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            align-items: flex-end;
+        }
+
+        @keyframes messageSlideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px) scale(0.95);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .message-row.user { 
+            justify-content: flex-end;
+        }
+        .message-row.bot { 
+            justify-content: flex-start;
+        }
+
+        .message-bubble {
+            max-width: 72%;
+            padding: 14px 20px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            position: relative;
+            word-wrap: break-word;
+            transition: var(--transition-smooth);
+        }
+
+        .message-row.user .message-bubble {
+            background: var(--user-msg-gradient);
+            color: var(--user-msg-text);
+            border-bottom-right-radius: 8px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .message-row.user .message-bubble:hover {
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .message-row.bot .message-bubble {
+            background: var(--bot-msg-bg);
+            color: var(--text-primary);
+            border-bottom-left-radius: 8px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--bot-msg-border);
+        }
+
+        .message-row.bot .message-bubble:hover {
+            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-1px);
+        }
+
+        .message-row.bot .message-bubble.welcome-bubble {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+            border: 2px solid #e0e7ff;
+            max-width: 85%;
+        }
+
+        .message-row.bot .message-bubble.welcome-bubble strong {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+        }
+
+        .bot-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+            font-size: 1.1rem;
+        }
+
+        .bot-avatar.small {
+            width: 32px;
+            height: 32px;
+            font-size: 0.9rem;
+        }
+
+        .message-timestamp {
+            font-size: 0.68rem;
+            opacity: 0.5;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .message-row.bot .message-timestamp {
+            justify-content: flex-start;
+        }
+
+        .message-row.user .message-timestamp {
+            justify-content: flex-end;
+            opacity: 0.6;
+        }
+
+        /* Skip Button */
+        .skip-btn-container {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .skip-btn {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Plus Jakarta Sans', 'Hind Siliguri', 'Noto Sans Bengali', system-ui, sans-serif;
+        }
+
+        .skip-btn:hover {
+            background: #e2e8f0;
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .skip-btn.primary-skip {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+        }
+
+        .skip-btn.primary-skip:hover {
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Alternative Answers */
+        .alt-answers {
+            margin-top: 12px;
+            padding: 12px;
+            background: #fefce8;
+            border-radius: 12px;
+            border: 1px solid #fde68a;
+        }
+
+        .alt-answers .alt-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 8px;
+        }
+
+        .alt-answer-item {
+            padding: 8px 12px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-size: 0.85rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .alt-answer-item:hover {
+            background: #f0f4ff;
+            border-color: var(--accent-blue);
+        }
+
+        .alt-answer-item .match-score {
+            font-size: 0.7rem;
+            color: var(--accent-amber);
+            font-weight: 600;
+        }
+
+        /* Processing Indicator */
+        .processing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .brain-wave {
+            display: flex;
+            gap: 3px;
+            align-items: flex-end;
+            height: 20px;
+        }
+
+        .brain-wave span {
+            width: 3px;
+            background: var(--accent-blue);
+            border-radius: 3px;
+            animation: brainWave 1.2s ease-in-out infinite;
+        }
+
+        .brain-wave span:nth-child(1) { height: 10px; animation-delay: 0s; }
+        .brain-wave span:nth-child(2) { height: 20px; animation-delay: 0.1s; }
+        .brain-wave span:nth-child(3) { height: 14px; animation-delay: 0.2s; }
+        .brain-wave span:nth-child(4) { height: 20px; animation-delay: 0.3s; }
+        .brain-wave span:nth-child(5) { height: 10px; animation-delay: 0.4s; }
+
+        @keyframes brainWave {
+            0%, 100% { transform: scaleY(0.6); opacity: 0.3; }
+            50% { transform: scaleY(1); opacity: 1; }
+        }
+
+        .processing-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 5px;
+            padding: 4px 0;
+        }
+        
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite;
+            display: inline-block;
+        }
+        
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        
+        @keyframes typingBounce {
+            0%, 60%, 100% { 
+                transform: translateY(0); 
+                opacity: 0.3;
+            }
+            30% { 
+                transform: translateY(-10px); 
+                opacity: 1;
+            }
+        }
+
+        /* Input Area */
+        .input-container {
+            padding: 18px 28px 24px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid var(--border-color);
+            flex-shrink: 0;
+            z-index: 5;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: var(--input-bg);
+            border: 2px solid transparent;
+            border-radius: 24px;
+            padding: 6px 6px 6px 22px;
+            transition: var(--transition-smooth);
+            box-shadow: var(--card-shadow);
+        }
+
+        .input-wrapper:focus-within {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.08), var(--card-shadow);
+            background: #ffffff;
+        }
+
+        .input-wrapper i {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .input-wrapper:focus-within i {
+            color: var(--accent-blue);
+        }
+
+        #userInput {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            padding: 13px 0;
+            background: transparent;
+            font-family: 'Plus Jakarta Sans', 'Hind Siliguri', 'Noto Sans Bengali', system-ui, sans-serif;
+            color: var(--text-primary);
+        }
+
+        #userInput::placeholder {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .send-btn {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            flex-shrink: 0;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .send-btn:active {
+            transform: scale(0.92);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .input-hint {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        /* Subject Buttons */
+        .subject-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .subject-chip {
+            padding: 9px 18px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+            color: var(--accent-blue);
+            border-radius: 24px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            border: 1px solid #c7d2fe;
+            font-weight: 500;
+            font-family: 'Plus Jakarta Sans', 'Hind Siliguri', 'Noto Sans Bengali', system-ui, sans-serif;
+            white-space: nowrap;
+        }
+
+        .subject-chip:hover {
+            background: var(--user-msg-gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Admin Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            padding: 36px;
+            width: 90%;
+            max-width: 680px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            animation: modalSlideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes modalSlideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(60px) scale(0.9);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-content h2 {
+            margin-bottom: 28px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .modal-content h2 i {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pending-question {
+            background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+            padding: 22px;
+            border-radius: 18px;
+            margin-bottom: 14px;
+            border: 1px solid #fde68a;
+            transition: var(--transition-smooth);
+        }
+
+        .pending-question:hover {
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .pending-question .question-text {
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pending-question .category-tag {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .pending-question .answer-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            font-family: 'Plus Jakarta Sans', 'Hind Siliguri', 'Noto Sans Bengali', system-ui, sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .pending-question .answer-input:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .save-answer-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .save-answer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .delete-btn {
+            background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .delete-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 63, 94, 0.4);
+        }
+
+        .close-modal-btn {
+            margin-top: 28px;
+            padding: 15px 24px;
+            background: #f1f5f9;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            width: 100%;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .close-modal-btn:hover {
+            background: #e2e8f0;
+            color: var(--text-primary);
+        }
+
+        /* Help tooltip */
+        .help-tooltip {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: white;
+            padding: 16px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 50;
+            font-size: 0.9rem;
+            max-width: 280px;
+            animation: fadeInUp 0.5s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .help-tooltip .close-tip {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            cursor: pointer;
+            color: var(--text-muted);
+            background: none;
+            border: none;
+            font-size: 1rem;
+            padding: 4px;
+        }
+
+        .help-tooltip .tip-icon {
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar-panel {
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                z-index: 20;
+                width: 300px;
+                box-shadow: 0 0 60px rgba(0,0,0,0.5);
+            }
+            
+            .sidebar-panel.collapsed {
+                transform: translateX(-100%);
+                width: 300px;
+                min-width: 300px;
+            }
+            
+            .message-bubble {
+                max-width: 88%;
+            }
+            
+            .input-container {
+                padding: 14px 16px 20px;
+            }
+            
+            .welcome-title {
+                font-size: 1.4rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .feature-card {
+                padding: 12px;
+            }
+            
+            .modal-content {
+                padding: 24px;
+                margin: 16px;
+            }
+            
+            .help-tooltip {
+                bottom: 90px;
+                right: 16px;
+                left: 16px;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .chat-header {
+                padding: 14px 16px;
+                gap: 8px;
+            }
+            
+            .pending-badge {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+            
+            .messages-container {
+                padding: 16px;
+                gap: 12px;
+            }
+        }
+    ]]></b:skin>
+</head>
+<body>
+    <b:section class='main-section' id='mainSection' maxwidgets='1' showaddelement='no'>
+      <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='false'>
+        <b:widget-settings>
+          <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+          <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+          <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+          <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='showAuthor'>true</b:widget-setting>
+          <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+          <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='timestampLabel'/>
+          <b:widget-setting name='reactionsLabel'/>
+          <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+          <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+          <b:widget-setting name='showLabels'>true</b:widget-setting>
+          <b:widget-setting name='showLocation'>false</b:widget-setting>
+          <b:widget-setting name='postLabelsLabel'/>
+          <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+          <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+          <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+          <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+          <b:widget-setting name='showReactions'>false</b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main' var='top'><div class='blog-posts'/></b:includable>
+        <b:includable id='aboutPostAuthor'>
+  <div class='author-name'>
+    <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+      <span>
+        <data:post.author.name/>
+      </span>
+    </a>
+  </div>
+  <div>
+    <span class='author-desc'>
+      <data:post.author.aboutMe/>
+    </span>
+  </div>
+</b:includable>
+        <b:includable id='addComments'>
+  <a expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:message name='messages.postAComment'/>
+  </a>
+</b:includable>
+        <b:includable id='blogThisShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+        <b:includable id='bylineByName' var='byline'>
+  <b:switch var='data:byline.name'>
+  <b:case value='share'/>
+    <b:include cond='data:post.shareUrl' name='postShareButtons'/>
+  <b:case value='comments'/>
+    <b:include cond='data:post.allowComments' name='postCommentsLink'/>
+  <b:case value='location'/>
+    <b:include cond='data:post.location' name='postLocation'/>
+  <b:case value='timestamp'/>
+    <b:include cond='not data:view.isPage' name='postTimestamp'/>
+  <b:case value='author'/>
+    <b:include name='postAuthor'/>
+  <b:case value='labels'/>
+    <b:include cond='data:post.labels' name='postLabels'/>
+  <b:case value='icons'/>
+    <b:include cond='data:post.emailPostUrl' name='emailPostIcon'/>
+  </b:switch>
+</b:includable>
+        <b:includable id='bylineRegion' var='regionItems'>
+  <b:loop values='data:regionItems' var='byline'>
+    <b:include data='byline' name='bylineByName'/>
+  </b:loop>
+</b:includable>
+        <b:includable id='commentAuthorAvatar'>
+  <div class='avatar-image-container'>
+    <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='35' width='35'/>
+  </div>
+</b:includable>
+        <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
+      </div>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:messages.deleteComment'>
+        <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+        <b:includable id='commentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+        <b:includable id='commentFormIframeSrc' var='post'>
+  <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+</b:includable>
+        <b:includable id='commentItem' var='comment'>
+  <div class='comment' expr:id='&quot;c&quot; + data:comment.id'>
+    <b:include cond='data:blog.enabledCommentProfileImages' name='commentAuthorAvatar'/>
+
+    <div class='comment-block'>
+      <div class='comment-author'>
+        <b:if cond='data:comment.authorUrl'>
+          <b:message name='messages.authorSaidWithLink'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+            <b:param expr:value='data:comment.authorUrl' name='authorUrl'/>
+          </b:message>
+        <b:else/>
+          <b:message name='messages.authorSaid'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+          </b:message>
+        </b:if>
+      </div>
+      <div expr:class='&quot;comment-body&quot; + (data:comment.isDeleted ? &quot; deleted&quot; : &quot;&quot;)'>
+        <data:comment.body/>
+      </div>
+      <div class='comment-footer'>
+        <span class='comment-timestamp'>
+          <a expr:href='data:comment.url' title='comment permalink'>
+            <data:comment.timestamp/>
+          </a>
+          <b:include data='comment' name='commentDeleteIcon'/>
+        </span>
+      </div>
+    </div>
+  </div>
+</b:includable>
+        <b:includable id='commentList' var='comments'>
+  <div id='comments-block'>
+    <b:loop values='data:comments' var='comment'>
+      <b:include data='comment' name='commentItem'/>
+    </b:loop>
+  </div>
+</b:includable>
+        <b:includable id='commentPicker' var='post'>
+  <b:if cond='data:post.showThreadedComments'>
+    <b:include data='post' name='threadedComments'/>
+  <b:else/>
+    <b:include data='post' name='comments'/>
+  </b:if>
+</b:includable>
+        <b:includable id='comments' var='post'>
+  <section expr:class='&quot;comments&quot; + (data:post.embedCommentForm ? &quot; embed&quot; : &quot;&quot;)' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+    <b:if cond='data:post.allowComments'>
+
+      <b:include name='commentsTitle'/>
+
+      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+        <b:include cond='data:post.comments' data='post.comments' name='commentList'/>
+      </div>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <div class='paging-control-container'>
+          <b:if cond='data:post.hasOlderLinks'>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+              <data:messages.oldest/>
+            </a>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+              <data:messages.older/>
+            </a>
+          </b:if>
+
+          <span class='comment-range-text'>
+            <data:post.commentRangeText/>
+          </span>
+
+          <b:if cond='data:post.hasNewerLinks'>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+              <data:messages.newer/>
+            </a>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+              <data:messages.newest/>
+            </a>
+          </b:if>
+        </div>
+      </b:if>
+
+      <div class='footer'>
+        <b:if cond='data:post.embedCommentForm'>
+          <b:if cond='data:post.allowNewComments'>
+            <b:include data='post' name='commentForm'/>
+          <b:else/>
+            <data:post.noNewCommentsText/>
+          </b:if>
+        <b:else/>
+          <b:if cond='data:post.allowComments'>
+            <b:include data='post' name='addComments'/>
+          </b:if>
+        </b:if>
+      </div>
+    </b:if>
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+        <b:includable id='commentsLink'>
+  <a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:if cond='data:post.numberOfComments &gt; 0'>
+      <b:message name='messages.numberOfComments'>
+        <b:param expr:value='data:post.numberOfComments' name='numComments'/>
+      </b:message>
+    <b:else/>
+      <data:messages.postAComment/>
+    </b:if>
+  </a>
+</b:includable>
+        <b:includable id='commentsLinkIframe'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+        <b:includable id='commentsTitle'>
+  <h3 class='title'><data:messages.comments/></h3>
+</b:includable>
+        <b:includable id='defaultAdUnit'>
+  <ins class='adsbygoogle' data-ad-format='auto' expr:data-ad-client='data:adClientId ?: data:blog.adsenseClientId' expr:data-ad-host='data:blog.adsenseHostId' expr:style='data:style ?: &quot;display: block;&quot;'>
+    <b:attr cond='not data:blog.analytics4' expr:value='data:blog.analyticsAccountNumber' name='data-analytics-uacct'/>
+  </ins>
+  <script>
+   (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</b:includable>
+        <b:includable id='emailPostIcon'>
+  <span class='byline post-icons'>
+    <!-- email post links -->
+    <span class='item-action'>
+      <a expr:href='data:post.emailPostUrl' expr:title='data:messages.emailPost'>
+        <b:include data='{ iconClass: &quot;touch-icon sharing-icon&quot; }' name='emailIcon'/>
+      </a>
+    </span>
+  </span>
+</b:includable>
+        <b:includable id='facebookShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+        <b:includable id='feedLinks'>
+  <b:if cond='!data:view.isPost'> <!-- Blog feed links -->
+    <b:if cond='data:feedLinks'>
+      <div class='blog-feeds'>
+        <b:include data='feedLinks' name='feedLinksBody'/>
+      </div>
+    </b:if>
+  <b:else/> <!--Post feed links -->
+    <div class='post-feeds'>
+      <b:loop values='data:posts' var='post'>
+        <b:if cond='data:post.allowComments and data:post.feedLinks'>
+          <b:include data='post.feedLinks' name='feedLinksBody'/>
+        </b:if>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
+        <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:messages.subscribeTo/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+        <b:includable id='footerBylines'>
+  <b:if cond='data:widgets.Blog.first.footerBylines'>
+    <b:loop index='i' values='data:widgets.Blog.first.footerBylines' var='region'>
+      <b:if cond='not data:region.items.empty'>
+        <div expr:class='&quot;post-footer-line post-footer-line-&quot; + (data:i + 1)'>
+          <b:with value='&quot;footer-&quot; + (data:i + 1)' var='regionName'>
+            <b:include data='region.items' name='bylineRegion'/>
+          </b:with>
+        </div>
+      </b:if>
+    </b:loop>
+  </b:if>
+</b:includable>
+        <b:includable id='googlePlusShare'>
+</b:includable>
+        <b:includable id='headerByline'>
+  <b:if cond='data:widgets.Blog.first.headerByline'>
+    <div class='post-header'>
+      <div class='post-header-line-1'>
+        <b:with value='&quot;header-1&quot;' var='regionName'>
+          <b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
+        </b:with>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+        <b:includable id='homePageLink'>
+  <a class='home-link' expr:href='data:blog.homepageUrl'>
+    <data:messages.home/>
+  </a>
+</b:includable>
+        <b:includable id='iframeComments' var='post'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+        <b:includable id='inlineAd' var='post'>
+  <b:if cond='!data:view.isPreview'>
+    <b:if cond='data:this.adCode or data:this.adClientId or data:blog.adsenseClientId'>
+      <!-- Ad -->
+      <div class='inline-ad'>
+        <b:if cond='data:this.adCode != &quot;&quot;'>
+          <data:this.adCode/>
+        <b:else/>
+          <b:include cond='data:this.adClientId or data:blog.adsenseClientId' name='defaultAdUnit'/>
+        </b:if>
+      </div>
+    </b:if>
+  <b:else/>
+    <div class='inline-ad'>
+      <div class='inline-ad-placeholder'>
+        <span><b:message name='messages.adsGoHere'/></span>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+        <b:includable id='linkShare'>
+  <b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+        <b:includable id='nextPageLink'>
+  <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:messages.olderPosts'>
+    <data:messages.olderPosts/>
+  </a>
+</b:includable>
+        <b:includable id='otherSharingButton'>
+  <span class='sharing-platform-button sharing-element-other' expr:aria-label='data:messages.shareToOtherApps.escaped' expr:data-url='data:originalUrl' expr:title='data:messages.shareToOtherApps.escaped' role='menuitem' tabindex='-1'>
+    <b:with value='{key: &quot;sharingOther&quot;}' var='platform'>
+      <b:include name='sharingPlatformIcon'/>
+    </b:with>
+    <span class='platform-sharing-text'><data:messages.shareOtherApps.escaped/></span>
+  </span>
+</b:includable>
+        <b:includable id='platformShare'>
+  <a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key' expr:data-url='data:originalUrl' expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:onclick='data:onclick ? data:onclick : &quot;&quot;' expr:title='data:platform.shareMessage' target='_blank'>
+    <span class='share-button-link-text'>
+      <data:platform.shareMessage/>
+    </span>
+  </a>
+</b:includable>
+        <b:includable id='post' var='post'>
+  <div class='post'>
+    <b:include data='post' name='postMeta'/>
+    <b:include data='post' name='postTitle'/>
+    <b:include name='headerByline'/>
+    <b:if cond='data:view.isSingleItem'>
+      <b:include data='post' name='postBody'/>
+    <b:else/>
+      <b:include data='post' name='postBodySnippet'/>
+      <b:include data='post' name='postJumpLink'/>
+    </b:if>
+    <b:include data='post' name='postFooter'/>
+  </div>
+</b:includable>
+        <b:includable id='postAuthor'>
+  <span class='byline post-author vcard'>
+    <span class='post-author-label'>
+      <data:byline.label/>
+    </span>
+    <span class='fn'>
+      <b:if cond='data:post.author.profileUrl'>
+        <meta expr:content='data:post.author.profileUrl'/>
+        <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+          <span><data:post.author.name/></span>
+        </a>
+      <b:else/>
+        <span><data:post.author.name/></span>
+      </b:if>
+    </span>
+  </span>
+</b:includable>
+        <b:includable id='postBody' var='post'>
+  <!-- If metaDescription is empty, use the post body as the schema.org description too, for G+/FB snippeting. -->
+  <div class='post-body entry-content float-container' expr:id='&quot;post-body-&quot; + data:post.id'>
+    <data:post.body/>
+  </div>
+</b:includable>
+        <b:includable id='postBodySnippet' var='post'>
+  <b:include data='post' name='postBody'/>
+</b:includable>
+        <b:includable id='postCommentsAndAd' var='post'>
+  <article class='post-outer-container'>
+    <!-- Post title and body -->
+    <div class='post-outer'>
+      <b:include data='post' name='post'/>
+    </div>
+
+    <!-- Comments -->
+    <b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
+
+    <!-- Show ad inside post container, after comments, if single item. -->
+    <b:include cond='data:view.isSingleItem and data:post.includeAd' data='post' name='inlineAd'/>
+  </article>
+
+  <!-- Show ad outside post container (between posts) for feed pages. -->
+  <b:include cond='data:view.isMultipleItems and data:post.includeAd' data='post' name='inlineAd'/>
+</b:includable>
+        <b:includable id='postCommentsLink'>
+  <b:if cond='data:view.isMultipleItems'>
+    <span class='byline post-comment-link container'>
+      <b:include cond='data:post.commentSource != 1' name='commentsLink'/>
+    </span>
+  </b:if>
+</b:includable>
+        <b:includable id='postFooter' var='post'>
+  <div class='post-footer'>
+    <b:include name='footerBylines'/>
+    <b:include data='post' name='postFooterAuthorProfile'/>
+  </div>
+</b:includable>
+        <b:includable id='postFooterAuthorProfile' var='post'>
+  <b:if cond='data:post.author.aboutMe and data:view.isPost'>
+    <div class='author-profile'>
+      <b:if cond='data:post.author.authorPhoto.url'>
+        <img class='author-image' expr:src='data:post.author.authorPhoto.url' width='50px'/>
+        <div class='author-about'>
+          <b:include data='post' name='aboutPostAuthor'/>
+        </div>
+      <b:else/>
+        <b:include data='post' name='aboutPostAuthor'/>
+      </b:if>
+    </div>
+  </b:if>
+</b:includable>
+        <b:includable id='postHeader' var='post'>
+  <b:include name='headerByline'/>
+</b:includable>
+        <b:includable id='postJumpLink' var='post'>
+  <div class='jump-link flat-button'>
+    <a expr:href='data:post.url fragment &quot;more&quot;' expr:title='data:post.title'>
+      <b:eval expr='data:blog.jumpLinkMessage'/>
+    </a>
+  </div>
+</b:includable>
+        <b:includable id='postLabels'>
+  <span class='byline post-labels'>
+    <span class='byline-label'><data:byline.label/></span>
+    <b:loop index='i' values='data:post.labels' var='label'>
+      <a expr:href='data:label.url' rel='tag'>
+        <data:label.name/>
+      </a>
+    </b:loop>
+  </span>
+</b:includable>
+        <b:includable id='postLocation'>
+  <span class='byline post-location'>
+    <data:byline.label/>
+    <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+  </span>
+</b:includable>
+        <b:includable id='postMeta' var='post'>
+  <b:include data='post' name='postMetadataJSON'/>
+</b:includable>
+        <b:includable id='postMetadataJSONImage'>
+  &quot;image&quot;: {
+    &quot;@type&quot;: &quot;ImageObject&quot;,
+    <b:if cond='data:post.featuredImage.isResizable'>
+    &quot;url&quot;: &quot;<b:eval expr='resizeImage(data:post.featuredImage, 1200, &quot;1200:630&quot;)'/>&quot;,
+    &quot;height&quot;: 630,
+    &quot;width&quot;: 1200
+    <b:else/>
+    &quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/w1200/&quot;,
+    &quot;height&quot;: 348,
+    &quot;width&quot;: 1200
+    </b:if>
+  },
+</b:includable>
+        <b:includable id='postMetadataJSONPublisher'>
+ &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Organization&quot;,
+    &quot;name&quot;: &quot;Blogger&quot;,
+    &quot;logo&quot;: {
+      &quot;@type&quot;: &quot;ImageObject&quot;,
+      &quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/h60/&quot;,
+      &quot;width&quot;: 206,
+      &quot;height&quot;: 60
+    }
+  },
+</b:includable>
+        <b:includable id='postPagination'>
+  <div class='blog-pager container' id='blog-pager'>
+    <b:include cond='data:newerPageUrl' name='previousPageLink'/>
+    <b:include cond='data:olderPageUrl' name='nextPageLink'/>
+    <b:include cond='data:view.url != data:blog.homepageUrl' name='homePageLink'/>
+  </div>
+</b:includable>
+        <b:includable id='postReactions'>
+  <!-- Reaction feature no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+        <b:includable id='postShareButtons'>
+  <div class='byline post-share-buttons goog-inline-block'>
+    <b:with value='data:sharingId ?: ((data:widget.instanceId ?: &quot;sharing&quot;) + &quot;-&quot; + (data:regionName ?: &quot;byline&quot;) + &quot;-&quot; + data:post.id)' var='sharingId'>
+      <!-- Note: 'sharingButtons' includable is from the default Sharing widget markup. -->
+      <b:include data='{                                                sharingId: data:sharingId,                                                originalUrl: data:post.url,                                                platforms: data:this.sharing.platforms,                                                shareUrl: data:post.shareUrl,                                                shareTitle: data:post.title,                                              }' name='sharingButtons'/>
+    </b:with>
+  </div>
+</b:includable>
+        <b:includable id='postTimestamp'>
+  <span class='byline post-timestamp'>
+    <data:byline.label/>
+    <b:if cond='data:post.url'>
+      <meta expr:content='data:post.url.canonical'/>
+      <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
+        <time class='published' expr:datetime='data:post.date.iso8601' expr:title='data:post.date.iso8601'>
+          <data:post.date/>
+        </time>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+        <b:includable id='postTitle' var='post'>
+  <a expr:name='data:post.id'/>
+  <b:if cond='data:post.title != &quot;&quot;'>
+    <h3 class='post-title entry-title'>
+      <b:if cond='data:post.link or (data:post.url and data:view.url != data:post.url)'>
+        <a expr:href='data:post.link ?: data:post.url'><data:post.title/></a>
+      <b:else/>
+        <data:post.title/>
+      </b:if>
+    </h3>
+  </b:if>
+</b:includable>
+        <b:includable id='previousPageLink'>
+  <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:messages.newerPosts'>
+    <data:messages.newerPosts/>
+  </a>
+</b:includable>
+        <b:includable id='sharingButton'>
+  <span expr:aria-label='data:platform.shareMessage' expr:class='&quot;sharing-platform-button sharing-element-&quot; + data:platform.key' expr:data-href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:data-url='data:originalUrl' expr:title='data:platform.shareMessage' role='menuitem' tabindex='-1'>
+    <b:include name='sharingPlatformIcon'/>
+    <span class='platform-sharing-text'><data:platform.name/></span>
+  </span>
+</b:includable>
+        <b:includable id='sharingButtonContent'>
+  <div class='flat-icon-button ripple'>
+    <b:include name='shareIcon'/>
+  </div>
+</b:includable>
+        <b:includable id='sharingButtons'>
+  <div class='sharing' expr:aria-owns='&quot;sharing-popup-&quot; + data:sharingId' expr:data-title='data:shareTitle'>
+    <button class='sharing-button touch-icon-button' expr:aria-controls='&quot;sharing-popup-&quot; + data:sharingId' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-button-&quot; + data:sharingId' role='button'>
+      <b:include name='sharingButtonContent'/>
+    </button>
+    <b:include name='sharingButtonsMenu'/>
+  </div>
+</b:includable>
+        <b:includable id='sharingButtonsMenu'>
+  <div class='share-buttons-container'>
+    <ul aria-hidden='true' class='share-buttons hidden' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-popup-&quot; + data:sharingId' role='menu'>
+      <b:loop values='(data:platforms ?: data:blog.sharing.platforms) filter (p =&gt; p.key not in {&quot;blogThis&quot;})' var='platform'>
+        <li>
+          <b:include name='sharingButton'/>
+        </li>
+      </b:loop>
+      <li aria-hidden='true' class='hidden'>
+        <b:include name='otherSharingButton'/>
+      </li>
+    </ul>
+  </div>
+</b:includable>
+        <b:includable id='sharingPlatformIcon'>
+  <b:include data='{ iconClass: (&quot;touch-icon sharing-&quot; + data:platform.key) }' expr:name='data:platform.key + &quot;Icon&quot;'/>
+</b:includable>
+        <b:includable id='threadedCommentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+        <b:includable id='threadedCommentJs' var='post'>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+  <b:template-script inline='true' name='threaded_comments'/>
+  <script type='text/javascript'>
+    blogger.widgets.blog.initThreadedComments(
+        <data:post.commentJso/>,
+        <data:post.commentMsgs/>,
+        <data:post.commentConfig/>);
+  </script>
+</b:includable>
+        <b:includable id='threadedComments' var='post'>
+  <section class='comments threaded' expr:data-embed='data:post.embedCommentForm' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+
+    <b:include name='commentsTitle'/>
+
+    <div class='comments-content'>
+      <b:if cond='data:post.embedCommentForm'>
+        <b:include data='post' name='threadedCommentJs'/>
+      </b:if>
+      <div id='comment-holder'>
+         <data:post.commentHtml/>
+      </div>
+    </div>
+
+    <p class='comment-footer'>
+      <b:if cond='data:post.allowNewComments'>
+        <b:include data='post' name='threadedCommentForm'/>
+      <b:else/>
+        <data:post.noNewCommentsText/>
+      </b:if>
+      <b:if cond='data:post.showManageComments'>
+        <b:include data='post' name='manageComments'/>
+      </b:if>
+    </p>
+
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+        <b:includable id='tooltipCss'>
+  <!-- LINT.IfChange -->
+  <style>
+    .post-body a.b-tooltip-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip {
+      display: block !important;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-20%, 1px);
+      visibility: hidden;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip iframe {
+      width: 200px;
+      height: 198px;
+      max-width: none;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (hover: hover) {
+      .post-body a.b-tooltip-container:hover .b-tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  </style>
+  <!-- LINT.ThenChange(//depot/google3/java/com/google/blogger/b2/layouts/widgets/v2-style.css) -->
+</b:includable>
+      </b:widget>
+    </b:section>
+
+    <div class='chat-container' id='chatContainer'>
+        <!-- Sidebar -->
+        <aside class='sidebar-panel' id='sidebarPanel'>
+            <div class='sidebar-header'>
+                <div>
+                    <h3><i class='fas fa-robot'/> AI সহ&#2494;য&#2492;ক</h3>
+                    <div class='sidebar-subtitle'>ব&#2497;দ&#2509;ধ&#2495;ম&#2494;ন প&#2509;রশ&#2509;ন&#2507;ত&#2509;তর বট</div>
+                </div>
+                <button class='close-sidebar-btn' onclick='toggleSidebar()' title='সাইডবার বন্ধ করুন'>
+                    <i class='fas fa-times'/>
+                </button>
+            </div>
+            
+            <div class='category-list' id='categoryList'>
+                <div class='category-label'>📂 ব&#2495;ষয&#2492; সম&#2498;হ</div>
+                <div class='category-item active' data-category='general'>
+                    <span class='icon' style='background: linear-gradient(135deg, #6366f1, #8b5cf6)'><i class='fas fa-globe'/></span>
+                    <span>স&#2494;ধ&#2494;রণ জ&#2495;জ&#2509;ঞ&#2494;স&#2494;</span>
+                    <span class='category-stats'>সক&#2509;র&#2495;য&#2492;</span>
+                </div>
+                <div class='category-item' data-category='technology'>
+                    <span class='icon' style='background: linear-gradient(135deg, #10b981, #34d399)'><i class='fas fa-microchip'/></span>
+                    <span>প&#2509;রয&#2497;ক&#2509;ত&#2495;</span>
+                </div>
+                <div class='category-item' data-category='education'>
+                    <span class='icon' style='background: linear-gradient(135deg, #f59e0b, #fbbf24)'><i class='fas fa-graduation-cap'/></span>
+                    <span>শ&#2495;ক&#2509;ষ&#2494;</span>
+                </div>
+                <div class='category-item' data-category='health'>
+                    <span class='icon' style='background: linear-gradient(135deg, #f43f5e, #fb7185)'><i class='fas fa-heartbeat'/></span>
+                    <span>স&#2509;ব&#2494;স&#2509;থ&#2509;য</span>
+                </div>
+                <div class='category-item' data-category='science'>
+                    <span class='icon' style='background: linear-gradient(135deg, #8b5cf6, #a78bfa)'><i class='fas fa-flask'/></span>
+                    <span>ব&#2495;জ&#2509;ঞ&#2494;ন</span>
+                </div>
+            </div>
+
+            <button class='admin-btn' onclick='openAdminPanel()'>
+                <i class='fas fa-crown'/> অ&#2509;য&#2494;ডম&#2495;ন প&#2509;য&#2494;ন&#2503;ল
+                <span class='badge' id='adminPendingCount'>0</span>
+            </button>
+        </aside>
+
+        <!-- Main Chat -->
+        <main class='main-chat'>
+            <header class='chat-header'>
+                <button class='menu-toggle' onclick='toggleSidebar()' title='মেনু'>
+                    <i class='fas fa-bars'/>
+                </button>
+                <div class='header-info'>
+                    <span class='current-category' id='currentCategory'>স&#2494;ধ&#2494;রণ জ&#2495;জ&#2509;ঞ&#2494;স&#2494;</span>
+                    <span class='status-indicator'>
+                        <span class='status-dot'/> অনল&#2494;ইন
+                    </span>
+                </div>
+                <button class='pending-badge' onclick='openAdminPanel()' title='অপেক্ষমাণ প্রশ্ন দেখুন'>
+                    <i class='fas fa-clock'/>
+                    <span class='count' id='pendingCount'>0</span> অপ&#2503;ক&#2509;ষম&#2494;ণ
+                </button>
+            </header>
+
+            <div class='messages-container' id='messagesContainer'>
+                <!-- Welcome Message -->
+                <div class='welcome-section' id='welcomeSection'>
+                    <div class='welcome-icon'>🤖</div>
+                    <h2 class='welcome-title'>স&#2509;ব&#2494;গতম! আম&#2495; আপন&#2494;র AI সহ&#2494;য&#2492;ক</h2>
+                    <p class='welcome-subtitle'>
+                        য&#2503;ক&#2507;ন&#2507; ব&#2495;ষয&#2492;&#2503; প&#2509;রশ&#2509;ন কর&#2497;ন, আম&#2495; উত&#2509;তর দ&#2495;ত&#2503; প&#2509;রস&#2509;ত&#2497;ত! 
+                        <br/>আম&#2495; ক&#2509;রম&#2494;গত শ&#2495;খছ&#2495; এব&#2434; প&#2509;রত&#2495;ন&#2495;য&#2492;ত উন&#2509;নত হচ&#2509;ছ&#2495;&#2404;
+                    </p>
+                    
+                    <div class='feature-grid'>
+                        <div class='feature-card'>
+                            <span class='feature-icon'>🧠</span>
+                            <span class='feature-text'>ব&#2497;দ&#2509;ধ&#2495;ম&#2494;ন উত&#2509;তর</span>
+                        </div>
+                        <div class='feature-card'>
+                            <span class='feature-icon'>🔍</span>
+                            <span class='feature-text'>শব&#2509;দ ম&#2509;য&#2494;চ&#2495;&#2434;</span>
+                        </div>
+                        <div class='feature-card'>
+                            <span class='feature-icon'>&#9197;&#65039;</span>
+                            <span class='feature-text'>স&#2509;ক&#2495;প স&#2497;ব&#2495;ধ&#2494;</span>
+                        </div>
+                        <div class='feature-card'>
+                            <span class='feature-icon'>&#9889;</span>
+                            <span class='feature-text'>ত&#2494;ৎক&#2509;ষণ&#2495;ক উত&#2509;তর</span>
+                        </div>
+                    </div>
+                    
+                    <div class='quick-actions'>
+                        <button class='subject-chip' onclick='askQuestion(&apos;আপনি কীভাবে কাজ করেন?&apos;)'>
+                            🤔 ক&#2496;ভ&#2494;ব&#2503; ক&#2494;জ কর&#2495;?
+                        </button>
+                        <button class='subject-chip' onclick='askQuestion(&apos;আপনি কী কী বিষয়ে উত্তর দিতে পারেন?&apos;)'>
+                            📋 ক&#2496; ক&#2496; প&#2494;র&#2495;?
+                        </button>
+                        <button class='subject-chip' onclick='showHelp()'>
+                            &#10067; স&#2494;হ&#2494;য&#2509;য
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class='input-container'>
+                <div class='input-wrapper' id='inputWrapper'>
+                    <i class='fas fa-pen'/>
+                    <input autocomplete='off' id='userInput' placeholder='এখানে আপনার প্রশ্ন লিখুন...' type='text'/>
+                    <button class='send-btn' id='sendBtn' onclick='handleSend()' title='পাঠান'>
+                        <i class='fas fa-paper-plane'/>
+                    </button>
+                </div>
+                <div class='input-hint'>
+                    Enter চ&#2494;প&#2497;ন প&#2494;ঠ&#2494;ন&#2507;র জন&#2509;য &#8226; Shift+Enter চ&#2494;প&#2497;ন নত&#2497;ন ল&#2494;ইন&#2503;র জন&#2509;য
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Help Tooltip -->
+    <div class='help-tooltip' id='helpTooltip' style='display:none;'>
+        <button class='close-tip' onclick='hideHelp()'>&#10005;</button>
+        <div class='tip-icon'>💡</div>
+        <strong>ক&#2496;ভ&#2494;ব&#2503; ব&#2509;যবহ&#2494;র করব&#2503;ন:</strong><br/><br/>
+        &#8226; প&#2509;রশ&#2509;ন ল&#2495;খ&#2503; Enter চ&#2494;প&#2497;ন<br/>
+        &#8226; ব&#2494;ম প&#2494;শ&#2503;র ম&#2503;ন&#2497; থ&#2503;ক&#2503; ব&#2495;ষয&#2492; বদল&#2494;ন<br/>
+        &#8226; যদ&#2495; উত&#2509;তর ন&#2494; জ&#2494;ন&#2495;, &quot;স&#2509;ক&#2495;প&quot; ব&#2494;টন&#2503; ক&#2509;ল&#2495;ক কর&#2497;ন<br/>
+        &#8226; স&#2509;ক&#2495;প করল&#2503; আগ&#2503;র প&#2509;রশ&#2509;ন ব&#2494;দ য&#2494;ব&#2503;<br/>
+        &#8226; বড&#2492; প&#2509;রশ&#2509;ন&#2503;র শব&#2509;দ ম&#2495;ল&#2495;য&#2492;&#2503; উত&#2509;তর দ&#2503;ব&#2507;<br/>
+        &#8226; অ&#2509;য&#2494;ডম&#2495;ন প&#2509;য&#2494;ন&#2503;ল&#2503; জম&#2494; প&#2509;রশ&#2509;ন&#2503;র উত&#2509;তর দ&#2495;ন
+    </div>
+
+    <!-- Admin Modal -->
+    <div class='modal-overlay' id='adminModal'>
+        <div class='modal-content'>
+            <h2><i class='fas fa-crown'/> অ&#2509;য&#2494;ডম&#2495;ন প&#2509;য&#2494;ন&#2503;ল - অপ&#2503;ক&#2509;ষম&#2494;ণ প&#2509;রশ&#2509;ন</h2>
+            <div id='pendingQuestionsList'>
+                <p style='color:#64748b; text-align:center; padding:40px 20px; font-size:1.05rem;'>
+                    <i class='fas fa-check-circle' style='font-size:3rem; color:#10b981; display:block; margin-bottom:14px;'/>
+                    <strong>সব উত&#2509;তর দ&#2495;য&#2492;&#2503; ফ&#2503;ল&#2503;ছ&#2503;ন!</strong><br/>
+                    <span style='font-size:0.9rem;'>ক&#2507;ন&#2507; অপ&#2503;ক&#2509;ষম&#2494;ণ প&#2509;রশ&#2509;ন ন&#2503;ই 🎉</span>
+                </p>
+            </div>
+            <button class='close-modal-btn' onclick='closeAdminPanel()'>
+                <i class='fas fa-times'/> বন&#2509;ধ কর&#2497;ন
+            </button>
+        </div>
+    </div>
+
+<script type='text/javascript'>
+// <![CDATA[
+(function() {
+    'use strict';
+    
+    // Google Apps Script URL - অপরিবর্তিত
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznDXojF_XNAbx4Nx97qrsDKsCsEE3Z-AdxlHRNJKXBjP3szuR2saIUZ0rg4T1obq-R/exec";
+    
+    // ডাটাবেজ - অপরিবর্তিত
+    let knowledgeBase = {};
+    let pendingQuestions = [];
+    let currentCategory = 'general';
+    let waitingForAnswer = false;
+    let lastQuestion = '';
+    let isProcessing = false;
+
+    // ইনিশিয়ালাইজ - অপরিবর্তিত
+    function init() {
+        console.log('🚀 চ্যাটবট শুরু হচ্ছে...');
+        loadFromLocalStorage();
+        loadFromSheet();
+        setupCategoryListeners();
+        updatePendingCount();
+        updateOnlineStatus();
+        setupInputListeners();
+        
+        if (window.innerWidth <= 768) {
+            document.getElementById('sidebarPanel').classList.add('collapsed');
+        }
+        
+        if (!localStorage.getItem('chatbot_help_shown')) {
+            setTimeout(showHelp, 2000);
+            localStorage.setItem('chatbot_help_shown', 'true');
+        }
+    }
+
+    function updateOnlineStatus() {
+        const statusDot = document.querySelector('.status-dot');
+        const statusText = document.querySelector('.status-indicator');
+        if (navigator.onLine) {
+            if (statusDot) statusDot.style.background = '#10b981';
+            if (statusText) statusText.innerHTML = '<span class="status-dot"></span> অনলাইন';
+        } else {
+            if (statusDot) statusDot.style.background = '#f59e0b';
+            if (statusText) statusText.innerHTML = '<span class="status-dot" style="background:#f59e0b"></span> অফলাইন মোড';
+        }
+    }
+
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+
+    function setupInputListeners() {
+        const input = document.getElementById('userInput');
+        
+        input.addEventListener('focus', function() {
+            document.getElementById('inputWrapper').style.transform = 'scale(1.01)';
+        });
+        
+        input.addEventListener('blur', function() {
+            document.getElementById('inputWrapper').style.transform = 'scale(1)';
+        });
+    }
+
+    window.toggleSidebar = function() {
+        const sidebar = document.getElementById('sidebarPanel');
+        sidebar.classList.toggle('collapsed');
+        
+        if (window.innerWidth <= 768) {
+            if (!sidebar.classList.contains('collapsed')) {
+                sidebar.style.boxShadow = '0 0 80px rgba(0,0,0,0.6)';
+            } else {
+                sidebar.style.boxShadow = 'none';
+            }
+        }
+    };
+
+    function setupCategoryListeners() {
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.category-item').forEach(i => {
+                    i.classList.remove('active');
+                    const statsEl = i.querySelector('.category-stats');
+                    if (statsEl) statsEl.remove();
+                });
+                this.classList.add('active');
+                
+                if (!this.querySelector('.category-stats')) {
+                    const statsSpan = document.createElement('span');
+                    statsSpan.className = 'category-stats';
+                    statsSpan.textContent = 'সক্রিয়';
+                    this.appendChild(statsSpan);
+                }
+                
+                // ক্যাটাগরি পরিবর্তন হলে স্কিপ স্টেট রিসেট
+                if (waitingForAnswer) {
+                    waitingForAnswer = false;
+                    lastQuestion = '';
+                    console.log('🔄 ক্যাটাগরি পরিবর্তন - স্কিপ স্টেট রিসেট');
+                }
+                
+                currentCategory = this.dataset.category;
+                document.getElementById('currentCategory').textContent = this.textContent.replace('সক্রিয়', '').trim();
+                showCategoryGreeting();
+                
+                if (window.innerWidth <= 768) {
+                    document.getElementById('sidebarPanel').classList.add('collapsed');
+                }
+            });
+        });
+    }
+
+    function showCategoryGreeting() {
+        const greetings = {
+            'general': '👋 সাধারণ জিজ্ঞাসা বিভাগে আপনাকে স্বাগতম! নির্দ্বিধায় যেকোনো প্রশ্ন করতে পারেন।',
+            'technology': '💻 প্রযুক্তি জগতে স্বাগতম! টেক সম্পর্কিত আপনার সব প্রশ্নের উত্তর দিতে আমি প্রস্তুত।',
+            'education': '📚 শিক্ষা বিভাগে স্বাগতম! পড়াশোনা নিয়ে যেকোনো প্রশ্ন করুন, আমি সাহায্য করবো।',
+            'health': '🏥 সুস্থ থাকুন! স্বাস্থ্য বিষয়ক আপনার প্রশ্নের উত্তর দিতে আমি এখানে আছি।',
+            'science': '🔬 বিজ্ঞানের রোমাঞ্চকর বিশ্বে স্বাগতম! বৈজ্ঞানিক কৌতূহল নিয়ে প্রশ্ন করুন।'
+        };
+        addBotMessage(greetings[currentCategory] || greetings['general']);
+    }
+
+    window.showHelp = function() {
+        const tooltip = document.getElementById('helpTooltip');
+        tooltip.style.display = 'block';
+        tooltip.style.animation = 'fadeInUp 0.5s ease';
+        
+        clearTimeout(window.helpTimeout);
+        window.helpTimeout = setTimeout(hideHelp, 8000);
+    };
+
+    window.hideHelp = function() {
+        const tooltip = document.getElementById('helpTooltip');
+        tooltip.style.animation = 'fadeIn 0.3s ease reverse';
+        setTimeout(() => {
+            tooltip.style.display = 'none';
+        }, 300);
+    };
+
+    // টেক্সট নর্মালাইজ - অপরিবর্তিত
+    function normalizeText(text) {
+        return text.toString().toLowerCase().trim()
+            .replace(/[?।!.,]/g, '').replace(/\s+/g, ' ');
+    }
+
+    // শব্দে ভাঙা - ওয়ার্ড ম্যাচিং এর জন্য
+    function getWords(text) {
+        return normalizeText(text)
+            .split(/\s+/)
+            .filter(word => word.length > 1) // ১ অক্ষরের শব্দ বাদ
+            .filter(word => !isStopWord(word)); // সাধারণ শব্দ বাদ
+    }
+
+    // স্টপ ওয়ার্ড (সাধারণ বাংলা শব্দ যা অর্থবহ নয়)
+    function isStopWord(word) {
+        const stopWords = ['একটি', 'একটা', 'এই', 'ওই', 'এবং', 'অথবা', 'কি', 'কী', 'যে', 'যা', 
+                          'হয়', 'ছে', 'ছি', 'তে', 'র', 'ের', 'কে', 'the', 'a', 'an', 'is', 
+                          'are', 'was', 'were', 'of', 'in', 'on', 'at', 'to', 'for', 'with',
+                          'আমি', 'তুমি', 'আপনি', 'সে', 'তা', 'তারা', 'আমার', 'তোমার', 'তার',
+                          'এইটা', 'ওইটা', 'করে', 'করেন', 'হবে', 'থাকে', 'থাকেন'];
+        return stopWords.includes(word);
+    }
+
+    // ওয়ার্ড ম্যাচিং স্কোর - দুটি টেক্সটের মধ্যে কত শব্দ মিলছে
+    function getWordMatchScore(userText, storedQuestion) {
+        const userWords = getWords(userText);
+        const storedWords = getWords(storedQuestion);
+        
+        if (userWords.length === 0 || storedWords.length === 0) return 0;
+        
+        let matchCount = 0;
+        const matchedWords = [];
+        
+        for (let userWord of userWords) {
+            for (let storedWord of storedWords) {
+                // সরাসরি মিল
+                if (userWord === storedWord) {
+                    matchCount++;
+                    matchedWords.push(userWord);
+                    break;
+                }
+                // আংশিক মিল (শব্দের অংশ)
+                if (userWord.length >= 3 && storedWord.length >= 3) {
+                    if (storedWord.includes(userWord) || userWord.includes(storedWord)) {
+                        matchCount += 0.5;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        // স্কোর = মিল সংখ্যা / মোট ইউজার শব্দ
+        const score = userWords.length > 0 ? matchCount / userWords.length : 0;
+        
+        return {
+            score: score,
+            matchedWords: matchedWords,
+            totalUserWords: userWords.length,
+            totalStoredWords: storedWords.length
+        };
+    }
+
+    // বেস্ট ম্যাচ খোঁজা - সব রেকর্ড থেকে
+    function findBestMatch(question) {
+        const allMatches = [];
+        
+        // সব ক্যাটাগরি থেকে খোঁজা
+        for (let category in knowledgeBase) {
+            for (let q in knowledgeBase[category]) {
+                const matchResult = getWordMatchScore(question, q);
+                if (matchResult.score > 0) {
+                    allMatches.push({
+                        category: category,
+                        question: q,
+                        answer: knowledgeBase[category][q],
+                        score: matchResult.score,
+                        matchedWords: matchResult.matchedWords,
+                        totalUserWords: matchResult.totalUserWords,
+                        totalStoredWords: matchResult.totalStoredWords
+                    });
+                }
+            }
+        }
+        
+        // স্কোর অনুযায়ী সর্ট (সর্বোচ্চ প্রথমে)
+        allMatches.sort((a, b) => b.score - a.score);
+        
+        return allMatches;
+    }
+
+    // লোকাল স্টোরেজ - অপরিবর্তিত
+    function loadFromLocalStorage() {
+        try {
+            const data = localStorage.getItem('chatbot_knowledge');
+            if (data) knowledgeBase = JSON.parse(data);
+            console.log('📦 লোকাল ডাটা লোড হয়েছে');
+        } catch(e) {
+            console.error('❌ লোকাল ডাটা লোড ত্রুটি:', e);
+        }
+    }
+
+    function saveToLocalStorage() {
+        try {
+            localStorage.setItem('chatbot_knowledge', JSON.stringify(knowledgeBase));
+        } catch(e) {
+            console.error('❌ লোকাল ডাটা সেভ ত্রুটি:', e);
+        }
+    }
+
+    function savePendingToLocal() {
+        try {
+            localStorage.setItem('chatbot_pending', JSON.stringify(pendingQuestions));
+        } catch(e) {
+            console.error('❌ পেন্ডিং সেভ ত্রুটি:', e);
+        }
+    }
+
+    function updatePendingCount() {
+        const count = pendingQuestions.length;
+        document.getElementById('pendingCount').textContent = count;
+        document.getElementById('adminPendingCount').textContent = count;
+        
+        if (count > 0) {
+            const badge = document.querySelector('.pending-badge');
+            if (badge) {
+                badge.style.animation = 'none';
+                badge.offsetHeight;
+                badge.style.animation = 'pulse 0.5s ease';
+            }
+        }
+    }
+
+    // শীট থেকে ডাটা লোড - অপরিবর্তিত
+    async function loadFromSheet() {
+        try {
+            const timestamp = new Date().getTime();
+            const url = `${SCRIPT_URL}?action=getAll&t=${timestamp}`;
+            console.log('📡 শীট থেকে ডাটা লোড হচ্ছে...');
+            
+            const response = await fetch(url);
+            const result = await response.json();
+            console.log('📥 শীট থেকে ডাটা:', result);
+            
+            if (result && result.success && result.data) {
+                if (result.data.records) {
+                    organizeSheetData(result.data.records);
+                }
+                if (result.data.pending) {
+                    pendingQuestions = result.data.pending;
+                    savePendingToLocal();
+                    updatePendingCount();
+                }
+            }
+        } catch(e) {
+            console.log('⚠️ শীট লোড ব্যর্থ, লোকাল ডাটা ব্যবহার করা হবে');
+        }
+    }
+
+    function organizeSheetData(records) {
+        records.forEach(record => {
+            if (!record.question || !record.answer) return;
+            const category = record.category || 'general';
+            if (!knowledgeBase[category]) knowledgeBase[category] = {};
+            knowledgeBase[category][normalizeText(record.question)] = record.answer;
+        });
+        saveToLocalStorage();
+    }
+
+    // শীটে ডাটা সেভ - অপরিবর্তিত
+    async function saveToSheet(action, category, question, answer) {
+        try {
+            const postData = {
+                action: action,
+                category: category || 'general',
+                question: question || '',
+                answer: answer || ''
+            };
+            
+            console.log('📤 শীটে পাঠানো হচ্ছে:', JSON.stringify(postData));
+            
+            const response = await fetch(SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(postData)
+            });
+            
+            const result = await response.json();
+            console.log('📥 সেভ রেসপন্স:', result);
+            
+            if (result.success) {
+                console.log('✅ শীটে সফলভাবে সেভ হয়েছে');
+                return true;
+            } else {
+                console.error('❌ শীট সেভ ত্রুটি:', result.error);
+                return false;
+            }
+        } catch(e) {
+            console.error('❌ শীট সেভ ব্যর্থ:', e.message);
+            
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: JSON.stringify({
+                        action: action,
+                        category: category,
+                        question: question,
+                        answer: answer
+                    })
+                });
+                console.log('✅ ফ্যালব্যাক সেভ সম্পন্ন');
+                return true;
+            } catch(e2) {
+                console.error('❌ ফ্যালব্যাক সেভও ব্যর্থ:', e2.message);
+                return false;
+            }
+        }
+    }
+
+    // স্কিপ ফাংশন
+    window.skipAnswer = function() {
+        if (waitingForAnswer) {
+            waitingForAnswer = false;
+            const skippedQuestion = lastQuestion;
+            lastQuestion = '';
+            
+            console.log('⏭️ স্কিপ করা হয়েছে:', skippedQuestion);
+            
+            // স্কিপ মেসেজ অপশনালি সেভ (পেন্ডিং হিসেবে থেকে যাবে)
+            addBotMessage(`👌 <strong>ঠিক আছে, "${skippedQuestion}" প্রশ্নের উত্তর দেওয়া স্কিপ করা হয়েছে।</strong><br/><br/>
+                ✅ আপনি এখন নতুন প্রশ্ন করতে পারেন।<br/>
+                📋 প্রশ্নটি অপেক্ষমাণ তালিকায় থাকবে, পরে উত্তর দিতে পারবেন।<br/><br/>
+                <em>নতুন প্রশ্ন লিখুন, আমি সাহায্য করতে প্রস্তুত! 😊</em>`);
+        }
+    };
+    
+    // স্কিপ এবং নতুন প্রশ্ন
+    window.skipAndAskNew = function() {
+        window.skipAnswer();
+        document.getElementById('userInput').focus();
+    };
+
+    // প্রসেসিং ইন্ডিকেটর
+    function showProcessingIndicator(text) {
+        const container = document.getElementById('messagesContainer');
+        const indicatorDiv = document.createElement('div');
+        indicatorDiv.className = 'message-row bot';
+        indicatorDiv.id = 'processingIndicator';
+        indicatorDiv.innerHTML = `
+            <div class="bot-avatar small"><i class="fas fa-robot"></i></div>
+            <div class="processing-indicator">
+                <div class="brain-wave">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <span class="processing-text">${text || 'চিন্তা করছি...'}</span>
+            </div>`;
+        container.appendChild(indicatorDiv);
+        container.scrollTop = container.scrollHeight;
+    }
+
+    function updateProcessingText(text) {
+        const indicator = document.getElementById('processingIndicator');
+        if (indicator) {
+            const textEl = indicator.querySelector('.processing-text');
+            if (textEl) textEl.textContent = text;
+        }
+    }
+
+    function hideProcessingIndicator() {
+        const indicator = document.getElementById('processingIndicator');
+        if (indicator) indicator.remove();
+    }
+
+    // ওয়েলকাম মেসেজ হাইড
+    function hideWelcome() {
+        const welcome = document.getElementById('welcomeSection');
+        if (welcome) {
+            welcome.style.opacity = '0';
+            welcome.style.transform = 'translateY(-20px)';
+            welcome.style.transition = 'all 0.5s ease';
+            setTimeout(() => {
+                if (welcome.parentNode) welcome.remove();
+            }, 500);
+        }
+    }
+
+    // মেসেজ দেখানো
+    function addMessage(text, isUser, extraClass) {
+        hideWelcome();
+        
+        const container = document.getElementById('messagesContainer');
+        const row = document.createElement('div');
+        row.className = `message-row ${isUser ? 'user' : 'bot'}`;
+        
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('bn-BD', { hour: '2-digit', minute: '2-digit' });
+        
+        if (isUser) {
+            row.innerHTML = `
+                <div class="message-bubble ${extraClass || ''}">
+                    ${escapeHtml(text)}
+                    <div class="message-timestamp">
+                        <i class="fas fa-check" style="font-size:0.6rem;"></i> ${timeString}
+                    </div>
+                </div>`;
+        } else {
+            row.innerHTML = `
+                <div class="bot-avatar"><i class="fas fa-robot"></i></div>
+                <div class="message-bubble ${extraClass || ''}">
+                    ${text}
+                    <div class="message-timestamp">
+                        <i class="fas fa-clock" style="font-size:0.6rem;"></i> ${timeString}
+                    </div>
+                </div>`;
+        }
+        
+        container.appendChild(row);
+        container.scrollTop = container.scrollHeight;
+        row.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+
+    function addBotMessage(text, extraClass) {
+        addMessage(text, false, extraClass);
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function getCategoryName(cat) {
+        const names = {
+            'general': 'সাধারণ জিজ্ঞাসা',
+            'technology': 'প্রযুক্তি',
+            'education': 'শিক্ষা',
+            'health': 'স্বাস্থ্য',
+            'science': 'বিজ্ঞান'
+        };
+        return names[cat] || cat;
+    }
+
+    // প্রশ্ন প্রসেসিং - আপডেটেড ওয়ার্ড ম্যাচিং সহ
+    async function processQuestion(userQuestion) {
+        if (!userQuestion || userQuestion.trim() === '') {
+            addBotMessage('😊 দয়া করে একটি প্রশ্ন লিখুন। আমি আপনার সাহায্যের জন্য প্রস্তুত আছি!');
+            return;
+        }
+        
+        // ★★★ যদি স্কিপ স্টেটে থাকে এবং ইউজার নতুন প্রশ্ন করে ★★★
+        if (waitingForAnswer) {
+            console.log('🔄 ইউজার স্কিপ না করে নতুন প্রশ্ন করেছে, আগের প্রশ্নের উত্তর হিসেবে নিচ্ছে না');
+            
+            // আগের প্রশ্ন পেন্ডিংয়ে থাকবে, স্কিপ স্টেট ক্লিয়ার
+            waitingForAnswer = false;
+            lastQuestion = '';
+            
+            // নতুন প্রশ্ন হিসেবে প্রসেস করুন (নিচে চলবে)
+        }
+        
+        // এখন নতুন প্রশ্ন প্রসেস করুন
+        return await processNewQuestion(userQuestion);
+    }
+    
+    // নতুন প্রশ্ন প্রসেসিং - ওয়ার্ড ম্যাচিং সহ
+    async function processNewQuestion(userQuestion) {
+        const matches = findBestMatch(userQuestion);
+        
+        // ★★★ যদি ভালো ম্যাচ পাওয়া যায় (স্কোর >= 0.3) ★★★
+        if (matches.length > 0 && matches[0].score >= 0.3) {
+            const bestMatch = matches[0];
+            const matchPercent = Math.round(bestMatch.score * 100);
+            
+            updateProcessingText('সবচেয়ে প্রাসঙ্গিক উত্তর খুঁজে পেয়েছি!');
+            await new Promise(resolve => setTimeout(resolve, 300));
+            hideProcessingIndicator();
+            
+            let responseHTML = `🎯 <strong>আপনার প্রশ্নের সাথে মিল রেখে উত্তর পেয়েছি!</strong><br/><br/>`;
+            responseHTML += `<strong>📝 আপনার প্রশ্ন:</strong> ${userQuestion}<br/>`;
+            responseHTML += `<strong>📌 মিলেছে:</strong> "${bestMatch.question}" (${matchPercent}% মিল)<br/><br/>`;
+            responseHTML += `<strong>💡 উত্তর:</strong><br/>${bestMatch.answer}<br/><br/>`;
+            
+            // ম্যাচিং ওয়ার্ড দেখান
+            if (bestMatch.matchedWords.length > 0) {
+                responseHTML += `<em style="font-size:0.8rem;">🔗 মিলেছে শব্দ: ${bestMatch.matchedWords.join(', ')}</em><br/>`;
+            }
+            
+            // ★★★ যদি একাধিক ভালো ম্যাচ থাকে, বিকল্প দেখান ★★★
+            if (matches.length > 1 && matches[1].score >= 0.2) {
+                responseHTML += `<div class="alt-answers">`;
+                responseHTML += `<div class="alt-title">📋 আরও প্রাসঙ্গিক উত্তর:</div>`;
+                
+                for (let i = 1; i < Math.min(matches.length, 4); i++) {
+                    const alt = matches[i];
+                    const altPercent = Math.round(alt.score * 100);
+                    responseHTML += `<div class="alt-answer-item" onclick='showAlternativeAnswer(${JSON.stringify(alt.answer).replace(/'/g, "&#39;")})'>
+                        <span class="match-score">${altPercent}% মিল</span> - ${alt.answer.substring(0, 80)}...
+                    </div>`;
+                }
+                
+                responseHTML += `</div>`;
+            }
+            
+            responseHTML += `<br/><em style="font-size:0.8rem;">আরও কিছু জানতে চাইলে বলুন! 🌟</em>`;
+            
+            addBotMessage(responseHTML);
+            return;
+        }
+        
+        // ★★★ যদি কম ম্যাচ পাওয়া যায় (স্কোর < 0.3 কিন্তু > 0) ★★★
+        if (matches.length > 0 && matches[0].score > 0) {
+            const weakMatch = matches[0];
+            const matchPercent = Math.round(weakMatch.score * 100);
+            
+            updateProcessingText('আংশিক মিল পেয়েছি, যাচাই করছি...');
+            await new Promise(resolve => setTimeout(resolve, 300));
+            hideProcessingIndicator();
+            
+            let responseHTML = `🤔 <strong>আপনার প্রশ্নের সাথে আংশিক মিল পেয়েছি, কিন্তু পুরোপুরি নিশ্চিত নই।</strong><br/><br/>`;
+            responseHTML += `<strong>📝 আপনার প্রশ্ন:</strong> ${userQuestion}<br/>`;
+            responseHTML += `<strong>🔍 সবচেয়ে কাছাকাছি:</strong> "${weakMatch.question}" (${matchPercent}% মিল)<br/><br/>`;
+            responseHTML += `<strong>💡 সম্ভাব্য উত্তর:</strong><br/>${weakMatch.answer}<br/><br/>`;
+            responseHTML += `<em>❓ যদি এটি সঠিক না হয়, দয়া করে আরেকটু বিস্তারিত প্রশ্ন করুন অথবা অন্য প্রশ্ন করুন।</em><br/><br/>`;
+            
+            // বিকল্প দেখান
+            if (matches.length > 1) {
+                responseHTML += `<div class="alt-answers">`;
+                responseHTML += `<div class="alt-title">📋 অন্যান্য সম্ভাব্য উত্তর:</div>`;
+                
+                for (let i = 1; i < Math.min(matches.length, 4); i++) {
+                    const alt = matches[i];
+                    const altPercent = Math.round(alt.score * 100);
+                    responseHTML += `<div class="alt-answer-item">
+                        <span class="match-score">${altPercent}% মিল</span> - ${alt.answer.substring(0, 80)}...
+                    </div>`;
+                }
+                
+                responseHTML += `</div>`;
+            }
+            
+            responseHTML += `
+                <div class="skip-btn-container">
+                    <button class="skip-btn" onclick="skipAndAskNew()">
+                        <i class="fas fa-times-circle"></i> ভুল উত্তর, নতুন প্রশ্ন করবো
+                    </button>
+                </div>`;
+            
+            addBotMessage(responseHTML);
+            return;
+        }
+        
+        // ★★★ কোন ম্যাচ পাওয়া যায়নি ★★★
+        updateProcessingText('কোনো উত্তর খুঁজে পাইনি, সংরক্ষণ করছি...');
+        await new Promise(resolve => setTimeout(resolve, 300));
+        hideProcessingIndicator();
+        
+        console.log('➕ পেন্ডিংয়ে যোগ করা হচ্ছে:', userQuestion, 'ক্যাটাগরি:', currentCategory);
+        
+        await saveToSheet('addPending', currentCategory, userQuestion, '');
+        
+        pendingQuestions.push({
+            category: currentCategory,
+            question: userQuestion,
+            timestamp: new Date().toISOString()
+        });
+        savePendingToLocal();
+        updatePendingCount();
+        
+        waitingForAnswer = true;
+        lastQuestion = userQuestion;
+        
+        let responseHTML = `🤔 <strong>মাফ করবেন, আমি এখনো "${userQuestion}" এই প্রশ্নের উত্তর জানি না।</strong><br/><br/>`;
+        responseHTML += `📋 তবে চিন্তার কিছু নেই! প্রশ্নটি আমি "<strong>${getCategoryName(currentCategory)}</strong>" বিষয়ের অধীনে সংরক্ষণ করে রেখেছি।<br/><br/>`;
+        responseHTML += `💡 <strong>আপনি চাইলে আমাকে শিখিয়ে দিতে পারেন!</strong> শুধু পরবর্তী মেসেজে উত্তরটি লিখে পাঠান, আমি তা মনে রাখবো।<br/><br/>`;
+        responseHTML += `
+            <div class="skip-btn-container">
+                <button class="skip-btn primary-skip" onclick="skipAndAskNew()">
+                    <i class="fas fa-forward"></i> স্কিপ করুন, নতুন প্রশ্ন করবো
+                </button>
+                <button class="skip-btn" onclick="window.skipAnswer(); document.getElementById('userInput').focus();">
+                    <i class="fas fa-question-circle"></i> উত্তর দিতে চাই না
+                </button>
+            </div>`;
+        responseHTML += `<br/><em style="font-size:0.85rem;">আমি সবসময় নতুন কিছু শিখতে আগ্রহী! 📚</em>`;
+        
+        addBotMessage(responseHTML);
+    }
+
+    // প্রশ্ন জিজ্ঞাসা
+    window.askQuestion = function(question) {
+        const input = document.getElementById('userInput');
+        input.value = question;
+        input.focus();
+        handleSend();
+    };
+
+    // মেসেজ সেন্ড
+    window.handleSend = async function() {
+        if (isProcessing) return;
+        
+        const input = document.getElementById('userInput');
+        const question = input.value.trim();
+        
+        if (!question) {
+            input.placeholder = '⚠️ প্রথমে একটি প্রশ্ন লিখুন!';
+            input.focus();
+            setTimeout(() => {
+                input.placeholder = 'এখানে আপনার প্রশ্ন লিখুন...';
+            }, 2000);
+            return;
+        }
+        
+        isProcessing = true;
+        
+        // ★★★ স্কিপ স্টেটে থাকলে এবং ইউজার উত্তর না দিয়ে নতুন প্রশ্ন করলে ★★★
+        if (waitingForAnswer) {
+            console.log('⏭️ ইউজার স্কিপ স্টেটে নতুন প্রশ্ন করেছে - আগের প্রশ্নের উত্তর হিসেবে নিচ্ছে না');
+            // waitingForAnswer এবং lastQuestion প্রসেস হবে processQuestion এর ভিতরে
+        }
+        
+        addMessage(question, true);
+        input.value = '';
+        input.focus();
+        
+        // প্রসেসিং স্টেপ
+        showProcessingIndicator('আপনার প্রশ্ন বিশ্লেষণ করছি...');
+        await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 300));
+        
+        updateProcessingText('শব্দ মিলিয়ে উত্তর খুঁজছি...');
+        await new Promise(resolve => setTimeout(resolve, 400 + Math.random() * 200));
+        
+        await processQuestion(question);
+        
+        hideProcessingIndicator();
+        isProcessing = false;
+    };
+
+    // অ্যাডমিন প্যানেল
+    window.openAdminPanel = function() {
+        const modal = document.getElementById('adminModal');
+        modal.classList.add('active');
+        renderPendingQuestions();
+        document.body.style.overflow = 'hidden';
+        
+        document.addEventListener('keydown', handleEscKey);
+    };
+
+    window.closeAdminPanel = function() {
+        const modal = document.getElementById('adminModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        document.removeEventListener('keydown', handleEscKey);
+    };
+
+    function handleEscKey(e) {
+        if (e.key === 'Escape') {
+            closeAdminPanel();
+        }
+    }
+
+    function renderPendingQuestions() {
+        const container = document.getElementById('pendingQuestionsList');
+        
+        if (pendingQuestions.length === 0) {
+            container.innerHTML = `
+                <p style='color:#64748b; text-align:center; padding:40px 20px; font-size:1.05rem;'>
+                    <i class='fas fa-check-circle' style='font-size:3rem; color:#10b981; display:block; margin-bottom:14px;'></i>
+                    <strong>সব উত্তর দিয়ে ফেলেছেন!</strong><br/>
+                    <span style='font-size:0.9rem;'>কোনো অপেক্ষমাণ প্রশ্ন নেই 🎉</span>
+                </p>`;
+            return;
+        }
+        
+        container.innerHTML = pendingQuestions.map((item, index) => `
+            <div class="pending-question">
+                <div class="question-text">
+                    <span class="category-tag">
+                        ${getCategoryName(item.category)}
+                    </span>
+                    <span>${escapeHtml(item.question)}</span>
+                </div>
+                <textarea class="answer-input" placeholder="✍️ এখানে উত্তর লিখুন..." id="answerInput${index}" rows="3"></textarea>
+                <div class="button-group">
+                    <button class="save-answer-btn" onclick="saveAnswerFromAdmin(${index})">
+                        <i class="fas fa-save"></i> সংরক্ষণ করুন
+                    </button>
+                    <button class="delete-btn" onclick="removePending(${index})">
+                        <i class="fas fa-trash"></i> মুছে ফেলুন
+                    </button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    window.saveAnswerFromAdmin = async function(index) {
+        const answerInput = document.getElementById(`answerInput${index}`);
+        const answer = answerInput.value.trim();
+        
+        if (!answer) {
+            answerInput.style.borderColor = '#f43f5e';
+            answerInput.style.boxShadow = '0 0 0 4px rgba(244, 63, 94, 0.1)';
+            answerInput.placeholder = '⚠️ দয়া করে প্রথমে উত্তর লিখুন!';
+            answerInput.focus();
+            
+            setTimeout(() => {
+                answerInput.style.borderColor = '#e2e8f0';
+                answerInput.style.boxShadow = 'none';
+                answerInput.placeholder = '✍️ এখানে উত্তর লিখুন...';
+            }, 2500);
+            return;
+        }
+        
+        const item = pendingQuestions[index];
+        const btn = event.target.closest('.save-answer-btn');
+        if (btn) {
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> সংরক্ষণ হচ্ছে...';
+            btn.disabled = true;
+        }
+        
+        await saveToSheet('addRecord', item.category, item.question, answer);
+        
+        if (!knowledgeBase[item.category]) knowledgeBase[item.category] = {};
+        knowledgeBase[item.category][normalizeText(item.question)] = answer;
+        saveToLocalStorage();
+        
+        pendingQuestions.splice(index, 1);
+        savePendingToLocal();
+        updatePendingCount();
+        renderPendingQuestions();
+        
+        // স্কিপ স্টেট রিসেট যদি এইটা সেই প্রশ্ন হয়
+        if (waitingForAnswer && lastQuestion === item.question) {
+            waitingForAnswer = false;
+            lastQuestion = '';
+        }
+        
+        console.log('✅ উত্তর সফলভাবে সংরক্ষিত হয়েছে!');
+    };
+
+    window.removePending = function(index) {
+        const item = pendingQuestions[index];
+        
+        if (confirm('🗑️ আপনি কি নিশ্চিত যে এই প্রশ্নটি মুছে ফেলতে চান?\n\nএটি স্থায়ীভাবে মুছে যাবে।')) {
+            // স্কিপ স্টেট রিসেট যদি এইটা সেই প্রশ্ন হয়
+            if (waitingForAnswer && lastQuestion === item.question) {
+                waitingForAnswer = false;
+                lastQuestion = '';
+            }
+            
+            pendingQuestions.splice(index, 1);
+            savePendingToLocal();
+            updatePendingCount();
+            renderPendingQuestions();
+            
+            console.log('🗑️ প্রশ্ন মুছে ফেলা হয়েছে');
+        }
+    };
+
+    // ইভেন্ট লিসেনার
+    const userInput = document.getElementById('userInput');
+    
+    userInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleSend();
+        }
+    });
+
+    document.getElementById('adminModal').addEventListener('click', function(e) {
+        if (e.target === this) closeAdminPanel();
+    });
+
+    document.addEventListener('click', function(e) {
+        const tooltip = document.getElementById('helpTooltip');
+        if (tooltip.style.display === 'block' && 
+            !tooltip.contains(e.target) && 
+            !e.target.closest('.subject-chip[onclick*="showHelp"]')) {
+            hideHelp();
+        }
+    });
+
+    window.addEventListener('resize', function() {
+        const sidebar = document.getElementById('sidebarPanel');
+        if (window.innerWidth > 768) {
+            sidebar.style.boxShadow = 'none';
+            sidebar.classList.remove('collapsed');
+        } else {
+            sidebar.classList.add('collapsed');
+        }
+    });
+
+    // পেজ লোড/রিলোড হলে স্কিপ স্টেট রিসেট
+    window.addEventListener('beforeunload', function() {
+        waitingForAnswer = false;
+        lastQuestion = '';
+    });
+
+    // ম্যানুয়াল টেস্ট ফাংশন - অপরিবর্তিত
+    window.testSheetConnection = async function() {
+        console.log('🧪 শীট সংযোগ পরীক্ষা করা হচ্ছে...');
+        
+        const testQuestion = "টেস্ট প্রশ্ন " + new Date().toISOString();
+        const testCategory = "general";
+        
+        console.log('পরীক্ষা করা হচ্ছে:', testQuestion);
+        
+        await saveToSheet('addPending', testCategory, testQuestion, '');
+        console.log('✅ পরীক্ষা সম্পন্ন। পেন্ডিং শীট চেক করুন।');
+    };
+
+    // ইনিশিয়ালাইজ
+    init();
+    console.log('✅ চ্যাটবট সফলভাবে চালু হয়েছে!');
+    console.log('📋 পরীক্ষা করতে: testSheetConnection()');
+    console.log('⏭️ স্কিপ ফিচার: skipAnswer() বা skipAndAskNew()');
+    console.log('🔍 ওয়ার্ড ম্যাচিং অ্যাক্টিভ');
+})();
+// ]]>
+</script>
+<div id='connectionStatus' style='display:none'/>
+</body>
+</html>
