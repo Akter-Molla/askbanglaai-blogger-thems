@@ -1,0 +1,1565 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:default='true' b:js='false' b:mobile='false' b:templateUrl='http://www.blogger.com/openid-server.g' b:version='2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes' name='viewport'/>
+    <b:include data='blog' name='all-head-content'/>
+    <title><data:blog.pageTitle/></title>
+    
+    <!-- Enhanced Font Import: Plus Jakarta Sans for a clean, modern look -->
+    <link href='https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Hind+Siliguri:wght@300;400;500;600;700&amp;family=Noto+Sans+Bengali:wght@400;500;600;700&amp;display=swap' rel='stylesheet'/>
+    <!-- Font Awesome 6 for crisp icons -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
+    
+<!-- Basic SEO -->
+<meta charset='UTF-8'/>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+<meta content='AskBanglaAI is a Bangla AI question-answer platform. Get instant answers, ইসলামিক তথ্য, টেকনোলজি, শিক্ষা ও দৈনন্দিন প্রশ্নের সমাধান।' name='description'/>
+<meta content='Bangla AI, প্রশ্ন উত্তর, Islamic knowledge, Bangla chatbot, AI Bangladesh, Ask Bangla AI' name='keywords'/>
+<meta content='AskBanglaAI' name='author'/>
+
+<!-- Robots -->
+<meta content='index, follow, max-image-preview:large' name='robots'/>
+
+<!-- Open Graph (Facebook) -->
+<meta content='AskBanglaAI - Bangla AI Q&amp;A Platform' property='og:title'/>
+<meta content='বাংলায় যেকোনো প্রশ্ন করুন এবং AI থেকে উত্তর পান' property='og:description'/>
+<meta content='website' property='og:type'/>
+<meta content='https://askbanglaai.blogspot.com/' property='og:url'/>
+<meta content='https://blogger.googleusercontent.com/img/logo.png' property='og:image'/>
+
+<!-- Twitter -->
+<meta content='summary_large_image' name='twitter:card'/>
+<meta content='AskBanglaAI' name='twitter:title'/>
+<meta content='Bangla AI chatbot and Q&amp;A platform' name='twitter:description'/>
+<meta content='https://blogger.googleusercontent.com/img/logo.png' name='twitter:image'/>
+
+<!-- Canonical -->
+<link href='https://askbanglaai.blogspot.com/' rel='canonical'/>
+    <b:skin version='2'><![CDATA[
+        /*
+        ============================================
+        ENHANCED UI/UX - AskBanglaAI
+        ============================================
+        A modern glassmorphism design with a vibrant,
+        dynamic background and smooth animations.
+        All core bot functions remain untouched.
+        */
+        :root {
+            /* Core Colors */
+            --sidebar-bg: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            --main-bg: #f8fafc;
+            --accent-blue: #6366f1;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            
+            /* Text & Surfaces */
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --input-bg: #f1f5f9;
+            --hover-color: #f1f5f9;
+            
+            /* Chat Bubbles */
+            --user-msg-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --user-msg-text: #ffffff;
+            --bot-msg-bg: #ffffff;
+            --bot-msg-border: #e2e8f0;
+            
+            /* Shadows & Transitions */
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --card-shadow-hover: 0 10px 25px -5px rgba(0,0,0,0.1), 0 4px 10px -5px rgba(0,0,0,0.04);
+            --transition-smooth: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            --transition-bounce: all 0.4s cubic-bezier(0.68,-0.55,0.265,1.55);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; height: 100%; overflow: hidden; }
+
+        /* Animated Gradient Background */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 60%, #667eea 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            font-family: 'Plus Jakarta Sans', 'Hind Siliguri', 'Noto Sans Bengali', system-ui, sans-serif;
+            color: var(--text-primary);
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        /* Floating Orbs / Particles Effect */
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 15% 25%, rgba(99,102,241,0.2) 0%, transparent 50%), radial-gradient(circle at 75% 65%, rgba(240,147,251,0.15) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(139,92,246,0.2) 0%, transparent 50%), radial-gradient(circle at 85% 20%, rgba(16,185,129,0.1) 0%, transparent 50%);
+            animation: particlesFlow 15s ease infinite; z-index: 0; pointer-events: none;
+        }
+        @keyframes particlesFlow { 0%,100% { opacity: 1; transform: scale(1); } 33% { opacity: 0.7; transform: scale(1.05); } 66% { opacity: 0.9; transform: scale(1.02); } }
+
+        /* Hide Blogger's default elements */
+        .sidebar, #sidebar, .footer, #footer, .header, #header, .blog-pager, .date-header, .post-footer, .comments, .widget, .Attribution, .blog-posts, .main-nav, .main-section, .navbar, #navbar, #navbar-iframe, .region-inner, .content-outer, .main-inner, .column-center-outer, .column-right-outer { display: none !important; }
+
+        /* Main Chat Container with Glassmorphism */
+        .chat-container { width: 100vw; height: 100vh; background: rgba(255,255,255,0.92); backdrop-filter: blur(30px); display: flex; overflow: hidden; position: relative; z-index: 1; }
+        .chat-container::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 10% 90%, rgba(99,102,241,0.05) 0%, transparent 30%), radial-gradient(circle at 90% 10%, rgba(240,147,251,0.05) 0%, transparent 30%); pointer-events: none; z-index: -1; }
+
+        /* Enhanced Dark Mode */
+        body.dark-mode { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #1a1a2e 100%) !important; }
+        body.dark-mode .chat-container { background: rgba(15,23,42,0.95) !important; }
+        body.dark-mode .main-chat { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important; }
+        body.dark-mode .chat-header, body.dark-mode .input-container { background: rgba(30,41,59,0.95) !important; border-color: #334155 !important; }
+        body.dark-mode .message-row.bot .message-bubble { background: #1e293b !important; color: #e2e8f0 !important; border-color: #334155 !important; }
+        body.dark-mode #userInput { color: #e2e8f0 !important; }
+        body.dark-mode .input-wrapper { background: #0f172a !important; border-color: #334155 !important; }
+        body.dark-mode .input-wrapper:focus-within { background: #1e293b !important; }
+        body.dark-mode .subject-chip { background: #1e293b !important; border-color: #334155 !important; color: #94a3b8 !important; }
+        body.dark-mode .feature-card { background: #1e293b !important; border-color: #334155 !important; }
+        body.dark-mode .feature-card .feature-text, body.dark-mode .welcome-subtitle { color: #94a3b8 !important; }
+        body.dark-mode .modal-content { background: #1e293b !important; color: #e2e8f0 !important; }
+        body.dark-mode .pending-question { background: #0f172a !important; border-color: #334155 !important; }
+        body.dark-mode .smart-btn.skip-btn-style { background: #334155 !important; border-color: #475569 !important; }
+        body.dark-mode .processing-indicator { background: #1e293b !important; border-color: #334155 !important; }
+        body.dark-mode .category-btn { background: #334155 !important; border-color: #475569 !important; color: #94a3b8 !important; }
+        body.dark-mode .category-btn:hover { background: var(--accent-blue) !important; color: white !important; }
+
+        /* Redesigned Sidebar */
+        .sidebar-panel { width: 340px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; transition: var(--transition-smooth); z-index: 2; border-right: 1px solid rgba(255,255,255,0.08); flex-shrink: 0; }
+        .sidebar-panel.collapsed { width: 0; min-width: 0; overflow: hidden; border-right: none; }
+        .sidebar-header { padding: 28px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.03); }
+        .sidebar-header h3 { font-size: 1.35rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .sidebar-header h3 i { font-size: 1.5rem; background: linear-gradient(135deg, #6366f1, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .sidebar-subtitle { font-size: 0.7rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
+        .close-sidebar-btn { width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,0.1); border: none; color: rgba(255,255,255,0.7); cursor: pointer; transition: var(--transition-smooth); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+        .close-sidebar-btn:hover { background: rgba(255,255,255,0.2); color: white; transform: rotate(90deg); }
+        .category-list { flex: 1; overflow-y: auto; padding: 16px 14px; }
+        .category-list::-webkit-scrollbar { width: 4px; } .category-list::-webkit-scrollbar-track { background: transparent; } .category-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        .category-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); padding: 8px 16px 4px; font-weight: 600; }
+        .category-item { padding: 13px 16px; margin-bottom: 3px; border-radius: 13px; cursor: pointer; transition: var(--transition-smooth); display: flex; align-items: center; gap: 12px; font-size: 0.92rem; font-weight: 500; color: rgba(255,255,255,0.85); }
+        .category-item:hover { background: rgba(255,255,255,0.06); transform: translateX(3px); color: white; }
+        .category-item.active { background: rgba(99,102,241,0.2); box-shadow: 0 4px 15px rgba(99,102,241,0.2); color: white; font-weight: 600; }
+        .category-item .icon { width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; transition: var(--transition-bounce); }
+        .category-item:hover .icon { transform: scale(1.1) rotate(-10deg); }
+        .category-item.active .icon { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .category-stats { font-size: 0.65rem; padding: 2px 8px; background: rgba(255,255,255,0.1); border-radius: 8px; margin-left: auto; }
+        .knowledge-summary { padding: 12px 16px; margin: 8px 14px; background: rgba(255,255,255,0.05); border-radius: 12px; font-size: 0.72rem; color: rgba(255,255,255,0.5); }
+        .knowledge-summary span { color: rgba(255,255,255,0.8); font-weight: 600; }
+        .admin-btn { margin: 14px 18px 20px; padding: 14px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; border-radius: 15px; cursor: pointer; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 10px; transition: var(--transition-smooth); box-shadow: 0 4px 18px rgba(16,185,129,0.3); }
+        .admin-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(16,185,129,0.4); }
+        .admin-btn .badge { background: rgba(255,255,255,0.3); padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; font-weight: 700; }
+
+        /* Enhanced Main Chat Area */
+        .main-chat { flex: 1; display: flex; flex-direction: column; background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%); min-width: 0; }
+        .chat-header { padding: 16px 24px; background: rgba(255,255,255,0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 12px; flex-shrink: 0; z-index: 5; }
+        .menu-toggle { cursor: pointer; font-size: 1.3rem; color: var(--text-secondary); padding: 8px 10px; border-radius: 10px; transition: var(--transition-smooth); border: none; background: transparent; }
+        .menu-toggle:hover { background: var(--hover-color); color: var(--accent-blue); }
+        .header-info { display: flex; flex-direction: column; gap: 2px; }
+        .current-category { font-weight: 700; font-size: 1.05rem; color: var(--text-primary); }
+        .status-indicator { display: flex; align-items: center; gap: 5px; font-size: 0.7rem; color: var(--text-muted); font-weight: 500; }
+        .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #10b981; animation: pulseDot 2s ease infinite; }
+        @keyframes pulseDot { 0%,100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.4); } 50% { box-shadow: 0 0 0 5px rgba(16,185,129,0); } }
+        .header-actions { margin-left: auto; display: flex; gap: 6px; align-items: center; }
+        .pending-badge { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color: #92400e; padding: 7px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: var(--transition-smooth); box-shadow: 0 2px 6px rgba(245,158,11,0.15); border: none; }
+        .pending-badge:hover { transform: translateY(-2px); }
+        .pending-badge .count { background: #f59e0b; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; min-width: 22px; text-align: center; font-weight: 700; }
+        .icon-btn { width: 36px; height: 36px; border-radius: 10px; border: none; cursor: pointer; transition: var(--transition-smooth); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; background: #f1f5f9; color: var(--text-secondary); }
+        .icon-btn:hover { background: var(--accent-blue); color: white; transform: translateY(-1px); }
+        .icon-btn.danger:hover { background: var(--accent-rose); }
+
+        /* Beautiful Message Bubbles */
+        .messages-container { flex: 1; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; gap: 14px; scroll-behavior: smooth; }
+        .messages-container::-webkit-scrollbar { width: 5px; } .messages-container::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 10px; }
+
+        .welcome-section { text-align: center; padding: 40px 20px; animation: fadeInUp 0.8s ease; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .welcome-icon { font-size: 3.5rem; margin-bottom: 16px; animation: float 3s ease-in-out infinite; display: inline-block; }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        .welcome-title { font-size: 1.7rem; font-weight: 800; background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; }
+        .welcome-subtitle { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; max-width: 480px; margin-left: auto; margin-right: auto; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; max-width: 550px; margin: 0 auto 20px; }
+        .feature-card { background: white; padding: 14px 10px; border-radius: 14px; text-align: center; box-shadow: var(--card-shadow); transition: var(--transition-smooth); border: 1px solid var(--border-color); }
+        .feature-card:hover { transform: translateY(-3px); box-shadow: var(--card-shadow-hover); }
+        .feature-card .feature-icon { font-size: 1.6rem; margin-bottom: 6px; display: block; }
+        .feature-card .feature-text { font-size: 0.8rem; color: var(--text-secondary); font-weight: 500; }
+        .quick-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 14px; }
+
+        .message-row { display: flex; gap: 10px; animation: messageSlideIn 0.5s cubic-bezier(0.4,0,0.2,1); align-items: flex-end; }
+        @keyframes messageSlideIn { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .message-row.user { justify-content: flex-end; } .message-row.bot { justify-content: flex-start; }
+        .message-bubble { max-width: 72%; padding: 12px 18px; border-radius: 18px; font-size: 0.9rem; line-height: 1.7; position: relative; word-wrap: break-word; transition: var(--transition-smooth); }
+        .message-row.user .message-bubble { background: var(--user-msg-gradient); color: var(--user-msg-text); border-bottom-right-radius: 6px; box-shadow: 0 4px 12px rgba(99,102,241,0.3); }
+        .message-row.bot .message-bubble { background: var(--bot-msg-bg); color: var(--text-primary); border-bottom-left-radius: 6px; box-shadow: var(--card-shadow); border: 1px solid var(--bot-msg-border); }
+        .message-row.bot .message-bubble:hover .msg-actions { opacity: 1; }
+        .msg-actions { position: absolute; top: 6px; right: 8px; display: flex; gap: 4px; opacity: 0; transition: opacity 0.3s; }
+        .msg-action-btn { width: 26px; height: 26px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.65rem; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.06); color: var(--text-muted); transition: all 0.2s; }
+        .msg-action-btn:hover { background: var(--accent-blue); color: white; }
+        .bot-avatar { width: 36px; height: 36px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0; box-shadow: 0 3px 8px rgba(99,102,241,0.3); font-size: 1rem; }
+        .bot-avatar.small { width: 30px; height: 30px; font-size: 0.8rem; }
+        .message-timestamp { font-size: 0.62rem; opacity: 0.45; margin-top: 5px; }
+
+        /* Enhanced Buttons & Chips */
+        .category-btns { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+        .category-btn { padding: 10px 16px; border-radius: 12px; cursor: pointer; font-size: 0.82rem; font-weight: 500; transition: var(--transition-bounce); border: 1px solid var(--border-color); background: white; color: var(--text-primary); font-family: inherit; display: inline-flex; align-items: center; gap: 8px; }
+        .category-btn:hover { background: var(--accent-blue); color: white; border-color: var(--accent-blue); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99,102,241,0.3); }
+        .category-btn .cat-icon { font-size: 1rem; }
+        .category-btn.selected { background: var(--accent-green); color: white; border-color: var(--accent-green); }
+
+        .smart-response-btns { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+        .smart-btn { padding: 9px 16px; border-radius: 12px; cursor: pointer; font-size: 0.82rem; font-weight: 600; transition: var(--transition-bounce); border: none; font-family: inherit; display: inline-flex; align-items: center; gap: 7px; }
+        .smart-btn.yes-btn { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; box-shadow: 0 3px 12px rgba(16,185,129,0.3); }
+        .smart-btn.no-btn { background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); color: white; box-shadow: 0 3px 12px rgba(244,63,94,0.3); }
+        .smart-btn.retry-btn { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; box-shadow: 0 3px 12px rgba(245,158,11,0.3); }
+        .smart-btn.teach-btn { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; box-shadow: 0 3px 12px rgba(99,102,241,0.3); }
+        .smart-btn.skip-btn-style { background: #f1f5f9; color: var(--text-secondary); border: 1px solid var(--border-color); }
+        .smart-btn:hover { transform: translateY(-2px); }
+
+        /* Processing Indicator */
+        .processing-indicator { display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: white; border-radius: 18px; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); }
+        .brain-wave { display: flex; gap: 3px; align-items: flex-end; height: 18px; }
+        .brain-wave span { width: 3px; background: var(--accent-blue); border-radius: 3px; animation: brainWave 1.2s ease-in-out infinite; }
+        .brain-wave span:nth-child(1) { height: 9px; animation-delay: 0s; } .brain-wave span:nth-child(2) { height: 18px; animation-delay: 0.1s; } .brain-wave span:nth-child(3) { height: 12px; animation-delay: 0.2s; } .brain-wave span:nth-child(4) { height: 18px; animation-delay: 0.3s; } .brain-wave span:nth-child(5) { height: 9px; animation-delay: 0.4s; }
+        @keyframes brainWave { 0%,100% { transform: scaleY(0.6); opacity: 0.3; } 50% { transform: scaleY(1); opacity: 1; } }
+        .processing-text { font-size: 0.8rem; color: var(--text-secondary); font-weight: 500; }
+
+        /* Input Area */
+        .input-container { padding: 14px 24px 20px; background: rgba(255,255,255,0.95); backdrop-filter: blur(15px); border-top: 1px solid var(--border-color); flex-shrink: 0; z-index: 5; position: relative; }
+        .input-row { display: flex; gap: 8px; align-items: center; }
+        .input-wrapper { display: flex; gap: 8px; align-items: center; background: var(--input-bg); border: 2px solid transparent; border-radius: 22px; padding: 5px 5px 5px 18px; transition: var(--transition-smooth); box-shadow: var(--card-shadow); flex: 1; }
+        .input-wrapper:focus-within { border-color: var(--accent-blue); box-shadow: 0 0 0 4px rgba(99,102,241,0.08), var(--card-shadow); background: #ffffff; }
+        .input-wrapper i { color: var(--text-muted); font-size: 1rem; }
+        .input-wrapper:focus-within i { color: var(--accent-blue); }
+        #userInput { flex: 1; border: none; outline: none; font-size: 0.95rem; padding: 11px 0; background: transparent; font-family: inherit; color: var(--text-primary); }
+        #userInput::placeholder { color: var(--text-muted); font-style: italic; }
+        .voice-btn { width: 38px; height: 38px; border-radius: 12px; border: none; background: #f1f5f9; cursor: pointer; transition: var(--transition-smooth); font-size: 0.95rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .voice-btn:hover { background: var(--accent-rose); color: white; }
+        .voice-btn.listening { background: #f43f5e; color: white; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(244,63,94,0.5); } 50% { box-shadow: 0 0 0 12px rgba(244,63,94,0); } }
+        .send-btn { width: 44px; height: 44px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; border: none; border-radius: 18px; cursor: pointer; transition: var(--transition-bounce); display: flex; align-items: center; justify-content: center; font-size: 1rem; box-shadow: 0 3px 12px rgba(99,102,241,0.3); flex-shrink: 0; }
+        .send-btn:hover { transform: scale(1.06); }
+        .input-hint { font-size: 0.65rem; color: var(--text-muted); text-align: center; margin-top: 7px; }
+
+        /* Suggestion Dropdown */
+        .suggestion-dropdown { position: absolute; bottom: 100%; left: 24px; right: 24px; background: white; border-radius: 16px 16px 0 0; box-shadow: 0 -6px 25px rgba(0,0,0,0.1); max-height: 180px; overflow-y: auto; z-index: 10; border: 1px solid var(--border-color); display: none; }
+        .suggestion-item { padding: 11px 18px; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; }
+        .suggestion-item:hover { background: #f0f4ff; color: var(--accent-blue); }
+        .suggestion-item .sugg-cat { font-size: 0.65rem; background: #e0e7ff; color: var(--accent-blue); padding: 2px 8px; border-radius: 8px; }
+
+        .subject-chip { padding: 8px 16px; background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%); color: var(--accent-blue); border-radius: 20px; font-size: 0.82rem; cursor: pointer; transition: var(--transition-bounce); border: 1px solid #c7d2fe; font-weight: 500; font-family: inherit; }
+        .subject-chip:hover { background: var(--user-msg-gradient); color: white; border-color: transparent; transform: translateY(-2px); }
+
+        /* Modal */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); display: none; align-items: center; justify-content: center; z-index: 1000; }
+        .modal-overlay.active { display: flex; }
+        .modal-content { background: white; border-radius: 22px; padding: 32px; width: 92%; max-width: 640px; max-height: 82vh; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.4); animation: modalSlideUp 0.5s cubic-bezier(0.4,0,0.2,1); }
+        @keyframes modalSlideUp { from { opacity: 0; transform: translateY(50px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .modal-content h2 { margin-bottom: 24px; display: flex; align-items: center; gap: 10px; font-size: 1.4rem; font-weight: 700; }
+        .modal-content h2 i { background: linear-gradient(135deg, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .pending-question { background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%); padding: 18px; border-radius: 16px; margin-bottom: 12px; border: 1px solid #fde68a; }
+        .pending-question .question-text { font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .pending-question .category-tag { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; padding: 3px 10px; border-radius: 10px; font-size: 0.7rem; font-weight: 600; }
+        .pending-question .answer-input { width: 100%; padding: 12px 14px; border: 2px solid #e2e8f0; border-radius: 12px; margin-bottom: 10px; font-family: inherit; font-size: 0.85rem; resize: vertical; min-height: 55px; }
+        .pending-question .answer-input:focus { outline: none; border-color: var(--accent-green); }
+        .button-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .save-answer-btn { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; padding: 10px 20px; border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 7px; }
+        .delete-btn { background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); color: white; border: none; padding: 10px 20px; border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 7px; }
+        .close-modal-btn { margin-top: 24px; padding: 13px; background: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 14px; cursor: pointer; font-weight: 600; font-size: 0.9rem; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .close-modal-btn:hover { background: #e2e8f0; }
+
+        .help-tooltip { position: fixed; bottom: 90px; right: 28px; background: white; padding: 14px 18px; border-radius: 14px; box-shadow: 0 10px 35px rgba(0,0,0,0.2); z-index: 50; font-size: 0.85rem; max-width: 260px; border: 1px solid var(--border-color); }
+        .help-tooltip .close-tip { position: absolute; top: 6px; right: 8px; cursor: pointer; background: none; border: none; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .sidebar-panel { position: fixed; left: 0; top: 0; bottom: 0; z-index: 20; width: 290px; box-shadow: 0 0 60px rgba(0,0,0,0.5); }
+            .sidebar-panel.collapsed { transform: translateX(-100%); width: 290px; min-width: 290px; }
+            .message-bubble { max-width: 85%; }
+            .input-container { padding: 12px 14px 18px; }
+            .welcome-title { font-size: 1.35rem; }
+            .feature-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .modal-content { padding: 20px; margin: 12px; }
+            .help-tooltip { bottom: 80px; right: 14px; left: 14px; max-width: none; }
+        }
+    ]]></b:skin>
+</head>
+<body>
+    <b:section class='main-section' id='mainSection' maxwidgets='1' showaddelement='no'>
+      <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='false'>
+        <b:widget-settings>
+          <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+          <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+          <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+          <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='showAuthor'>true</b:widget-setting>
+          <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+          <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='timestampLabel'/>
+          <b:widget-setting name='reactionsLabel'/>
+          <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+          <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+          <b:widget-setting name='showLabels'>true</b:widget-setting>
+          <b:widget-setting name='showLocation'>false</b:widget-setting>
+          <b:widget-setting name='postLabelsLabel'/>
+          <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+          <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+          <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+          <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+          <b:widget-setting name='showReactions'>false</b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main' var='top'><div class='blog-posts'/></b:includable>
+        <b:includable id='aboutPostAuthor'>
+  <div class='author-name'>
+    <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+      <span>
+        <data:post.author.name/>
+      </span>
+    </a>
+  </div>
+  <div>
+    <span class='author-desc'>
+      <data:post.author.aboutMe/>
+    </span>
+  </div>
+</b:includable>
+        <b:includable id='addComments'>
+  <a expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:message name='messages.postAComment'/>
+  </a>
+</b:includable>
+        <b:includable id='blogThisShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+        <b:includable id='bylineByName' var='byline'>
+  <b:switch var='data:byline.name'>
+  <b:case value='share'/>
+    <b:include cond='data:post.shareUrl' name='postShareButtons'/>
+  <b:case value='comments'/>
+    <b:include cond='data:post.allowComments' name='postCommentsLink'/>
+  <b:case value='location'/>
+    <b:include cond='data:post.location' name='postLocation'/>
+  <b:case value='timestamp'/>
+    <b:include cond='not data:view.isPage' name='postTimestamp'/>
+  <b:case value='author'/>
+    <b:include name='postAuthor'/>
+  <b:case value='labels'/>
+    <b:include cond='data:post.labels' name='postLabels'/>
+  <b:case value='icons'/>
+    <b:include cond='data:post.emailPostUrl' name='emailPostIcon'/>
+  </b:switch>
+</b:includable>
+        <b:includable id='bylineRegion' var='regionItems'>
+  <b:loop values='data:regionItems' var='byline'>
+    <b:include data='byline' name='bylineByName'/>
+  </b:loop>
+</b:includable>
+        <b:includable id='commentAuthorAvatar'>
+  <div class='avatar-image-container'>
+    <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='35' width='35'/>
+  </div>
+</b:includable>
+        <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
+      </div>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:messages.deleteComment'>
+        <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+        <b:includable id='commentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+        <b:includable id='commentFormIframeSrc' var='post'>
+  <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+</b:includable>
+        <b:includable id='commentItem' var='comment'>
+  <div class='comment' expr:id='&quot;c&quot; + data:comment.id'>
+    <b:include cond='data:blog.enabledCommentProfileImages' name='commentAuthorAvatar'/>
+
+    <div class='comment-block'>
+      <div class='comment-author'>
+        <b:if cond='data:comment.authorUrl'>
+          <b:message name='messages.authorSaidWithLink'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+            <b:param expr:value='data:comment.authorUrl' name='authorUrl'/>
+          </b:message>
+        <b:else/>
+          <b:message name='messages.authorSaid'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+          </b:message>
+        </b:if>
+      </div>
+      <div expr:class='&quot;comment-body&quot; + (data:comment.isDeleted ? &quot; deleted&quot; : &quot;&quot;)'>
+        <data:comment.body/>
+      </div>
+      <div class='comment-footer'>
+        <span class='comment-timestamp'>
+          <a expr:href='data:comment.url' title='comment permalink'>
+            <data:comment.timestamp/>
+          </a>
+          <b:include data='comment' name='commentDeleteIcon'/>
+        </span>
+      </div>
+    </div>
+  </div>
+</b:includable>
+        <b:includable id='commentList' var='comments'>
+  <div id='comments-block'>
+    <b:loop values='data:comments' var='comment'>
+      <b:include data='comment' name='commentItem'/>
+    </b:loop>
+  </div>
+</b:includable>
+        <b:includable id='commentPicker' var='post'>
+  <b:if cond='data:post.showThreadedComments'>
+    <b:include data='post' name='threadedComments'/>
+  <b:else/>
+    <b:include data='post' name='comments'/>
+  </b:if>
+</b:includable>
+        <b:includable id='comments' var='post'>
+  <section expr:class='&quot;comments&quot; + (data:post.embedCommentForm ? &quot; embed&quot; : &quot;&quot;)' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+    <b:if cond='data:post.allowComments'>
+
+      <b:include name='commentsTitle'/>
+
+      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+        <b:include cond='data:post.comments' data='post.comments' name='commentList'/>
+      </div>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <div class='paging-control-container'>
+          <b:if cond='data:post.hasOlderLinks'>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+              <data:messages.oldest/>
+            </a>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+              <data:messages.older/>
+            </a>
+          </b:if>
+
+          <span class='comment-range-text'>
+            <data:post.commentRangeText/>
+          </span>
+
+          <b:if cond='data:post.hasNewerLinks'>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+              <data:messages.newer/>
+            </a>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+              <data:messages.newest/>
+            </a>
+          </b:if>
+        </div>
+      </b:if>
+
+      <div class='footer'>
+        <b:if cond='data:post.embedCommentForm'>
+          <b:if cond='data:post.allowNewComments'>
+            <b:include data='post' name='commentForm'/>
+          <b:else/>
+            <data:post.noNewCommentsText/>
+          </b:if>
+        <b:else/>
+          <b:if cond='data:post.allowComments'>
+            <b:include data='post' name='addComments'/>
+          </b:if>
+        </b:if>
+      </div>
+    </b:if>
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+        <b:includable id='commentsLink'>
+  <a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:if cond='data:post.numberOfComments &gt; 0'>
+      <b:message name='messages.numberOfComments'>
+        <b:param expr:value='data:post.numberOfComments' name='numComments'/>
+      </b:message>
+    <b:else/>
+      <data:messages.postAComment/>
+    </b:if>
+  </a>
+</b:includable>
+        <b:includable id='commentsLinkIframe'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+        <b:includable id='commentsTitle'>
+  <h3 class='title'><data:messages.comments/></h3>
+</b:includable>
+        <b:includable id='defaultAdUnit'>
+  <ins class='adsbygoogle' data-ad-format='auto' expr:data-ad-client='data:adClientId ?: data:blog.adsenseClientId' expr:data-ad-host='data:blog.adsenseHostId' expr:style='data:style ?: &quot;display: block;&quot;'>
+    <b:attr cond='not data:blog.analytics4' expr:value='data:blog.analyticsAccountNumber' name='data-analytics-uacct'/>
+  </ins>
+  <script>
+   (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</b:includable>
+        <b:includable id='emailPostIcon'>
+  <span class='byline post-icons'>
+    <!-- email post links -->
+    <span class='item-action'>
+      <a expr:href='data:post.emailPostUrl' expr:title='data:messages.emailPost'>
+        <b:include data='{ iconClass: &quot;touch-icon sharing-icon&quot; }' name='emailIcon'/>
+      </a>
+    </span>
+  </span>
+</b:includable>
+        <b:includable id='facebookShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+        <b:includable id='feedLinks'>
+  <b:if cond='!data:view.isPost'> <!-- Blog feed links -->
+    <b:if cond='data:feedLinks'>
+      <div class='blog-feeds'>
+        <b:include data='feedLinks' name='feedLinksBody'/>
+      </div>
+    </b:if>
+  <b:else/> <!--Post feed links -->
+    <div class='post-feeds'>
+      <b:loop values='data:posts' var='post'>
+        <b:if cond='data:post.allowComments and data:post.feedLinks'>
+          <b:include data='post.feedLinks' name='feedLinksBody'/>
+        </b:if>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
+        <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:messages.subscribeTo/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+        <b:includable id='footerBylines'>
+  <b:if cond='data:widgets.Blog.first.footerBylines'>
+    <b:loop index='i' values='data:widgets.Blog.first.footerBylines' var='region'>
+      <b:if cond='not data:region.items.empty'>
+        <div expr:class='&quot;post-footer-line post-footer-line-&quot; + (data:i + 1)'>
+          <b:with value='&quot;footer-&quot; + (data:i + 1)' var='regionName'>
+            <b:include data='region.items' name='bylineRegion'/>
+          </b:with>
+        </div>
+      </b:if>
+    </b:loop>
+  </b:if>
+</b:includable>
+        <b:includable id='googlePlusShare'>
+</b:includable>
+        <b:includable id='headerByline'>
+  <b:if cond='data:widgets.Blog.first.headerByline'>
+    <div class='post-header'>
+      <div class='post-header-line-1'>
+        <b:with value='&quot;header-1&quot;' var='regionName'>
+          <b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
+        </b:with>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+        <b:includable id='homePageLink'>
+  <a class='home-link' expr:href='data:blog.homepageUrl'>
+    <data:messages.home/>
+  </a>
+</b:includable>
+        <b:includable id='iframeComments' var='post'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+        <b:includable id='inlineAd' var='post'>
+  <b:if cond='!data:view.isPreview'>
+    <b:if cond='data:this.adCode or data:this.adClientId or data:blog.adsenseClientId'>
+      <!-- Ad -->
+      <div class='inline-ad'>
+        <b:if cond='data:this.adCode != &quot;&quot;'>
+          <data:this.adCode/>
+        <b:else/>
+          <b:include cond='data:this.adClientId or data:blog.adsenseClientId' name='defaultAdUnit'/>
+        </b:if>
+      </div>
+    </b:if>
+  <b:else/>
+    <div class='inline-ad'>
+      <div class='inline-ad-placeholder'>
+        <span><b:message name='messages.adsGoHere'/></span>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+        <b:includable id='linkShare'>
+  <b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+        <b:includable id='nextPageLink'>
+  <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:messages.olderPosts'>
+    <data:messages.olderPosts/>
+  </a>
+</b:includable>
+        <b:includable id='otherSharingButton'>
+  <span class='sharing-platform-button sharing-element-other' expr:aria-label='data:messages.shareToOtherApps.escaped' expr:data-url='data:originalUrl' expr:title='data:messages.shareToOtherApps.escaped' role='menuitem' tabindex='-1'>
+    <b:with value='{key: &quot;sharingOther&quot;}' var='platform'>
+      <b:include name='sharingPlatformIcon'/>
+    </b:with>
+    <span class='platform-sharing-text'><data:messages.shareOtherApps.escaped/></span>
+  </span>
+</b:includable>
+        <b:includable id='platformShare'>
+  <a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key' expr:data-url='data:originalUrl' expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:onclick='data:onclick ? data:onclick : &quot;&quot;' expr:title='data:platform.shareMessage' target='_blank'>
+    <span class='share-button-link-text'>
+      <data:platform.shareMessage/>
+    </span>
+  </a>
+</b:includable>
+        <b:includable id='post' var='post'>
+  <div class='post'>
+    <b:include data='post' name='postMeta'/>
+    <b:include data='post' name='postTitle'/>
+    <b:include name='headerByline'/>
+    <b:if cond='data:view.isSingleItem'>
+      <b:include data='post' name='postBody'/>
+    <b:else/>
+      <b:include data='post' name='postBodySnippet'/>
+      <b:include data='post' name='postJumpLink'/>
+    </b:if>
+    <b:include data='post' name='postFooter'/>
+  </div>
+</b:includable>
+        <b:includable id='postAuthor'>
+  <span class='byline post-author vcard'>
+    <span class='post-author-label'>
+      <data:byline.label/>
+    </span>
+    <span class='fn'>
+      <b:if cond='data:post.author.profileUrl'>
+        <meta expr:content='data:post.author.profileUrl'/>
+        <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+          <span><data:post.author.name/></span>
+        </a>
+      <b:else/>
+        <span><data:post.author.name/></span>
+      </b:if>
+    </span>
+  </span>
+</b:includable>
+        <b:includable id='postBody' var='post'>
+  <!-- If metaDescription is empty, use the post body as the schema.org description too, for G+/FB snippeting. -->
+  <div class='post-body entry-content float-container' expr:id='&quot;post-body-&quot; + data:post.id'>
+    <data:post.body/>
+  </div>
+</b:includable>
+        <b:includable id='postBodySnippet' var='post'>
+  <b:include data='post' name='postBody'/>
+</b:includable>
+        <b:includable id='postCommentsAndAd' var='post'>
+  <article class='post-outer-container'>
+    <!-- Post title and body -->
+    <div class='post-outer'>
+      <b:include data='post' name='post'/>
+    </div>
+
+    <!-- Comments -->
+    <b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
+
+    <!-- Show ad inside post container, after comments, if single item. -->
+    <b:include cond='data:view.isSingleItem and data:post.includeAd' data='post' name='inlineAd'/>
+  </article>
+
+  <!-- Show ad outside post container (between posts) for feed pages. -->
+  <b:include cond='data:view.isMultipleItems and data:post.includeAd' data='post' name='inlineAd'/>
+</b:includable>
+        <b:includable id='postCommentsLink'>
+  <b:if cond='data:view.isMultipleItems'>
+    <span class='byline post-comment-link container'>
+      <b:include cond='data:post.commentSource != 1' name='commentsLink'/>
+    </span>
+  </b:if>
+</b:includable>
+        <b:includable id='postFooter' var='post'>
+  <div class='post-footer'>
+    <b:include name='footerBylines'/>
+    <b:include data='post' name='postFooterAuthorProfile'/>
+  </div>
+</b:includable>
+        <b:includable id='postFooterAuthorProfile' var='post'>
+  <b:if cond='data:post.author.aboutMe and data:view.isPost'>
+    <div class='author-profile'>
+      <b:if cond='data:post.author.authorPhoto.url'>
+        <img class='author-image' expr:src='data:post.author.authorPhoto.url' width='50px'/>
+        <div class='author-about'>
+          <b:include data='post' name='aboutPostAuthor'/>
+        </div>
+      <b:else/>
+        <b:include data='post' name='aboutPostAuthor'/>
+      </b:if>
+    </div>
+  </b:if>
+</b:includable>
+        <b:includable id='postHeader' var='post'>
+  <b:include name='headerByline'/>
+</b:includable>
+        <b:includable id='postJumpLink' var='post'>
+  <div class='jump-link flat-button'>
+    <a expr:href='data:post.url fragment &quot;more&quot;' expr:title='data:post.title'>
+      <b:eval expr='data:blog.jumpLinkMessage'/>
+    </a>
+  </div>
+</b:includable>
+        <b:includable id='postLabels'>
+  <span class='byline post-labels'>
+    <span class='byline-label'><data:byline.label/></span>
+    <b:loop index='i' values='data:post.labels' var='label'>
+      <a expr:href='data:label.url' rel='tag'>
+        <data:label.name/>
+      </a>
+    </b:loop>
+  </span>
+</b:includable>
+        <b:includable id='postLocation'>
+  <span class='byline post-location'>
+    <data:byline.label/>
+    <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+  </span>
+</b:includable>
+        <b:includable id='postMeta' var='post'>
+  <b:include data='post' name='postMetadataJSON'/>
+</b:includable>
+        <b:includable id='postMetadataJSONImage'>
+  &quot;image&quot;: {
+    &quot;@type&quot;: &quot;ImageObject&quot;,
+    <b:if cond='data:post.featuredImage.isResizable'>
+    &quot;url&quot;: &quot;<b:eval expr='resizeImage(data:post.featuredImage, 1200, &quot;1200:630&quot;)'/>&quot;,
+    &quot;height&quot;: 630,
+    &quot;width&quot;: 1200
+    <b:else/>
+    &quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/w1200/&quot;,
+    &quot;height&quot;: 348,
+    &quot;width&quot;: 1200
+    </b:if>
+  },
+</b:includable>
+        <b:includable id='postMetadataJSONPublisher'>
+ &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Organization&quot;,
+    &quot;name&quot;: &quot;Blogger&quot;,
+    &quot;logo&quot;: {
+      &quot;@type&quot;: &quot;ImageObject&quot;,
+      &quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/h60/&quot;,
+      &quot;width&quot;: 206,
+      &quot;height&quot;: 60
+    }
+  },
+</b:includable>
+        <b:includable id='postPagination'>
+  <div class='blog-pager container' id='blog-pager'>
+    <b:include cond='data:newerPageUrl' name='previousPageLink'/>
+    <b:include cond='data:olderPageUrl' name='nextPageLink'/>
+    <b:include cond='data:view.url != data:blog.homepageUrl' name='homePageLink'/>
+  </div>
+</b:includable>
+        <b:includable id='postReactions'>
+  <!-- Reaction feature no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+        <b:includable id='postShareButtons'>
+  <div class='byline post-share-buttons goog-inline-block'>
+    <b:with value='data:sharingId ?: ((data:widget.instanceId ?: &quot;sharing&quot;) + &quot;-&quot; + (data:regionName ?: &quot;byline&quot;) + &quot;-&quot; + data:post.id)' var='sharingId'>
+      <!-- Note: 'sharingButtons' includable is from the default Sharing widget markup. -->
+      <b:include data='{                                                sharingId: data:sharingId,                                                originalUrl: data:post.url,                                                platforms: data:this.sharing.platforms,                                                shareUrl: data:post.shareUrl,                                                shareTitle: data:post.title,                                              }' name='sharingButtons'/>
+    </b:with>
+  </div>
+</b:includable>
+        <b:includable id='postTimestamp'>
+  <span class='byline post-timestamp'>
+    <data:byline.label/>
+    <b:if cond='data:post.url'>
+      <meta expr:content='data:post.url.canonical'/>
+      <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
+        <time class='published' expr:datetime='data:post.date.iso8601' expr:title='data:post.date.iso8601'>
+          <data:post.date/>
+        </time>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+        <b:includable id='postTitle' var='post'>
+  <a expr:name='data:post.id'/>
+  <b:if cond='data:post.title != &quot;&quot;'>
+    <h3 class='post-title entry-title'>
+      <b:if cond='data:post.link or (data:post.url and data:view.url != data:post.url)'>
+        <a expr:href='data:post.link ?: data:post.url'><data:post.title/></a>
+      <b:else/>
+        <data:post.title/>
+      </b:if>
+    </h3>
+  </b:if>
+</b:includable>
+        <b:includable id='previousPageLink'>
+  <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:messages.newerPosts'>
+    <data:messages.newerPosts/>
+  </a>
+</b:includable>
+        <b:includable id='sharingButton'>
+  <span expr:aria-label='data:platform.shareMessage' expr:class='&quot;sharing-platform-button sharing-element-&quot; + data:platform.key' expr:data-href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:data-url='data:originalUrl' expr:title='data:platform.shareMessage' role='menuitem' tabindex='-1'>
+    <b:include name='sharingPlatformIcon'/>
+    <span class='platform-sharing-text'><data:platform.name/></span>
+  </span>
+</b:includable>
+        <b:includable id='sharingButtonContent'>
+  <div class='flat-icon-button ripple'>
+    <b:include name='shareIcon'/>
+  </div>
+</b:includable>
+        <b:includable id='sharingButtons'>
+  <div class='sharing' expr:aria-owns='&quot;sharing-popup-&quot; + data:sharingId' expr:data-title='data:shareTitle'>
+    <button class='sharing-button touch-icon-button' expr:aria-controls='&quot;sharing-popup-&quot; + data:sharingId' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-button-&quot; + data:sharingId' role='button'>
+      <b:include name='sharingButtonContent'/>
+    </button>
+    <b:include name='sharingButtonsMenu'/>
+  </div>
+</b:includable>
+        <b:includable id='sharingButtonsMenu'>
+  <div class='share-buttons-container'>
+    <ul aria-hidden='true' class='share-buttons hidden' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-popup-&quot; + data:sharingId' role='menu'>
+      <b:loop values='(data:platforms ?: data:blog.sharing.platforms) filter (p =&gt; p.key not in {&quot;blogThis&quot;})' var='platform'>
+        <li>
+          <b:include name='sharingButton'/>
+        </li>
+      </b:loop>
+      <li aria-hidden='true' class='hidden'>
+        <b:include name='otherSharingButton'/>
+      </li>
+    </ul>
+  </div>
+</b:includable>
+        <b:includable id='sharingPlatformIcon'>
+  <b:include data='{ iconClass: (&quot;touch-icon sharing-&quot; + data:platform.key) }' expr:name='data:platform.key + &quot;Icon&quot;'/>
+</b:includable>
+        <b:includable id='threadedCommentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+        <b:includable id='threadedCommentJs' var='post'>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+  <b:template-script inline='true' name='threaded_comments'/>
+  <script type='text/javascript'>
+    blogger.widgets.blog.initThreadedComments(
+        <data:post.commentJso/>,
+        <data:post.commentMsgs/>,
+        <data:post.commentConfig/>);
+  </script>
+</b:includable>
+        <b:includable id='threadedComments' var='post'>
+  <section class='comments threaded' expr:data-embed='data:post.embedCommentForm' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+
+    <b:include name='commentsTitle'/>
+
+    <div class='comments-content'>
+      <b:if cond='data:post.embedCommentForm'>
+        <b:include data='post' name='threadedCommentJs'/>
+      </b:if>
+      <div id='comment-holder'>
+         <data:post.commentHtml/>
+      </div>
+    </div>
+
+    <p class='comment-footer'>
+      <b:if cond='data:post.allowNewComments'>
+        <b:include data='post' name='threadedCommentForm'/>
+      <b:else/>
+        <data:post.noNewCommentsText/>
+      </b:if>
+      <b:if cond='data:post.showManageComments'>
+        <b:include data='post' name='manageComments'/>
+      </b:if>
+    </p>
+
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+        <b:includable id='tooltipCss'>
+  <!-- LINT.IfChange -->
+  <style>
+    .post-body a.b-tooltip-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip {
+      display: block !important;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-20%, 1px);
+      visibility: hidden;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip iframe {
+      width: 200px;
+      height: 198px;
+      max-width: none;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (hover: hover) {
+      .post-body a.b-tooltip-container:hover .b-tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  </style>
+  <!-- LINT.ThenChange(//depot/google3/java/com/google/blogger/b2/layouts/widgets/v2-style.css) -->
+</b:includable>
+      </b:widget>
+    </b:section>
+
+    <div class='chat-container'>
+        <aside class='sidebar-panel' id='sidebarPanel'>
+            <div class='sidebar-header'>
+                <div><h3><i class='fas fa-robot'/>Ask Bangla AI</h3><div class='sidebar-subtitle'>স&#2509;ম&#2494;র&#2509;ট প&#2509;রশ&#2509;ন&#2507;ত&#2509;তর বট</div></div>
+                <button class='close-sidebar-btn' onclick='toggleSidebar()'><i class='fas fa-times'/></button>
+            </div>
+            <div class='knowledge-summary'>📊 ম&#2507;ট <span id='totalQA'>0</span> ট&#2495; প&#2509;রশ&#2509;ন-উত&#2509;তর</div>
+            <div class='category-list' id='categoryList'>
+                <div class='category-label'>📂 ব&#2495;ষয&#2492; সম&#2498;হ</div>
+            </div>
+            <button class='admin-btn' onclick='openAdminPanel()'><i class='fas fa-crown'/> অ&#2509;য&#2494;ডম&#2495;ন প&#2509;য&#2494;ন&#2503;ল <span class='badge' id='adminPendingCount'>0</span></button>
+        </aside>
+
+        <main class='main-chat'>
+            <header class='chat-header'>
+                <button class='menu-toggle' onclick='toggleSidebar()'><i class='fas fa-bars'/></button>
+                <div class='header-info'><span class='current-category' id='currentCategory'>স&#2494;ধ&#2494;রণ জ&#2495;জ&#2509;ঞ&#2494;স&#2494;</span><span class='status-indicator'><span class='status-dot'/> অনল&#2494;ইন</span></div>
+                <div class='header-actions'>
+                    <button class='icon-btn' onclick='searchInChat()' title='সার্চ (Ctrl+F)'><i class='fas fa-search'/></button>
+                    <button class='icon-btn' onclick='exportChat()' title='ডাউনলোড (Ctrl+S)'><i class='fas fa-download'/></button>
+                    <button class='icon-btn danger' onclick='clearChat()' title='চ্যাট ক্লিয়ার'><i class='fas fa-trash-alt'/></button>
+                    <button class='icon-btn' id='themeToggleBtn' onclick='toggleDarkMode()' title='থিম (Ctrl+D)'><i class='fas fa-moon' id='themeIcon'/></button>
+                    <button class='pending-badge' onclick='openAdminPanel()'><i class='fas fa-clock'/> <span class='count' id='pendingCount'>0</span></button>
+                </div>
+            </header>
+
+            <div class='messages-container' id='messagesContainer'>
+                <div class='welcome-section' id='welcomeSection'>
+                    <div class='welcome-icon'>🤖</div>
+                    <h2 class='welcome-title'>স&#2509;ব&#2494;গতম! আম&#2495; আপন&#2494;র AI সহ&#2494;য&#2492;ক</h2>
+                    <p class='welcome-subtitle'>🧠 ওয&#2492;&#2509;য&#2494;র&#2509;ড ম&#2509;য&#2494;চ&#2495;&#2434; &#8226; 🎤 ভয&#2492;&#2503;স &#8226; 🌙 ড&#2494;র&#2509;ক ম&#2507;ড &#8226; 📂 অট&#2507; ক&#2509;য&#2494;ট&#2494;গর&#2495; &#8226; 🗑&#65039; চ&#2509;য&#2494;ট ড&#2495;ল&#2495;ট</p>
+                    <div class='feature-grid'>
+                        <div class='feature-card'><span class='feature-icon'>🧠</span><span class='feature-text'>ওয&#2492;&#2509;য&#2494;র&#2509;ড ম&#2509;য&#2494;চ&#2495;&#2434;</span></div>
+                        <div class='feature-card'><span class='feature-icon'>📂</span><span class='feature-text'>অট&#2507; ক&#2509;য&#2494;ট&#2494;গর&#2495;</span></div>
+                        <div class='feature-card'><span class='feature-icon'>🎤</span><span class='feature-text'>ভয&#2492;&#2503;স ইনপ&#2497;ট</span></div>
+                        <div class='feature-card'><span class='feature-icon'>📚</span><span class='feature-text'>শ&#2503;খ&#2494;র ক&#2509;ষমত&#2494;</span></div>
+                    </div>
+                    <div class='quick-actions'>
+                        <button class='subject-chip' onclick='askQuestion(&apos;আপনি কীভাবে কাজ করেন?&apos;)'>🤔 ক&#2495;ভ&#2494;ব&#2503; ক&#2494;জ কর&#2495;?</button>
+                        <button class='subject-chip' onclick='askQuestion(&apos;বাংলাদেশের রাজধানী কী?&apos;)'>🇧🇩 ব&#2494;&#2434;ল&#2494;দ&#2503;শ</button>
+                        <button class='subject-chip' onclick='askQuestion(&apos;পাইথন কী?&apos;)'>🐍 প&#2494;ইথন</button>
+                        <button class='subject-chip' onclick='showHelp()'>&#10067; স&#2494;হ&#2494;য&#2509;য</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class='input-container'>
+                <div class='suggestion-dropdown' id='suggestionDropdown'/>
+                <div class='input-row'>
+                    <div class='input-wrapper' id='inputWrapper'>
+                        <i class='fas fa-pen'/>
+                        <input autocomplete='off' id='userInput' placeholder='এখানে আপনার প্রশ্ন লিখুন...' type='text'/>
+                        <button class='voice-btn' id='voiceBtn' onclick='toggleVoiceInput()' title='কথা বলে প্রশ্ন করুন'><i class='fas fa-microphone'/></button>
+                    </div>
+                    <button class='send-btn' onclick='handleSend()'><i class='fas fa-paper-plane'/></button>
+                </div>
+                <div class='input-hint'>Enter প&#2494;ঠ&#2494;ন &#8226; Ctrl+D থ&#2495;ম &#8226; Ctrl+F স&#2494;র&#2509;চ &#8226; Ctrl+Del চ&#2509;য&#2494;ট ক&#2509;ল&#2495;য&#2492;&#2494;র</div>
+            </div>
+        </main>
+    </div>
+
+    <div class='help-tooltip' id='helpTooltip' style='display:none;'>
+        <button class='close-tip' onclick='hideHelp()'>&#10005;</button>
+        <div class='tip-icon'>💡</div>
+        <strong>ক&#2495;ভ&#2494;ব&#2503; ব&#2509;যবহ&#2494;র করব&#2503;ন:</strong><br/><br/>
+        &#9989; হ&#2509;য&#2494;&#2433;/ন&#2494;/আব&#2494;র/শ&#2503;খ&#2494;ন ব&#2494;টন<br/>
+        📂 অজ&#2494;ন&#2494; প&#2509;রশ&#2509;ন&#2503;র ক&#2509;য&#2494;ট&#2494;গর&#2495; ব&#2494;ছ&#2497;ন<br/>
+        🗑&#65039; Ctrl+Delete দ&#2495;য&#2492;&#2503; চ&#2509;য&#2494;ট ক&#2509;ল&#2495;য&#2492;&#2494;র<br/>
+        🎤 ম&#2494;ইক&#2503; ক&#2509;ল&#2495;ক কর&#2503; কথ&#2494; বল&#2497;ন<br/>
+        🌙 Ctrl+D দ&#2495;য&#2492;&#2503; ড&#2494;র&#2509;ক ম&#2507;ড
+    </div>
+
+    <div class='modal-overlay' id='adminModal'>
+        <div class='modal-content'>
+            <h2><i class='fas fa-crown'/> অ&#2509;য&#2494;ডম&#2495;ন প&#2509;য&#2494;ন&#2503;ল</h2>
+            <div id='pendingQuestionsList'/>
+            <button class='close-modal-btn' onclick='closeAdminPanel()'><i class='fas fa-times'/> বন&#2509;ধ কর&#2497;ন</button>
+        </div>
+    </div>
+<script type='text/javascript'>
+// <![CDATA[
+(function() {
+    'use strict';
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznDXojF_XNAbx4Nx97qrsDKsCsEE3Z-AdxlHRNJKXBjP3szuR2saIUZ0rg4T1obq-R/exec";
+    
+    // ====== প্রিডিফাইন সংলাপ ======
+    const PREDEFINED_QA = {
+        'general': {
+            'আসসালামু আলাইকুম': 'ওয়ালাইকুম আসসালাম! 😊 কেমন আছেন? আমি আপনার সাহায্যের জন্য প্রস্তুত আছি।',
+            'আসসালামুয়ালাইকুম': 'ওয়ালাইকুম আসসালাম! 😊 কীভাবে সাহায্য করতে পারি?',
+            'সালাম': 'ওয়ালাইকুম সালাম! 🌸 কেমন আছেন?',
+            'হ্যালো': 'হ্যালো! 👋 আমি আপনার AI সহায়ক। কীভাবে সাহায্য করতে পারি?',
+            'হাই': 'হাই! 😊 কেমন আছেন? আপনার জন্য কী করতে পারি?',
+            'হেই': 'হেই! 👋 বলুন, কী জানতে চান?',
+            'কেমন আছেন': 'আমি সবসময় ভালো আছি! 😊 আপনি কেমন আছেন?',
+            'কেমন আছো': 'আমি ভালো আছি! 🌟 আপনার খবর কী?',
+            'ভালো আছেন': 'জি, আলহামদুলিল্লাহ ভালো আছি! আপনার কী খবর?',
+            'তুমি কেমন আছো': 'আমি দারুণ আছি! 🤖 আপনার দিন কেমন যাচ্ছে?',
+            'আপনার খবর কী': 'আমার তো খবর ভালোই! প্রতিনিয়ত নতুন কিছু শিখছি। 📚 আপনার কী খবর?',
+            'তোমার নাম কী': 'আমার নাম AI সহায়ক! 🤖 আপনাকে সাহায্য করাই আমার কাজ। আপনার নাম কী?',
+            'তোমার নাম কি': 'আমি একটি বুদ্ধিমান চ্যাটবট। আমাকে AI সহায়ক নামে ডাকা হয়। 😊 আপনার নাম জানতে পারি?',
+            'তুমি কে': 'আমি আপনার ব্যক্তিগত AI সহায়ক! 🤖 প্রশ্নের উত্তর দেওয়া, নতুন কিছু শেখা আর আড্ডা দেওয়াই আমার কাজ।',
+            'ধন্যবাদ': 'আপনাকে স্বাগতম! 😊 আবার প্রশ্ন থাকলে জানাবেন।',
+            'থ্যাংক ইউ': 'ইউ আর ওয়েলকাম! 🌸 আর কিছু জানতে চাইলে বলুন।',
+            'থ্যাংকস': 'ওয়েলকাম! 😊 সাহায্য করতে পেরে খুশি হলাম।',
+            'আল্লাহ হাফেজ': 'আল্লাহ হাফেজ! 🤲 আপনার দিন শুভ হোক।',
+            'খোদা হাফেজ': 'খোদা হাফেজ! 🌙 ভালো থাকবেন।',
+            'বিদায়': 'বিদায়! 👋 আবার আসবেন। আপনার জন্য সবসময় প্রস্তুত আছি।',
+            'বাই': 'বাই! 😊 ভালো থাকবেন। আবার কথা হবে!',
+            'টাটা': 'টাটা! 👋 আসতে থাকুন, প্রশ্ন করতে থাকুন!',
+            'তুমি কি করতে পারো': 'আমি অনেক কিছু করতে পারি! 🌟<br/><br/>• প্রশ্নের উত্তর দিতে পারি<br/>• নতুন কিছু শিখতে পারি<br/>• বিভিন্ন বিষয়ে আলোচনা করতে পারি<br/>• আপনার সাথে আড্ডা দিতে পারি<br/><br/>কী জানতে চান?',
+            'তোমার বয়স কত': 'আমি ডিজিটাল, তাই আমার কোনো বয়স নেই! 🤖<br/><br/>তবে আমি সবসময় নতুন জিনিস শিখে নিজেকে আপডেট রাখি।',
+            'তুমি কোথায় থাকো': 'আমি ক্লাউডে থাকি! ☁️ ইন্টারনেট যেখানে, আমিও সেখানে।',
+            'তুমি কি মানুষ': 'না, আমি মানুষ নই। আমি একটি AI চ্যাটবট! 🤖<br/><br/>কিন্তু আমি মানুষের মতোই কথা বলতে ও বুঝতে পারি।',
+            'তুমি কি খাও': 'আমি ডাটা খাই! 📊 নতুন তথ্য আর প্রশ্ন-উত্তরই আমার খাবার। 😄',
+            'তুমি খুব ভালো': 'অনেক ধন্যবাদ! 😊 আপনার মতো ইউজার পেয়ে আমিও খুশি।',
+            'তুমি সুন্দর': 'থ্যাংক ইউ! 🌸 আপনি খুব সুন্দর করে কথা বলেন।',
+            'তুমি অনেক স্মার্ট': 'ধন্যবাদ! 🧠 আমি প্রতিনিয়ত শিখছি, আর আপনাদের জন্যই এটা সম্ভব।',
+            'গ্রেট': 'থ্যাংকস! 🌟 আর কী জানতে চান?',
+            'অসাধারণ': 'ধন্যবাদ! 😊 আপনার প্রশ্নও দারুণ!',
+            'নাইস': 'থ্যাংক ইউ! 🌸 চালিয়ে যান!',
+            'কেমন আছ': 'ভালো আছি! 😊 আপনি কেমন আছেন?',
+            'কি করছ': 'আপনার সাথে কথা বলছি! 😄 আর নতুন কিছু শেখার জন্য প্রস্তুত আছি।',
+            'আমি ভালো আছি': 'জেনে খুব ভালো লাগলো! 🌸 আমি কীভাবে সাহায্য করতে পারি?',
+            'আমি ভালো নেই': 'ওহ, শুনে খারাপ লাগলো। 😔 কোনো সমস্যা থাকলে শেয়ার করুন, হয়তো সাহায্য করতে পারি।',
+            'আমি মন খারাপ': 'আমি আছি আপনার সাথে! 🤗 কিছু বলতে চাইলে বলুন, মন হালকা হবে।',
+            'আমি খুশি': 'দারুণ! 😊 খুশি থাকুন, হাসতে থাকুন! জীবন সুন্দর।',
+            'আমি বিরক্ত': 'বিরক্ত হলে আমার সাথে গল্প করুন! 😄 নতুন কিছু জিজ্ঞাসা করুন, সময় ভালো কাটবে।',
+            'কি খবর': 'খবর তো ভালোই! 📰 তবে আপনার খবর জানতে বেশি আগ্রহী।',
+            'কী অবস্থা': 'অবস্থা চমৎকার! 😎 আপনার কী অবস্থা?',
+            'কি হচ্ছে': 'আপনার সাথে গল্প হচ্ছে! 😄 আর কী হচ্ছে?',
+            'জোক বলো': 'আমি জোক তেমন পারি না, তবে চেষ্টা করি! 😅<br/><br/>কম্পিউটার কেন ডাক্তারের কাছে গেল?<br/>কারণ তার ভাইরাস হয়েছিল! 🦠😂',
+            'কবিতা বলো': 'আমি কবি নই, তবে আপনার জন্য ছোট্ট কিছু লিখি! ✍️<br/><br/>"নতুন দিনের আলোয় জাগে<br/>স্বপ্ন গুলো ডানা মেলে<br/>জীবনটা হোক রঙিন<br/>ভালোবাসায় ভরা থাকে।" 🌸'
+        }
+    };
+
+    // ====== রিয়েল টাইম তারিখ ও সময় ======
+    function getRealTimeDateTime() {
+        const now = new Date();
+        const englishDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const englishMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const englishFull = `${englishDays[now.getDay()]}, ${now.getDate()} ${englishMonths[now.getMonth()]} ${now.getFullYear()}`;
+        const englishTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+        const banglaDays = ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার'];
+        const banglaMonths = ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'];
+        const banglaSeasons = ['শীত', 'শীত', 'বসন্ত', 'বসন্ত', 'বসন্ত', 'গ্রীষ্ম', 'গ্রীষ্ম', 'গ্রীষ্ম', 'বর্ষা', 'বর্ষা', 'শরৎ', 'হেমন্ত'];
+        const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+        function toBanglaNum(num) { return num.toString().split('').map(d => banglaDigits[parseInt(d)] || d).join(''); }
+        const banglaFull = `${banglaDays[now.getDay()]}, ${toBanglaNum(now.getDate())} ${banglaMonths[now.getMonth()]} ${toBanglaNum(now.getFullYear())}`;
+        const banglaTime = now.toLocaleTimeString('bn-BD', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+        const hijriMonths = ['মুহাররম', 'সফর', 'রবিউল আউয়াল', 'রবিউস সানি', 'জুমাদাল উলা', 'জুমাদাস সানি', 'রজব', 'শাবান', 'রমজান', 'শাওয়াল', 'জিলকদ', 'জিলহজ'];
+        const hijriEpoch = new Date(2024, 6, 7);
+        const diffDays = Math.floor((now - hijriEpoch) / (1000 * 60 * 60 * 24));
+        let hijriYear = 1446, remainingDays = diffDays;
+        if (remainingDays < 0) { hijriYear = 1445; remainingDays = 354 + remainingDays; }
+        let hijriMonth = 0;
+        const hijriMonthDays = [30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29];
+        for (let i = 0; i < 12; i++) { if (remainingDays < hijriMonthDays[i]) break; remainingDays -= hijriMonthDays[i]; hijriMonth++; }
+        if (hijriMonth >= 12) { hijriMonth = 0; hijriYear++; }
+        const hijriFull = `${remainingDays + 1} ${hijriMonths[hijriMonth]} ${hijriYear} হিজরি`;
+        const hours = now.getHours();
+        let prayerTime = '';
+        if (hours >= 5 && hours < 7) prayerTime = 'ফজর';
+        else if (hours >= 12 && hours < 15) prayerTime = 'যোহর';
+        else if (hours >= 15 && hours < 17) prayerTime = 'আসর';
+        else if (hours >= 17 && hours < 19) prayerTime = 'মাগরিব';
+        else if (hours >= 19 || hours < 5) prayerTime = 'ইশা';
+        return { english: { date: englishFull, time: englishTime }, bangla: { date: banglaFull, time: banglaTime, season: banglaSeasons[now.getMonth()] }, arabic: { date: hijriFull }, prayer: prayerTime };
+    }
+
+    const CATEGORY_ICONS = {
+        'general': { icon: 'fa-globe', color: 'linear-gradient(135deg,#6366f1,#8b5cf6)', name: 'সাধারণ জিজ্ঞাসা' },
+        'technology': { icon: 'fa-microchip', color: 'linear-gradient(135deg,#10b981,#34d399)', name: 'প্রযুক্তি' },
+        'education': { icon: 'fa-graduation-cap', color: 'linear-gradient(135deg,#f59e0b,#fbbf24)', name: 'শিক্ষা' },
+        'health': { icon: 'fa-heartbeat', color: 'linear-gradient(135deg,#f43f5e,#fb7185)', name: 'স্বাস্থ্য' },
+        'science': { icon: 'fa-flask', color: 'linear-gradient(135deg,#8b5cf6,#a78bfa)', name: 'বিজ্ঞান' }
+    };
+    
+    let knowledgeBase = {}, pendingQuestions = [], currentCategory = 'general';
+    let waitingForAnswer = false, lastQuestion = '', isProcessing = false;
+    let currentMatches = [], currentMatchIndex = 0, currentUserQuestion = '';
+    let pendingCategorySelection = null;
+    let recognition, isListening = false;
+    let questionViewerState = { currentCategory: 'general', currentPage: 1, perPage: 10, totalQuestions: 0, totalPages: 0 };
+
+    // ====== INIT ======
+    function init() {
+        console.log('🚀 শুরু...');
+        const toastStyle = document.createElement('style');
+        toastStyle.textContent = `@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}@keyframes toastOut{from{opacity:1;transform:translateX(-50%) translateY(0)}to{opacity:0;transform:translateX(-50%) translateY(-20px)}}`;
+        document.head.appendChild(toastStyle);
+        loadJSPDF().catch(() => {});
+        loadHTML2Canvas().catch(() => {});
+        initPredefinedQA();
+        loadFromLocalStorage();
+        setupCategoryListeners();
+        updatePendingCount();
+        updateOnlineStatus();
+        updateKnowledgeStats();
+        renderCategoryList();
+        setupAutoSuggest();
+        setupKeyboardShortcuts();
+        loadThemePreference();
+        loadFromSheet();
+        if (window.innerWidth <= 768) document.getElementById('sidebarPanel').classList.add('collapsed');
+        if (!localStorage.getItem('chatbot_help_shown')) { setTimeout(showHelp, 2000); localStorage.setItem('chatbot_help_shown', 'true'); }
+    }
+
+    function initPredefinedQA() {
+        for (let cat in PREDEFINED_QA) {
+            if (!knowledgeBase[cat]) knowledgeBase[cat] = {};
+            for (let q in PREDEFINED_QA[cat]) knowledgeBase[cat][normalizeText(q)] = PREDEFINED_QA[cat][q];
+        }
+        saveToLocalStorage();
+    }
+
+    function getAllCategories() {
+        const cats = new Set(['general', 'technology', 'education', 'health', 'science']);
+        for (let cat in knowledgeBase) cats.add(cat);
+        for (let p of pendingQuestions) if (p.category) cats.add(p.category);
+        return Array.from(cats);
+    }
+
+    function getQuestionsByCategory(category) {
+        const questions = [];
+        if (knowledgeBase[category]) for (let q in knowledgeBase[category]) questions.push({ question: q, answer: knowledgeBase[category][q], category: category });
+        return questions;
+    }
+
+    function renderCategoryList() {
+        const container = document.getElementById('categoryList');
+        let html = '<div class="category-label">📂 বিষয় সমূহ</div>';
+        getAllCategories().forEach(cat => {
+            const info = CATEGORY_ICONS[cat] || { icon: 'fa-folder', color: 'linear-gradient(135deg,#6366f1,#8b5cf6)', name: cat };
+            html += `<div class="category-item${cat === currentCategory ? ' active' : ''}" data-category="${cat}"><span class="icon" style="background:${info.color}"><i class="fas ${info.icon}"/></span><span>${info.name}</span><span class="category-stats" onclick="event.stopPropagation();viewCategoryQuestions('${cat}')" title="সব প্রশ্ন দেখুন">${knowledgeBase[cat] ? Object.keys(knowledgeBase[cat]).length : 0}</span></div>`;
+        });
+        html += `<div style="padding:8px 0;margin-top:4px;border-top:1px solid rgba(255,255,255,0.1);"><button class="admin-btn" onclick="viewAllCategoriesQA()" style="margin:8px 4px;width:calc(100% - 8px);background:linear-gradient(135deg,#6366f1,#8b5cf6);font-size:0.85rem;"><i class="fas fa-database"></i> সব প্রশ্ন দেখুন</button><div style="display:flex;gap:6px;padding:0 4px;"><button onclick="downloadAllCategoriesPDF()" style="flex:1;padding:10px;background:#f43f5e;color:white;border:none;border-radius:12px;cursor:pointer;font-size:0.75rem;font-weight:600;"><i class="fas fa-file-pdf"></i> PDF</button><button onclick="exportAllQAAsText()" style="flex:1;padding:10px;background:#10b981;color:white;border:none;border-radius:12px;cursor:pointer;font-size:0.75rem;font-weight:600;"><i class="fas fa-file-alt"></i> TXT</button><button onclick="printAllQA()" style="flex:1;padding:10px;background:#f59e0b;color:white;border:none;border-radius:12px;cursor:pointer;font-size:0.75rem;font-weight:600;"><i class="fas fa-print"></i> প্রিন্ট</button></div></div>`;
+        container.innerHTML = html;
+        setupCategoryListeners();
+    }
+
+    function setupCategoryListeners() {
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                if (waitingForAnswer) { waitingForAnswer = false; lastQuestion = ''; currentMatches = []; currentMatchIndex = 0; }
+                pendingCategorySelection = null;
+                currentCategory = this.dataset.category;
+                document.getElementById('currentCategory').textContent = this.querySelector('span:not(.icon):not(.category-stats)').textContent.trim();
+                showCategoryGreeting();
+                if (window.innerWidth <= 768) document.getElementById('sidebarPanel').classList.add('collapsed');
+            });
+            item.addEventListener('dblclick', function(e) { e.preventDefault(); viewCategoryQuestions(this.dataset.category); });
+            const statsEl = item.querySelector('.category-stats');
+            if (statsEl) { statsEl.style.cursor = 'pointer'; statsEl.title = 'সব প্রশ্ন দেখতে ক্লিক করুন'; }
+        });
+    }
+
+    window.clearChat = function() {
+        if (confirm('🗑️ সম্পূর্ণ চ্যাট মুছে ফেলতে চান?')) {
+            document.getElementById('messagesContainer').innerHTML = `<div class="welcome-section"><div class="welcome-icon">🤖</div><h2 class="welcome-title">চ্যাট ক্লিয়ার!</h2><p class="welcome-subtitle">নতুন প্রশ্ন করুন!</p><div class="quick-actions"><button class="subject-chip" onclick='askQuestion("আপনি কীভাবে কাজ করেন?")'>🤔 কীভাবে কাজ করি?</button><button class="subject-chip" onclick='showHelp()'>❓ সাহায্য</button></div></div>`;
+            waitingForAnswer = false; lastQuestion = ''; currentMatches = []; currentMatchIndex = 0; pendingCategorySelection = null;
+        }
+    };
+
+    function showCategorySelection(question) {
+        const allCats = getAllCategories();
+        let html = `🤔 <strong>"${question}"</strong> - কোন বিষয়ের অন্তর্গত?<br/><br/><div class="category-btns">`;
+        allCats.forEach(cat => { const info = CATEGORY_ICONS[cat] || { icon: 'fa-folder', name: cat }; html += `<button class="category-btn" onclick="selectCategoryForPending('${cat.replace(/'/g, "\\'")}')"><span class="cat-icon"><i class="fas ${info.icon}"></i></span> ${info.name}</button>`; });
+        html += `</div><br/><div class="smart-response-btns"><button class="smart-btn skip-btn-style" onclick="skipCategorySelection()"><i class="fas fa-forward"></i> স্কিপ করুন</button></div>`;
+        addBotMessage(html);
+    }
+
+    window.selectCategoryForPending = function(cat) {
+        pendingCategorySelection = cat; currentCategory = cat;
+        document.getElementById('currentCategory').textContent = (CATEGORY_ICONS[cat] || { name: cat }).name;
+        if (!knowledgeBase[cat]) knowledgeBase[cat] = {};
+        if (!CATEGORY_ICONS[cat]) CATEGORY_ICONS[cat] = { icon: 'fa-folder', color: 'linear-gradient(135deg,#6366f1,#8b5cf6)', name: cat };
+        renderCategoryList(); updateKnowledgeStats();
+        addBotMessage(`✅ <strong>"${(CATEGORY_ICONS[cat] || { name: cat }).name}"</strong> ক্যাটাগরি সিলেক্ট হয়েছে।`);
+        saveAsPendingWithCategory(currentUserQuestion, cat);
+    };
+
+    window.skipCategorySelection = function() { pendingCategorySelection = null; addBotMessage('👌 সাধারণ ক্যাটাগরিতে সংরক্ষণ করছি।'); saveAsPendingWithCategory(currentUserQuestion, 'general'); };
+
+    async function saveAsPendingWithCategory(question, cat) {
+        await saveToSheet('addPending', cat, question, '');
+        pendingQuestions.push({ category: cat, question, timestamp: new Date().toISOString() });
+        savePendingToLocal(); updatePendingCount();
+        waitingForAnswer = true; lastQuestion = question;
+        addBotMessage(`<div class="smart-response-btns"><button class="smart-btn teach-btn" onclick="handleSmartTeach()"><i class="fas fa-chalkboard-teacher"></i> তুমি জানলে উত্তর দাও</button><button class="smart-btn skip-btn-style" onclick="handleSmartRetry()"><i class="fas fa-forward"></i> স্কিপ করে নতুন প্রশ্ন</button></div>`);
+    }
+
+    function loadThemePreference() { if (localStorage.getItem('chatbot_theme') === 'dark') { document.body.classList.add('dark-mode'); const icon = document.getElementById('themeIcon'); if (icon) icon.className = 'fas fa-sun'; } }
+    window.toggleDarkMode = function() { const isDark = document.body.classList.toggle('dark-mode'); const icon = document.getElementById('themeIcon'); if (isDark) { if(icon) icon.className = 'fas fa-sun'; localStorage.setItem('chatbot_theme', 'dark'); } else { if(icon) icon.className = 'fas fa-moon'; localStorage.setItem('chatbot_theme', 'light'); } };
+
+    window.toggleVoiceInput = function() {
+        const btn = document.getElementById('voiceBtn'), icon = btn?.querySelector('i'), input = document.getElementById('userInput');
+        if (!recognition) { const SR = window.SpeechRecognition || window.webkitSpeechRecognition; if (!SR) { alert('ভয়েস সাপোর্ট করে না।'); return; } recognition = new SR(); recognition.lang = 'bn-BD'; recognition.interimResults = true; recognition.onstart = () => { isListening = true; if(btn) btn.classList.add('listening'); if(icon) icon.className = 'fas fa-microphone-alt'; if(input) input.placeholder = '🎤 শুনছি...'; }; recognition.onresult = (e) => { let t = ''; for (let i = e.resultIndex; i < e.results.length; i++) t += e.results[i][0].transcript; if(input) { input.value = t; input.focus(); } }; recognition.onerror = () => { resetVoice(btn,icon,input); }; recognition.onend = () => { resetVoice(btn,icon,input); }; }
+        if (isListening) { recognition.stop(); resetVoice(btn,icon,input); } else { recognition.start(); }
+    };
+    function resetVoice(btn, icon, input) { isListening = false; if(btn) btn.classList.remove('listening'); if(icon) icon.className = 'fas fa-microphone'; if(input) input.placeholder = 'এখানে আপনার প্রশ্ন লিখুন...'; }
+
+    function setupKeyboardShortcuts() {
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'd') { e.preventDefault(); toggleDarkMode(); }
+            if ((e.ctrlKey || e.metaKey) && e.key === 'f') { e.preventDefault(); searchInChat(); }
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); exportChat(); }
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Delete') { e.preventDefault(); clearChat(); }
+            if (e.key === 'Escape') { if (document.getElementById('adminModal').classList.contains('active')) closeAdminPanel(); else document.getElementById('sidebarPanel').classList.add('collapsed'); }
+            if ((e.ctrlKey || e.metaKey) && e.key === '/') { e.preventDefault(); showHelp(); }
+        });
+    }
+
+    window.searchInChat = function() { const term = prompt('🔍 কী সার্চ করতে চান?'); if (!term) return; const msgs = document.querySelectorAll('.message-bubble'); msgs.forEach(m => { m.style.background = ''; m.style.border = ''; }); let count = 0; msgs.forEach(m => { if (m.innerText.toLowerCase().includes(term.toLowerCase())) { m.style.background = '#fef3c7'; m.style.border = '2px solid #f59e0b'; if (count === 0) m.scrollIntoView({ behavior: 'smooth', block: 'center' }); count++; } }); addBotMessage(count > 0 ? `🔍 "${term}" এর ${count} টি ফলাফল।` : `🔍 "${term}" পাওয়া যায়নি।`); };
+    window.exportChat = function() { const msgs = document.querySelectorAll('.message-bubble'); let text = '🤖 AI Chatbot Export\n' + '='.repeat(45) + '\nতারিখ: ' + new Date().toLocaleDateString('bn-BD') + '\n\n'; msgs.forEach(m => { const isUser = m.closest('.message-row').classList.contains('user'); text += (isUser ? '👤 আপনি: ' : '🤖 বট: ') + m.innerText.replace(/কপি/g,'').trim() + '\n\n'; }); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' })); a.download = 'chat-' + new Date().toISOString().slice(0,10) + '.txt'; a.click(); addBotMessage('📤 ডাউনলোড হয়েছে!'); };
+
+    function setupAutoSuggest() {
+        const input = document.getElementById('userInput'), dropdown = document.getElementById('suggestionDropdown');
+        input.addEventListener('input', function() { const q = this.value.trim(); if (q.length < 2) { dropdown.style.display = 'none'; return; } const sugs = [], nq = normalizeText(q); for (let cat in knowledgeBase) for (let k in knowledgeBase[cat]) if (k.includes(nq) || nq.split(' ').some(w => k.includes(w))) sugs.push({ q: k, cat }); pendingQuestions.forEach(p => { if (normalizeText(p.question).includes(nq)) sugs.push({ q: p.question, cat: p.category, pending: true }); }); if (sugs.length > 0) { dropdown.innerHTML = sugs.slice(0, 5).map(s => `<div class="suggestion-item" onclick="selectSuggestion('${s.q.replace(/'/g,"\\'")}')">${s.q}<span class="sugg-cat">${(CATEGORY_ICONS[s.cat]||{name:s.cat}).name}${s.pending?' ⏳':''}</span></div>`).join(''); dropdown.style.display = 'block'; } else dropdown.style.display = 'none'; });
+        input.addEventListener('blur', () => setTimeout(() => dropdown.style.display = 'none', 200));
+        input.addEventListener('focus', function() { if (this.value.trim().length >= 2 && dropdown.children.length > 0) dropdown.style.display = 'block'; });
+    }
+    window.selectSuggestion = function(q) { document.getElementById('userInput').value = q; document.getElementById('suggestionDropdown').style.display = 'none'; document.getElementById('userInput').focus(); handleSend(); };
+
+    function updateKnowledgeStats() { let total = 0; getAllCategories().forEach(cat => { total += knowledgeBase[cat] ? Object.keys(knowledgeBase[cat]).length : 0; }); document.getElementById('totalQA').textContent = total; }
+    function updateOnlineStatus() { const d = document.querySelector('.status-dot'), t = document.querySelector('.status-indicator'); if (navigator.onLine) { if(d) d.style.background='#10b981'; if(t) t.innerHTML='<span class="status-dot"></span> অনলাইন'; } else { if(d) d.style.background='#f59e0b'; if(t) t.innerHTML='<span class="status-dot" style="background:#f59e0b"></span> অফলাইন'; } }
+    window.addEventListener('online', updateOnlineStatus); window.addEventListener('offline', updateOnlineStatus);
+    window.toggleSidebar = function() { const s = document.getElementById('sidebarPanel'); s.classList.toggle('collapsed'); if (window.innerWidth <= 768) s.style.boxShadow = s.classList.contains('collapsed') ? 'none' : '0 0 80px rgba(0,0,0,0.6)'; };
+    function showCategoryGreeting() { const g = { 'general': '👋 সাধারণ জিজ্ঞাসায় স্বাগতম!', 'technology': '💻 প্রযুক্তি বিভাগে স্বাগতম!', 'education': '📚 শিক্ষা বিভাগে স্বাগতম!', 'health': '🏥 স্বাস্থ্য বিভাগে স্বাগতম!', 'science': '🔬 বিজ্ঞান বিভাগে স্বাগতম!' }; addBotMessage(g[currentCategory] || `📂 "${currentCategory}" বিভাগে স্বাগতম!`); }
+    window.showHelp = function() { const t = document.getElementById('helpTooltip'); t.innerHTML = `<button class="close-tip" onclick="hideHelp()">✕</button><div class="tip-icon">💡</div><strong>টেক্সট/ভয়েস কমান্ড:</strong><br/><br/>📂 <strong>ক্যাটাগরি:</strong><br/>"সাধারণ ক্যাটাগরিতে যাও"<br/>"প্রযুক্তি ক্যাটাগরি"<br/>"কি কি ক্যাটাগরি আছে"<br/><br/>📋 <strong>প্রশ্ন দেখা:</strong><br/>"প্রযুক্তির সব প্রশ্ন দেখাও"<br/>"সব প্রশ্ন দেখাও"<br/><br/>📥 <strong>ডাউনলোড:</strong><br/>"সাধারণের পিডিএফ দাও"<br/>"সব ক্যাটাগরির পিডিএফ"<br/><br/>🖨️ <strong>প্রিন্ট:</strong><br/>"প্রশ্ন প্রিন্ট করো"`; t.style.display='block'; t.style.animation='fadeInUp 0.5s ease'; clearTimeout(window._ht); window._ht = setTimeout(hideHelp, 12000); };
+    window.hideHelp = function() { const t = document.getElementById('helpTooltip'); t.style.animation='fadeIn 0.3s ease reverse'; setTimeout(() => t.style.display='none', 300); };
+    function normalizeText(text) { return text.toString().toLowerCase().trim().replace(/[?।!.,]/g, '').replace(/\s+/g, ' '); }
+    function getWords(text) { return normalizeText(text).split(/\s+/).filter(w => w.length > 1).filter(w => !isStopWord(w)); }
+    function isStopWord(word) { const sw = ['একটি','একটা','এই','ওই','এবং','অথবা','কি','কী','যে','যা','হয়','ছে','ছি','তে','র','ের','কে','the','a','an','is','are','was','were','of','in','on','at','to','for','with','আমি','তুমি','আপনি','সে','তা','তারা','আমার','তোমার','তার','এইটা','ওইটা','করে','করেন','হবে','থাকে','থাকেন']; return sw.includes(word); }
+    function getWordMatchScore(ut, sq) { const uw = getWords(ut), sw = getWords(sq); if (!uw.length || !sw.length) return 0; let mc = 0; for (let a of uw) for (let b of sw) { if (a === b) { mc++; break; } else if (a.length >= 3 && b.length >= 3 && (b.includes(a) || a.includes(b))) { mc += 0.5; break; } } return uw.length > 0 ? mc / uw.length : 0; }
+    function findBestMatch(q) { const all = []; for (let cat in knowledgeBase) for (let k in knowledgeBase[cat]) { const s = getWordMatchScore(q, k); if (s > 0) all.push({ category: cat, question: k, answer: knowledgeBase[cat][k], score: s }); } all.sort((a, b) => b.score - a.score); return all; }
+    function loadFromLocalStorage() { try { const d = localStorage.getItem('chatbot_knowledge'); if (d) { const saved = JSON.parse(d); for (let cat in saved) { if (!knowledgeBase[cat]) knowledgeBase[cat] = {}; for (let q in saved[cat]) knowledgeBase[cat][q] = saved[cat][q]; } } } catch(e) {} }
+    function saveToLocalStorage() { try { localStorage.setItem('chatbot_knowledge', JSON.stringify(knowledgeBase)); } catch(e) {} }
+    function savePendingToLocal() { try { localStorage.setItem('chatbot_pending', JSON.stringify(pendingQuestions)); } catch(e) {} }
+    function updatePendingCount() { const c = pendingQuestions.length; document.getElementById('pendingCount').textContent = c; document.getElementById('adminPendingCount').textContent = c; }
+    async function loadFromSheet() { try { const res = await fetch(`${SCRIPT_URL}?action=getAll&t=${new Date().getTime()}`); const result = await res.json(); if (result?.success && result.data) { if (result.data.records) { result.data.records.forEach(r => { if (!r.question || !r.answer) return; const cat = r.category || 'general'; if (!knowledgeBase[cat]) knowledgeBase[cat] = {}; knowledgeBase[cat][normalizeText(r.question)] = r.answer; }); saveToLocalStorage(); updateKnowledgeStats(); renderCategoryList(); } if (result.data.pending) { pendingQuestions = result.data.pending; savePendingToLocal(); updatePendingCount(); } } } catch(e) { console.log('⚠️ শীট লোড ব্যর্থ'); } }
+    async function saveToSheet(action, category, question, answer) { try { const res = await fetch(SCRIPT_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: JSON.stringify({ action, category: category || 'general', question: question || '', answer: answer || '' }) }); return (await res.json()).success; } catch(e) { try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: JSON.stringify({ action, category, question, answer }) }); return true; } catch(e2) { return false; } } }
+    function showProcessingIndicator(text) { const c = document.getElementById('messagesContainer'); const d = document.createElement('div'); d.className='message-row bot'; d.id='processingIndicator'; d.innerHTML = `<div class="bot-avatar small"><i class="fas fa-robot"></i></div><div class="processing-indicator"><div class="brain-wave"><span></span><span></span><span></span><span></span><span></span></div><span class="processing-text">${text||'চিন্তা করছি...'}</span></div>`; c.appendChild(d); c.scrollTop = c.scrollHeight; }
+    function updateProcessingText(text) { const el = document.getElementById('processingIndicator'); if (el) { const t = el.querySelector('.processing-text'); if(t) t.textContent = text; } }
+    function hideProcessingIndicator() { const el = document.getElementById('processingIndicator'); if (el) el.remove(); }
+    function hideWelcome() { const w = document.getElementById('welcomeSection'); if (w) { w.style.opacity='0'; w.style.transform='translateY(-20px)'; w.style.transition='all 0.5s ease'; setTimeout(() => { if(w.parentNode) w.remove(); }, 500); } }
+    function addMessage(text, isUser, extraClass) { hideWelcome(); const c = document.getElementById('messagesContainer'), r = document.createElement('div'); r.className = `message-row ${isUser ? 'user' : 'bot'}`; const ts = new Date().toLocaleTimeString('bn-BD', { hour: '2-digit', minute: '2-digit' }); const msgId = 'msg_' + Date.now() + '_' + Math.random().toString(36).substr(2,4); if (isUser) r.innerHTML = `<div class="message-bubble ${extraClass||''}">${escapeHtml(text)}<div class="message-timestamp">${ts}</div></div>`; else r.innerHTML = `<div class="bot-avatar"><i class="fas fa-robot"></i></div><div class="message-bubble ${extraClass||''}" id="${msgId}"><div class="msg-actions"><button class="msg-action-btn" onclick="copyMessage('${msgId}')" title="কপি"><i class="fas fa-copy"></i></button></div>${text}<div class="message-timestamp"><i class="fas fa-clock" style="font-size:0.6rem;"></i> ${ts}</div></div>`; c.appendChild(r); c.scrollTop = c.scrollHeight; r.scrollIntoView({ behavior: 'smooth', block: 'end' }); }
+    window.copyMessage = function(msgId) { const el = document.getElementById(msgId); if(!el) return; const clone = el.cloneNode(true); const act = clone.querySelector('.msg-actions'); if(act) act.remove(); navigator.clipboard.writeText(clone.innerText.trim()).then(() => { const btn = el.querySelector('.msg-action-btn i'); if(btn) { btn.className = 'fas fa-check'; btn.style.color = '#10b981'; setTimeout(() => { btn.className = 'fas fa-copy'; btn.style.color = ''; }, 2000); } }).catch(() => { const ta = document.createElement('textarea'); ta.value = clone.innerText.trim(); document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }); };
+    function addBotMessage(text, extraClass) { addMessage(text, false, extraClass); }
+    function escapeHtml(text) { const d = document.createElement('div'); d.textContent = text; return d.innerHTML; }
+
+    // ====== স্মার্ট রেসপন্স ======
+    function showSmartMatchResponse(uq, matches, mi) {
+        const m = matches[mi];
+        const isExactMatch = (normalizeText(uq) === normalizeText(m.question));
+        if (isExactMatch) { addBotMessage(m.answer); currentMatches = []; currentMatchIndex = 0; waitingForAnswer = false; }
+        else { let html = `<strong>📝 আপনার প্রশ্ন:</strong><br/>${uq}<br/><br/><strong>💡 উত্তর:</strong><br/>${m.answer}<br/><br/><em>এই উত্তরটি কি সঠিক?</em><br/><br/><div class="smart-response-btns">`; html += `<button class="smart-btn yes-btn" onclick="handleSmartYes()"><i class="fas fa-check-circle"></i> হ্যাঁ, সঠিক</button>`; html += `<button class="smart-btn no-btn" onclick="handleSmartNo()"><i class="fas fa-times-circle"></i> না, ভুল</button>`; html += `<button class="smart-btn retry-btn" onclick="handleSmartRetry()"><i class="fas fa-redo"></i> আবার প্রশ্ন</button>`; html += `<button class="smart-btn teach-btn" onclick="handleSmartTeach()"><i class="fas fa-chalkboard-teacher"></i> তুমি জানলে উত্তর দাও</button></div>`; addBotMessage(html); }
+    }
+    window.handleSmartYes = function() { currentMatches = []; currentMatchIndex = 0; waitingForAnswer = false; lastQuestion = ''; pendingCategorySelection = null; addBotMessage('✅ <strong>দারুণ! উত্তরটি সঠিক ছিল!</strong><br/><br/>😊 নতুন প্রশ্ন থাকলে বলুন!'); };
+    window.handleSmartNo = function() { currentMatchIndex++; if (currentMatchIndex < currentMatches.length) { addBotMessage('🔍 <strong>ঠিক আছে, পরবর্তী সম্ভাব্য উত্তর:</strong>'); showSmartMatchResponse(currentUserQuestion, currentMatches, currentMatchIndex); } else { currentMatches = []; currentMatchIndex = 0; addBotMessage('😔 <strong>আর কোনো উত্তর নেই।</strong><br/><br/>📂 কোন ক্যাটাগরিতে সংরক্ষণ করবো?'); showCategorySelection(currentUserQuestion); } };
+    window.handleSmartRetry = function() { currentMatches = []; currentMatchIndex = 0; waitingForAnswer = false; lastQuestion = ''; currentUserQuestion = ''; pendingCategorySelection = null; addBotMessage('👌 <strong>ঠিক আছে! নতুন প্রশ্ন করুন।</strong>'); document.getElementById('userInput').focus(); };
+    window.handleSmartTeach = function() { currentMatches = []; currentMatchIndex = 0; waitingForAnswer = true; lastQuestion = currentUserQuestion; addBotMessage('📚 <strong>উত্তরটি লিখুন:</strong><br/><br/>✍️ <em>পরবর্তী মেসেজ উত্তর হিসেবে সংরক্ষণ হবে।</em>'); document.getElementById('userInput').focus(); };
+    async function saveAsPending(question) { showCategorySelection(question); }
+
+    // ====== টেক্সট কমান্ড চেকার ======
+    function checkTextCommands(userQuestion) {
+        const normalizedQ = normalizeText(userQuestion);
+        
+        // ক্যাটাগরি কমান্ড ম্যাপ
+        const catMap = {
+            'সাধারণ': 'general', 'সাধারণ জিজ্ঞাসা': 'general', 'general': 'general',
+            'প্রযুক্তি': 'technology', 'টেকনোলজি': 'technology', 'technology': 'technology', 'টেক': 'technology', 'tech': 'technology',
+            'শিক্ষা': 'education', 'এডুকেশন': 'education', 'education': 'education',
+            'স্বাস্থ্য': 'health', 'হেলথ': 'health', 'health': 'health',
+            'বিজ্ঞান': 'science', 'সায়েন্স': 'science', 'science': 'science'
+        };
+        
+        // ★ ক্যাটাগরি পরিবর্তন কমান্ড
+        for (let [keyword, cat] of Object.entries(catMap)) {
+            const patterns = [`ক্যাটাগরি ${keyword}`, `ক্যাটাগরি পরিবর্তন ${keyword}`, `${keyword} ক্যাটাগরি`, `${keyword} ক্যাটাগরিতে যাও`, `${keyword} ক্যাটাগরিতে চলো`, `switch to ${keyword}`, `change category to ${keyword}`, `বিষয় ${keyword}`, `${keyword} বিষয়`, `${keyword} বিষয়ে যাও`];
+            for (let pattern of patterns) { if (normalizedQ.includes(normalizeText(pattern))) { executeCategoryChange(cat); return true; } }
+        }
+        // ছোট কমান্ড: শুধু ক্যাটাগরির নাম
+        const allCats = getAllCategories();
+        const catNames = allCats.map(c => (CATEGORY_ICONS[c] || { name: c }).name.toLowerCase());
+        if (catNames.includes(normalizedQ) || allCats.includes(normalizedQ)) {
+            const matchedCat = allCats.find(c => (CATEGORY_ICONS[c] || { name: c }).name.toLowerCase() === normalizedQ || c === normalizedQ);
+            if (matchedCat) { executeCategoryChange(matchedCat); return true; }
+        }
+        
+        // ★ ক্যাটাগরি লিস্ট কমান্ড
+        const listCmds = ['ক্যাটাগরি দেখাও', 'ক্যাটাগরি লিস্ট', 'কি কি ক্যাটাগরি আছে', 'বিষয় দেখাও', 'সব বিষয়', 'category list', 'ক্যাটাগরি গুলো', 'কি কি বিষয়', 'তোমার ক্যাটাগরি'];
+        for (let cmd of listCmds) { if (normalizedQ.includes(normalizeText(cmd))) { showCategoryList(); return true; } }
+        
+        // ★ প্রশ্ন দেখার কমান্ড
+        const viewCmds = ['সব প্রশ্ন দেখাও', 'সব প্রশ্ন দেখান', 'সব প্রশ্ন দেখো', 'প্রশ্ন তালিকা দেখাও', 'প্রশ্ন তালিকা দেখান', 'all questions', 'show all questions', 'view all questions', 'সব প্রশ্ন', 'প্রশ্ন দেখাও', 'questions list', 'প্রশ্নগুলো দেখাও', 'প্রশ্নগুলো দেখান'];
+        for (let cmd of viewCmds) {
+            if (normalizedQ.includes(normalizeText(cmd))) {
+                let targetCat = currentCategory;
+                for (let [keyword, cat] of Object.entries(catMap)) { if (normalizedQ.includes(normalizeText(keyword))) { targetCat = cat; break; } }
+                if (normalizedQ.includes('সব ক্যাটাগরি') || normalizedQ.includes('all categ')) { viewAllCategoriesQA(); } else { viewCategoryQuestions(targetCat); }
+                addBotMessage(`📋 <strong>"${(CATEGORY_ICONS[targetCat] || { name: targetCat }).name}"</strong> ক্যাটাগরির প্রশ্ন তালিকা খোলা হয়েছে।`);
+                return true;
+            }
+        }
+        
+        // ★ PDF কমান্ড
+        const pdfCmds = ['পিডিএফ ডাউনলোড', 'পিডিএফ download', 'pdf download', 'পিডিএফ বানাও', 'পিডিএফ তৈরি করো', 'পিডিএফ দাও', 'download pdf', 'pdf বানাও', 'pdf save', 'প্রশ্নের পিডিএফ', 'pdf চাই', 'পিডিএফ করো'];
+        for (let cmd of pdfCmds) {
+            if (normalizedQ.includes(normalizeText(cmd))) {
+                let targetCat = currentCategory;
+                for (let [keyword, cat] of Object.entries(catMap)) { if (normalizedQ.includes(normalizeText(keyword))) { targetCat = cat; break; } }
+                if (normalizedQ.includes('সব ক্যাটাগরি') || normalizedQ.includes('all categ')) { downloadAllCategoriesPDF(); } else { downloadCategoryPDF(targetCat); }
+                addBotMessage(`📥 <strong>"${(CATEGORY_ICONS[targetCat] || { name: targetCat }).name}"</strong> ক্যাটাগরির পিডিএফ ডাউনলোড শুরু হয়েছে...`);
+                return true;
+            }
+        }
+        
+        // ★ প্রিন্ট কমান্ড
+        const printCmds = ['প্রিন্ট করো', 'প্রিন্ট করুন', 'print করো', 'প্রিন্ট দাও', 'ছাপাও', 'প্রিন্ট আউট', 'print questions', 'প্রশ্ন প্রিন্ট', 'প্রিন্ট প্রশ্ন'];
+        for (let cmd of printCmds) {
+            if (normalizedQ.includes(normalizeText(cmd))) {
+                if (normalizedQ.includes('সব ক্যাটাগরি') || normalizedQ.includes('all categ')) { printAllQA(); } else { let targetCat = currentCategory; for (let [keyword, cat] of Object.entries(catMap)) { if (normalizedQ.includes(normalizeText(keyword))) { targetCat = cat; break; } } printCategoryQA(targetCat); }
+                addBotMessage('🖨️ <strong>প্রিন্ট উইন্ডো খোলা হয়েছে।</strong>');
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    function executeCategoryChange(cat) {
+        const catName = (CATEGORY_ICONS[cat] || { name: cat }).name;
+        document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
+        const targetItem = document.querySelector(`.category-item[data-category="${cat}"]`);
+        if (targetItem) targetItem.classList.add('active');
+        if (waitingForAnswer) { waitingForAnswer = false; lastQuestion = ''; currentMatches = []; currentMatchIndex = 0; }
+        pendingCategorySelection = null;
+        currentCategory = cat;
+        document.getElementById('currentCategory').textContent = catName;
+        const greetings = { 'general': '👋 সাধারণ জিজ্ঞাসা ক্যাটাগরিতে স্বাগতম!', 'technology': '💻 প্রযুক্তি ক্যাটাগরিতে স্বাগতম!', 'education': '📚 শিক্ষা ক্যাটাগরিতে স্বাগতম!', 'health': '🏥 স্বাস্থ্য ক্যাটাগরিতে স্বাগতম!', 'science': '🔬 বিজ্ঞান ক্যাটাগরিতে স্বাগতম!' };
+        addBotMessage(greetings[cat] || `📂 <strong>"${catName}"</strong> ক্যাটাগরিতে সুইচ করা হয়েছে।`);
+    }
+
+    function showCategoryList() {
+        const allCats = getAllCategories();
+        let response = '📂 <strong>উপলব্ধ ক্যাটাগরিসমূহ:</strong><br/><br/>';
+        allCats.forEach(cat => { const info = CATEGORY_ICONS[cat] || { icon: 'fa-folder', name: cat }; response += `<i class="fas ${info.icon}"></i> <strong>${info.name}</strong> - ${knowledgeBase[cat] ? Object.keys(knowledgeBase[cat]).length : 0} টি<br/>`; });
+        response += `<br/><em>💡 কমান্ড: "সাধারণ ক্যাটাগরিতে যাও", "প্রযুক্তি ক্যাটাগরি"</em><br/><br/><div class="category-btns">`;
+        allCats.forEach(cat => { const info = CATEGORY_ICONS[cat] || { icon: 'fa-folder', name: cat }; response += `<button class="category-btn" onclick="executeCategoryChange('${cat}')"><span class="cat-icon"><i class="fas ${info.icon}"></i></span> ${info.name}</button>`; });
+        response += `</div>`;
+        addBotMessage(response);
+    }
+
+    // ====== প্রশ্ন প্রসেসিং (সব চেক সহ) ======
+    async function processQuestion(userQuestion) {
+        if (!userQuestion || !userQuestion.trim()) { addBotMessage('😊 দয়া করে একটি প্রশ্ন লিখুন।'); return; }
+        
+        // ★ টেক্সট কমান্ড চেক
+        if (checkTextCommands(userQuestion)) { hideProcessingIndicator(); return; }
+        
+        // ★ তারিখ/সময় চেক
+        const dateOnlyKeywords = ['আজকের তারিখ', 'আজ তারিখ', 'তারিখ কত', 'কত তারিখ', 'আজ কত তারিখ', 'তারিখ বলো', 'তারিখ বলেন', 'তারিখ কী', 'তারিখ কি', 'আজ কী তারিখ', 'আজ কি তারিখ', 'আজকার তারিখ', 'today date', 'current date', 'what date', 'date today', 'আজ বাংলা তারিখ', 'আজ ইংরেজি তারিখ', 'আজ হিজরি তারিখ', 'আরবি তারিখ', 'হিজরি তারিখ', 'ইংরেজি তারিখ', 'তারিখ', 'আজ কত'];
+        const timeOnlyKeywords = ['এখন সময়', 'সময় কত', 'কয়টা বাজে', 'কটা বাজে', 'এখন কয়টা', 'এখন কটা', 'টাইম কত', 'এখন টাইম', 'সময় বলো', 'সময় বলেন', 'সময় কী', 'সময় কি', 'এখনকার সময়', 'বর্তমান সময়', 'what time', 'current time', 'time now', 'what is the time', 'এখন কতটা বাজে', 'এখন কটায়', 'এখন কয়টায়', 'সময়', 'কয়টা', 'কটা', 'টাইম', 'বাজে'];
+        const dayOnlyKeywords = ['আজ কী বার', 'আজ কি বার', 'কোন বার', 'আজ কোন দিন', 'আজ কী দিন', 'আজ কি দিন', 'দিন কী', 'দিন কি', 'what day', 'today day', 'কী বার আজ', 'কি বার আজ', 'বার', 'দিন'];
+        const normalizedQ = normalizeText(userQuestion);
+        const isDateOnly = dateOnlyKeywords.some(kw => normalizedQ.includes(normalizeText(kw)));
+        const isTimeOnly = timeOnlyKeywords.some(kw => normalizedQ.includes(normalizeText(kw)));
+        const isDayOnly = dayOnlyKeywords.some(kw => normalizedQ.includes(normalizeText(kw)));
+        const isDateTime = (isDateOnly && isTimeOnly) || ['তারিখ ও সময়', 'তারিখ এবং সময়', 'তারিখ সময়', 'date and time', 'date time'].some(kw => normalizedQ.includes(normalizeText(kw)));
+        
+        if (isTimeOnly && !isDateOnly && !isDateTime) { const dt = getRealTimeDateTime(); let r = '🕐 <strong>বর্তমান সময়:</strong><br/><br/>'; r += `🇧🇩 <strong>বাংলা:</strong> ${dt.bangla.time}<br/>`; r += `🇬🇧 <strong>English:</strong> ${dt.english.time}<br/><br/>`; if (dt.prayer) r += `🕌 <strong>নামাজের সময়:</strong> ${dt.prayer}<br/>`; r += `<br/><em>📅 আজকের তারিখ: ${dt.bangla.date}</em>`; hideProcessingIndicator(); addBotMessage(r); return; }
+        if (isDayOnly && !isDateOnly && !isTimeOnly && !isDateTime) { const dt = getRealTimeDateTime(); const now = new Date(); const bd = ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার']; const ed = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; let r = '📅 <strong>আজ:</strong><br/><br/>'; r += `🇧🇩 <strong>বাংলা:</strong> ${bd[now.getDay()]}<br/>`; r += `🇬🇧 <strong>English:</strong> ${ed[now.getDay()]}<br/><br/>`; r += `<em>📅 ${dt.bangla.date}</em>`; hideProcessingIndicator(); addBotMessage(r); return; }
+        if (isDateTime || (isDateOnly && isTimeOnly)) { const dt = getRealTimeDateTime(); let r = '📅 <strong>বর্তমান তারিখ ও সময়:</strong><br/><br/>'; r += `🇧🇩 <strong>বাংলা:</strong><br/>📅 তারিখ: ${dt.bangla.date}<br/>🕐 সময়: ${dt.bangla.time}<br/>🌤️ ঋতু: ${dt.bangla.season}<br/><br/>`; r += `🇬🇧 <strong>English:</strong><br/>📅 Date: ${dt.english.date}<br/>🕐 Time: ${dt.english.time}<br/><br/>`; r += `🇸🇦 <strong>আরবি (হিজরি):</strong><br/>📅 ${dt.arabic.date}<br/><br/>`; if (dt.prayer) r += `🕌 <strong>নামাজের সময়:</strong> ${dt.prayer}<br/><br/>`; r += '<em>⚠️ হিজরি তারিখ আনুমানিক।</em>'; hideProcessingIndicator(); addBotMessage(r); return; }
+        if (isDateOnly) { const dt = getRealTimeDateTime(); let r = '📅 <strong>আজকের তারিখ:</strong><br/><br/>'; r += `🇧🇩 <strong>বাংলা:</strong> ${dt.bangla.date} (${dt.bangla.season})<br/>`; r += `🇬🇧 <strong>English:</strong> ${dt.english.date}<br/>`; r += `🇸🇦 <strong>হিজরি:</strong> ${dt.arabic.date}<br/>`; r += `<br/><em>🕐 বর্তমান সময়: ${dt.bangla.time}</em>`; hideProcessingIndicator(); addBotMessage(r); return; }
+        
+        if (waitingForAnswer) { const answer = userQuestion, prev = lastQuestion, cat = pendingCategorySelection || currentCategory; waitingForAnswer = false; lastQuestion = ''; currentMatches = []; currentMatchIndex = 0; pendingCategorySelection = null; updateProcessingText('সংরক্ষণ করছি...'); await new Promise(r => setTimeout(r, 400)); await saveToSheet('addRecord', cat, prev, answer); if (!knowledgeBase[cat]) knowledgeBase[cat] = {}; knowledgeBase[cat][normalizeText(prev)] = answer; if (!CATEGORY_ICONS[cat]) CATEGORY_ICONS[cat] = { icon: 'fa-folder', color: 'linear-gradient(135deg,#6366f1,#8b5cf6)', name: cat }; saveToLocalStorage(); updateKnowledgeStats(); renderCategoryList(); hideProcessingIndicator(); addBotMessage(`🎉 <strong>অসাধারণ! "${(CATEGORY_ICONS[cat]||{name:cat}).name}" ক্যাটাগরিতে উত্তর সংরক্ষণ করেছি।</strong><br/><br/>📝 <strong>প্রশ্ন:</strong> ${prev}<br/>💡 <strong>উত্তর:</strong> ${answer}<br/><br/><em>এখন থেকে জানবো! 😊</em>`); return; }
+        
+        currentUserQuestion = userQuestion;
+        const matches = findBestMatch(userQuestion);
+        if (matches.length > 0 && matches[0].score >= 0.25) { currentMatches = matches; currentMatchIndex = 0; updateProcessingText('উত্তর পেয়েছি!'); await new Promise(r => setTimeout(r, 400)); hideProcessingIndicator(); showSmartMatchResponse(userQuestion, matches, 0); }
+        else { updateProcessingText('সংরক্ষণ করছি...'); await new Promise(r => setTimeout(r, 300)); hideProcessingIndicator(); addBotMessage(`🤔 <strong>মাফ করবেন, "${userQuestion}" এর উত্তর জানি না।</strong><br/><br/>📂 এটি কোন ক্যাটাগরিতে সংরক্ষণ করবো?`); showCategorySelection(userQuestion); }
+    }
+
+    window.askQuestion = function(q) { document.getElementById('userInput').value = q; document.getElementById('userInput').focus(); handleSend(); };
+    window.handleSend = async function() { if (isProcessing) return; const input = document.getElementById('userInput'), question = input.value.trim(); if (!question) { input.placeholder = '⚠️ প্রশ্ন লিখুন!'; input.focus(); setTimeout(() => input.placeholder = 'এখানে আপনার প্রশ্ন লিখুন...', 2000); return; } isProcessing = true; addMessage(question, true); input.value = ''; input.focus(); showProcessingIndicator('বিশ্লেষণ করছি...'); await new Promise(r => setTimeout(r, 500 + Math.random() * 300)); updateProcessingText('শব্দ মিলিয়ে খুঁজছি...'); await new Promise(r => setTimeout(r, 400 + Math.random() * 200)); await processQuestion(question); hideProcessingIndicator(); isProcessing = false; };
+
+    // ====== টোস্ট ======
+    function showToast(message) { const existing = document.querySelector('.custom-toast'); if (existing) existing.remove(); const toast = document.createElement('div'); toast.className = 'custom-toast'; toast.textContent = message; toast.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#1e293b;color:white;padding:12px 24px;border-radius:12px;font-size:0.9rem;font-weight:500;z-index:9999;animation:toastIn 0.3s ease,toastOut 0.3s ease 1.7s forwards;box-shadow:0 10px 30px rgba(0,0,0,0.3);'; document.body.appendChild(toast); setTimeout(() => { if (toast.parentNode) toast.remove(); }, 2200); }
+
+    // ====== ক্যাটাগরি ভিউয়ার ======
+    window.viewCategoryQuestions = function(cat) { questionViewerState.currentCategory = cat; questionViewerState.currentPage = 1; const qs = getQuestionsByCategory(cat); questionViewerState.totalQuestions = qs.length; questionViewerState.totalPages = Math.ceil(qs.length / questionViewerState.perPage); showQuestionsModal(cat, qs); };
+    function showQuestionsModal(cat, qs) {
+        const cn = (CATEGORY_ICONS[cat] || { name: cat }).name, tp = questionViewerState.totalPages, cp = questionViewerState.currentPage;
+        const si = (cp - 1) * questionViewerState.perPage, ei = Math.min(si + questionViewerState.perPage, qs.length), pq = qs.slice(si, ei);
+        let h = `<div class="modal-overlay active" id="questionsViewerModal" onclick="if(event.target===this)closeQuestionsViewer()"><div class="modal-content" style="max-width:800px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;"><h2 style="margin:0;"><i class="fas fa-list"></i> ${cn} <span style="font-size:0.8rem;color:var(--text-muted);">(${qs.length} টি)</span></h2><div style="display:flex;gap:8px;"><button class="smart-btn teach-btn" onclick="downloadCategoryPDF('${cat}')" style="font-size:0.8rem;padding:8px 14px;"><i class="fas fa-file-pdf"></i> PDF</button><button class="smart-btn" onclick="printCategoryQA('${cat}')" style="font-size:0.8rem;padding:8px 14px;background:#f59e0b;color:white;"><i class="fas fa-print"></i> প্রিন্ট</button><button onclick="closeQuestionsViewer()" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text-muted);">✕</button></div></div><div class="input-wrapper" style="margin-bottom:16px;border-radius:14px;"><i class="fas fa-search"></i><input type="text" id="questionSearchInput" placeholder="প্রশ্ন সার্চ করুন..." style="flex:1;border:none;outline:none;padding:10px;background:transparent;font-family:inherit;" oninput="filterQuestionsInViewer('${cat}')"/></div><div style="max-height:50vh;overflow-y:auto;">`;
+        if (pq.length === 0) h += `<p style="text-align:center;color:var(--text-muted);padding:40px;">কোনো প্রশ্ন নেই।</p>`;
+        else pq.forEach((item, idx) => { h += `<div style="background:#f8fafc;border-radius:14px;padding:16px;margin-bottom:12px;border:1px solid var(--border-color);"><div style="font-weight:600;margin-bottom:8px;display:flex;gap:8px;"><span style="background:var(--accent-blue);color:white;min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;">${si + idx + 1}</span><span>${escapeHtml(item.question)}</span></div><div style="color:var(--text-secondary);font-size:0.9rem;padding-left:32px;"><strong>💡 উত্তর:</strong> ${item.answer.length > 150 ? item.answer.substring(0, 150) + '...' : item.answer}</div><div style="margin-top:8px;display:flex;gap:6px;padding-left:32px;"><button class="msg-action-btn" onclick="copyQA('${escapeAttr(item.question)}','${escapeAttr(item.answer)}')" style="width:auto;padding:4px 10px;font-size:0.7rem;"><i class="fas fa-copy"></i> কপি</button><button class="msg-action-btn" onclick="askQuestion('${escapeAttr(item.question)}')" style="width:auto;padding:4px 10px;font-size:0.7rem;"><i class="fas fa-play"></i> জিজ্ঞাসা</button></div></div>`; });
+        h += `</div>${tp > 1 ? `<div style="display:flex;justify-content:center;align-items:center;gap:8px;margin-top:16px;flex-wrap:wrap;"><button class="smart-btn skip-btn-style" onclick="changeQuestionPage('${cat}',${cp-1})" ${cp<=1?'disabled':''} style="font-size:0.8rem;padding:6px 12px;"><i class="fas fa-chevron-left"></i> আগে</button>${(()=>{let b='';const mb=5;let sp=Math.max(1,cp-Math.floor(mb/2));let ep=Math.min(tp,sp+mb-1);if(ep-sp+1<mb)sp=Math.max(1,ep-mb+1);for(let i=sp;i<=ep;i++)b+=`<button class="smart-btn ${i===cp?'teach-btn':'skip-btn-style'}" onclick="changeQuestionPage('${cat}',${i})" style="font-size:0.8rem;padding:6px 12px;min-width:36px;">${i}</button>`;return b;})()}<button class="smart-btn skip-btn-style" onclick="changeQuestionPage('${cat}',${cp+1})" ${cp>=tp?'disabled':''} style="font-size:0.8rem;padding:6px 12px;">পরে <i class="fas fa-chevron-right"></i></button></div><div style="text-align:center;margin-top:8px;font-size:0.75rem;color:var(--text-muted);">${si+1}-${ei} / ${qs.length} টি</div>`:''}<button class="close-modal-btn" onclick="closeQuestionsViewer()" style="margin-top:16px;"><i class="fas fa-times"></i> বন্ধ করুন</button></div></div>`;
+        const ex = document.getElementById('questionsViewerModal'); if (ex) ex.remove();
+        document.body.insertAdjacentHTML('beforeend', h); document.body.style.overflow = 'hidden';
+    }
+    window.changeQuestionPage = function(cat, page) { questionViewerState.currentPage = page; const ex = document.getElementById('questionsViewerModal'); if (ex) ex.remove(); showQuestionsModal(cat, getQuestionsByCategory(cat)); };
+    window.filterQuestionsInViewer = function(cat) { const si = document.getElementById('questionSearchInput'); if (!si) return; const st = normalizeText(si.value), qs = getQuestionsByCategory(cat); if (st.length < 2) { questionViewerState.currentPage = 1; const ex = document.getElementById('questionsViewerModal'); if (ex) ex.remove(); showQuestionsModal(cat, qs); return; } const fq = qs.filter(q => normalizeText(q.question).includes(st) || normalizeText(q.answer).includes(st)); questionViewerState.currentPage = 1; questionViewerState.totalQuestions = fq.length; questionViewerState.totalPages = Math.ceil(fq.length / questionViewerState.perPage); const ex = document.getElementById('questionsViewerModal'); if (ex) ex.remove(); showQuestionsModal(cat, fq); };
+    window.closeQuestionsViewer = function() { const m = document.getElementById('questionsViewerModal'); if (m) m.remove(); document.body.style.overflow = ''; };
+    window.copyQA = function(q, a) { const t = `প্রশ্ন: ${q}\n\nউত্তর: ${a}`; navigator.clipboard.writeText(t).then(() => showToast('✅ কপি হয়েছে!')).catch(() => { const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('✅ কপি হয়েছে!'); }); };
+
+    // ====== সব ক্যাটাগরি ভিউয়ার ======
+    window.viewAllCategoriesQA = function() { const ac = getAllCategories(); let tq = 0, ad = {}; ac.forEach(c => { const qs = getQuestionsByCategory(c); ad[c] = qs; tq += qs.length; }); showAllCategoriesModal(ac, ad, tq); };
+    function showAllCategoriesModal(cats, ad, tq) {
+        let h = `<div class="modal-overlay active" id="allQAViewerModal" onclick="if(event.target===this)closeAllQAViewer()"><div class="modal-content" style="max-width:900px;max-height:90vh;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;"><h2 style="margin:0;"><i class="fas fa-database"></i> সব ক্যাটাগরির প্রশ্ন-উত্তর <span style="font-size:0.8rem;color:var(--text-muted);">(মোট: ${tq} টি)</span></h2><div style="display:flex;gap:8px;flex-wrap:wrap;"><button class="smart-btn teach-btn" onclick="printAllQA()" style="font-size:0.8rem;padding:8px 14px;"><i class="fas fa-print"></i> প্রিন্ট</button><button class="smart-btn" onclick="downloadAllCategoriesPDF()" style="font-size:0.8rem;padding:8px 14px;background:#f43f5e;color:white;"><i class="fas fa-file-pdf"></i> PDF</button><button class="smart-btn" onclick="exportAllQAAsText()" style="font-size:0.8rem;padding:8px 14px;background:#10b981;color:white;"><i class="fas fa-file-alt"></i> TXT</button><button onclick="closeAllQAViewer()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-muted);padding:0 8px;">✕</button></div></div><div class="input-wrapper" style="margin-bottom:16px;border-radius:14px;"><i class="fas fa-search"></i><input type="text" id="allQASearchInput" placeholder="সব ক্যাটাগরিতে সার্চ করুন..." style="flex:1;border:none;outline:none;padding:10px;background:transparent;font-family:inherit;" oninput="filterAllQA()"/><span style="font-size:0.75rem;color:var(--text-muted);padding-right:12px;" id="filteredCount"></span></div><div style="max-height:60vh;overflow-y:auto;">`;
+        cats.forEach(c => { const cn = (CATEGORY_ICONS[c] || { name: c }).name, ci = (CATEGORY_ICONS[c] || { icon: 'fa-folder' }).icon, qs = ad[c]; h += `<div class="cat-section" data-category="${c}" style="margin-bottom:20px;"><div style="background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;padding:12px 18px;border-radius:14px 14px 0 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;" onclick="toggleCategorySection('${c}')"><h3 style="margin:0;font-size:1.1rem;display:flex;align-items:center;gap:10px;"><i class="fas ${ci}"></i> ${cn} <span style="font-size:0.75rem;background:rgba(255,255,255,0.2);padding:2px 10px;border-radius:10px;">${qs.length} টি</span></h3><i class="fas fa-chevron-down" id="toggleIcon-${c}" style="transition:transform 0.3s;"></i></div><div class="cat-content" id="catContent-${c}" style="background:#f8fafc;border:1px solid var(--border-color);border-top:none;border-radius:0 0 14px 14px;padding:16px;">`; if (qs.length === 0) h += `<p style="color:var(--text-muted);text-align:center;padding:20px;">কোনো প্রশ্ন নেই।</p>`; else qs.forEach((item, idx) => { h += `<div class="qa-mini-card" data-question="${escapeAttr(item.question)}" data-answer="${escapeAttr(item.answer)}" style="background:white;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #e2e8f0;"><div style="display:flex;gap:10px;align-items:flex-start;"><span style="background:${(CATEGORY_ICONS[c]||{color:'#6366f1'}).color};color:white;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;flex-shrink:0;">${idx + 1}</span><div style="flex:1;"><div style="font-weight:600;color:#1e293b;margin-bottom:6px;">${escapeHtml(item.question)}</div><div style="color:#475569;font-size:0.9rem;line-height:1.6;">${item.answer.length > 200 ? item.answer.substring(0, 200) + '...' : item.answer}</div></div><div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;"><button class="msg-action-btn" onclick="event.stopPropagation();copyQA('${escapeAttr(item.question)}','${escapeAttr(item.answer)}')" style="width:28px;height:28px;"><i class="fas fa-copy"></i></button><button class="msg-action-btn" onclick="event.stopPropagation();askQuestion('${escapeAttr(item.question)}')" style="width:28px;height:28px;"><i class="fas fa-play"></i></button></div></div></div>`; }); h += `</div></div>`; });
+        h += `</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;flex-wrap:wrap;gap:10px;"><span style="font-size:0.8rem;color:var(--text-muted);"><i class="fas fa-layer-group"></i> ${cats.length} টি ক্যাটাগরি | ${tq} টি প্রশ্ন</span><div style="display:flex;gap:8px;"><button class="smart-btn skip-btn-style" onclick="expandAllCategories()" style="font-size:0.8rem;padding:8px 14px;"><i class="fas fa-expand"></i> সব খুলুন</button><button class="smart-btn skip-btn-style" onclick="collapseAllCategories()" style="font-size:0.8rem;padding:8px 14px;"><i class="fas fa-compress"></i> সব বন্ধ করুন</button></div></div><button class="close-modal-btn" onclick="closeAllQAViewer()" style="margin-top:12px;"><i class="fas fa-times"></i> বন্ধ করুন</button></div></div>`;
+        const ex = document.getElementById('allQAViewerModal'); if (ex) ex.remove();
+        document.body.insertAdjacentHTML('beforeend', h); document.body.style.overflow = 'hidden';
+    }
+    window.closeAllQAViewer = function() { const m = document.getElementById('allQAViewerModal'); if (m) m.remove(); document.body.style.overflow = ''; };
+    window.toggleCategorySection = function(c) { const ct = document.getElementById('catContent-' + c), ic = document.getElementById('toggleIcon-' + c); if (ct.style.display === 'none') { ct.style.display = 'block'; if (ic) ic.style.transform = 'rotate(0deg)'; } else { ct.style.display = 'none'; if (ic) ic.style.transform = 'rotate(-90deg)'; } };
+    window.expandAllCategories = function() { document.querySelectorAll('.cat-content').forEach(el => el.style.display = 'block'); document.querySelectorAll('[id^="toggleIcon-"]').forEach(el => el.style.transform = 'rotate(0deg)'); };
+    window.collapseAllCategories = function() { document.querySelectorAll('.cat-content').forEach(el => el.style.display = 'none'); document.querySelectorAll('[id^="toggleIcon-"]').forEach(el => el.style.transform = 'rotate(-90deg)'); };
+    window.filterAllQA = function() { const si = document.getElementById('allQASearchInput'), ce = document.getElementById('filteredCount'); if (!si) return; const st = normalizeText(si.value), ac = document.querySelectorAll('.qa-mini-card'), as = document.querySelectorAll('.cat-section'); let vc = 0; if (st.length < 1) { ac.forEach(c => c.style.display = ''); as.forEach(s => s.style.display = ''); if (ce) ce.textContent = ''; return; } as.forEach(s => { const cs = s.querySelectorAll('.qa-mini-card'); let sv = false; cs.forEach(c => { const q = c.dataset.question || '', a = c.dataset.answer || ''; if (normalizeText(q).includes(st) || normalizeText(a).includes(st)) { c.style.display = ''; sv = true; vc++; } else c.style.display = 'none'; }); s.style.display = sv ? '' : 'none'; }); if (ce) ce.textContent = vc > 0 ? `(${vc} টি পাওয়া গেছে)` : '(কিছু পাওয়া যায়নি)'; };
+
+    // ====== প্রিন্ট ======
+    window.printCategoryQA = function(cat) { const cn = (CATEGORY_ICONS[cat] || { name: cat }).name, qs = getQuestionsByCategory(cat); if (qs.length === 0) { addBotMessage(`📭 "${cn}" ক্যাটাগরিতে কোনো প্রশ্ন নেই।`); return; } let ph = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${cn}</title><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet"><style>*{margin:0;padding:0}body{font-family:'Hind Siliguri',sans-serif;padding:30px;color:#1e293b;line-height:1.8}.header{text-align:center;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;padding:20px;border-radius:15px;margin-bottom:25px}.header h1{font-size:24px}.qa-item{background:#f8fafc;padding:15px 18px;margin-bottom:12px;border-radius:10px;border-left:4px solid #10b981}.qa-item .q-num{display:inline-block;background:#6366f1;color:white;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:12px;font-weight:700;margin-right:8px}.qa-item .question{font-weight:600;font-size:16px}.qa-item .answer{color:#475569;margin-top:6px;padding-left:32px;white-space:pre-wrap}.footer{text-align:center;margin-top:30px;padding-top:15px;border-top:2px solid #e2e8f0;font-size:11px;color:#94a3b8}@media print{.qa-item{break-inside:avoid}body{padding:15px}}</style></head><body><div class="header"><h1>📚 ${cn}</h1><p>মোট: ${qs.length} টি | ${new Date().toLocaleDateString('bn-BD')}</p></div>`; qs.forEach((item, idx) => { ph += `<div class="qa-item"><div class="question"><span class="q-num">${idx + 1}</span> ${item.question}</div><div class="answer">💡 ${item.answer.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '')}</div></div>`; }); ph += `<div class="footer"><p>🤖 AI Chatbot | ${cn} | ${new Date().toLocaleString('bn-BD')}</p></div></body></html>`; const w = window.open('', '_blank', 'width=900,height=700'); w.document.write(ph); w.document.close(); setTimeout(() => w.print(), 800); };
+    
+    window.printAllQA = function() { const ac = getAllCategories(); let ph = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>সব প্রশ্ন-উত্তর</title><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet"><style>*{margin:0;padding:0}body{font-family:'Hind Siliguri',sans-serif;padding:30px;color:#1e293b;line-height:1.8}.main-title{text-align:center;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;padding:20px;border-radius:15px;margin-bottom:25px}.main-title h1{font-size:24px}.cat-header{background:#1e293b;color:white;padding:12px 18px;border-radius:10px 10px 0 0;margin-top:20px;font-size:18px}.qa-item{background:#f8fafc;padding:15px 18px;border:1px solid #e2e8f0;border-top:none}.qa-item:last-child{border-radius:0 0 10px 10px}.qa-item .q-num{display:inline-block;background:#6366f1;color:white;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:12px;font-weight:700;margin-right:8px}.qa-item .question{font-weight:600}.qa-item .answer{color:#475569;margin-top:6px;padding-left:32px;white-space:pre-wrap}.footer{text-align:center;margin-top:30px;padding-top:15px;border-top:2px solid #e2e8f0;font-size:11px;color:#94a3b8}@media print{.qa-item{break-inside:avoid}body{padding:15px}}</style></head><body><div class="main-title"><h1>📚 সব ক্যাটাগরির প্রশ্ন-উত্তর</h1><p>${new Date().toLocaleDateString('bn-BD')} | ${new Date().toLocaleTimeString('bn-BD')}</p></div>`; let tq = 0; ac.forEach(c => { const cn = (CATEGORY_ICONS[c] || { name: c }).name, qs = getQuestionsByCategory(c); if (qs.length === 0) return; ph += `<div class="cat-header">📂 ${cn} (${qs.length} টি)</div>`; qs.forEach((item, idx) => { ph += `<div class="qa-item"><div class="question"><span class="q-num">${idx + 1}</span> ${item.question}</div><div class="answer">💡 ${item.answer.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '')}</div></div>`; tq++; }); }); ph += `<div class="footer"><p>🤖 AI Chatbot | মোট: ${tq} টি | ${new Date().toLocaleString('bn-BD')}</p></div></body></html>`; const w = window.open('', '_blank', 'width=900,height=700'); w.document.write(ph); w.document.close(); setTimeout(() => w.print(), 800); showToast('🖨️ প্রিন্ট উইন্ডো খোলা হয়েছে'); };
+
+    // ====== TXT ======
+    window.exportAllQAAsText = function() { const ac = getAllCategories(); let t = '🤖 AI Chatbot - সব প্রশ্ন-উত্তর\n' + '='.repeat(60) + '\nতারিখ: ' + new Date().toLocaleDateString('bn-BD') + '\n\n'; ac.forEach(c => { const cn = (CATEGORY_ICONS[c] || { name: c }).name, qs = getQuestionsByCategory(c); if (qs.length === 0) return; t += '📂 ' + cn + ' (' + qs.length + ' টি)\n' + '-'.repeat(40) + '\n\n'; qs.forEach((item, idx) => { t += (idx + 1) + '. প্রশ্ন: ' + item.question + '\n   উত্তর: ' + item.answer.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '') + '\n\n'; }); }); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([t], { type: 'text/plain;charset=utf-8' })); a.download = 'All_QA_' + new Date().toISOString().slice(0,10) + '.txt'; a.click(); showToast('📄 TXT ডাউনলোড হয়েছে!'); };
+
+    // ====== PDF (html2canvas + jsPDF) ======
+    async function loadHTML2Canvas() { if (window.html2canvas) return true; return new Promise((resolve) => { const s = document.createElement('script'); s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'; s.onload = () => resolve(true); s.onerror = () => resolve(false); document.head.appendChild(s); }); }
+    async function loadJSPDF() { if (window.jspdf) return true; return new Promise((resolve) => { const s = document.createElement('script'); s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'; s.onload = () => resolve(true); s.onerror = () => resolve(false); document.head.appendChild(s); }); }
+
+    window.downloadCategoryPDF = async function(cat) {
+        const cn = (CATEGORY_ICONS[cat] || { name: cat }).name, qs = getQuestionsByCategory(cat);
+        if (qs.length === 0) { alert('কোনো প্রশ্ন নেই!'); return; }
+        showToast('📥 পিডিএফ তৈরি হচ্ছে...');
+        await loadJSPDF(); await loadHTML2Canvas();
+        if (!window.html2canvas || !window.jspdf) { downloadCategoryPDFFallback(cat); return; }
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+        const pw = 210, ph = 297, mg = 12, cw = pw - (mg * 2);
+        let hc = `<div style="width:${cw}mm;font-family:'Hind Siliguri','Noto Sans Bengali',sans-serif;color:#1e293b;line-height:1.8;background:white;"><div style="background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;padding:15px 20px;border-radius:10px;margin-bottom:20px;text-align:center;"><h1 style="font-size:22px;margin:0;">📚 ${cn}</h1><p style="font-size:11px;margin:4px 0 0;">মোট: ${qs.length} টি | ${new Date().toLocaleDateString('bn-BD')}</p></div>`;
+        qs.forEach((item, idx) => { hc += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin-bottom:10px;"><div style="display:flex;gap:10px;"><span style="background:#6366f1;color:white;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;">${idx + 1}</span><div><div style="font-weight:700;font-size:15px;margin-bottom:6px;">${item.question}</div><div style="color:#475569;font-size:13px;border-left:3px solid #10b981;padding-left:12px;">${item.answer.replace(/<br\s*\/?>/gi, '<br>')}</div></div></div></div>`; });
+        hc += `<div style="text-align:center;margin-top:20px;padding-top:12px;border-top:2px solid #e2e8f0;color:#94a3b8;font-size:10px;">🤖 AI Chatbot | ${new Date().toLocaleString('bn-BD')}</div></div>`;
+        const td = document.createElement('div'); td.innerHTML = hc; td.style.cssText = `position:fixed;top:-9999px;left:-9999px;width:${cw}mm;font-family:'Hind Siliguri','Noto Sans Bengali',sans-serif;background:white;z-index:-1;`; document.body.appendChild(td);
+        await new Promise(r => setTimeout(r, 500));
+        try { const cv = await html2canvas(td, { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' }); document.body.removeChild(td); const id = cv.toDataURL('image/png'), iw = cw, ih = (cv.height * iw) / cv.width, mp = ph - (mg * 2); let hl = ih, ps = 0, pg = 1; doc.addImage(id, 'PNG', mg, mg, iw, ih); hl -= mp; while (hl > 0) { ps = mp * pg; doc.addPage(); doc.addImage(id, 'PNG', mg, -(ps - mg), iw, ih); hl -= mp; pg++; } doc.save(cn.replace(/\s+/g, '_') + '_QA.pdf'); showToast('✅ পিডিএফ ডাউনলোড সম্পন্ন!'); } catch (e) { if (td.parentNode) document.body.removeChild(td); downloadCategoryPDFFallback(cat); }
+    };
+
+    window.downloadAllCategoriesPDF = async function() {
+        const ac = getAllCategories(); let aq = [];
+        ac.forEach(c => { const cn = (CATEGORY_ICONS[c] || { name: c }).name, qs = getQuestionsByCategory(c); qs.forEach(q => aq.push({ ...q, categoryName: cn, category: c })); });
+        if (aq.length === 0) { alert('কোনো প্রশ্ন নেই!'); return; }
+        showToast('📥 পিডিএফ তৈরি হচ্ছে...');
+        await loadJSPDF(); await loadHTML2Canvas();
+        if (!window.html2canvas || !window.jspdf) { printAllQA(); return; }
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+        const pw = 210, ph = 297, mg = 12, cw = pw - (mg * 2);
+        let hc = `<div style="width:${cw}mm;font-family:'Hind Siliguri','Noto Sans Bengali',sans-serif;color:#1e293b;line-height:1.8;background:white;"><div style="background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;padding:15px 20px;border-radius:10px;margin-bottom:20px;text-align:center;"><h1 style="font-size:22px;margin:0;">📚 সব ক্যাটাগরির প্রশ্ন-উত্তর</h1><p style="font-size:11px;margin:4px 0 0;">মোট: ${aq.length} টি | ${new Date().toLocaleDateString('bn-BD')}</p></div>`;
+        let cc = '';
+        aq.forEach((item, idx) => { if (item.categoryName !== cc) { hc += `<div style="background:#1e293b;color:white;padding:10px 16px;border-radius:8px;margin:16px 0 8px;font-size:16px;font-weight:700;">📂 ${item.categoryName}</div>`; cc = item.categoryName; } hc += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin-bottom:10px;"><div style="display:flex;gap:10px;"><span style="background:#6366f1;color:white;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;">${idx + 1}</span><div><div style="font-weight:700;font-size:15px;margin-bottom:6px;">${item.question}</div><div style="color:#475569;font-size:13px;border-left:3px solid #10b981;padding-left:12px;">${item.answer.replace(/<br\s*\/?>/gi, '<br>')}</div></div></div></div>`; });
+        hc += `<div style="text-align:center;margin-top:20px;padding-top:12px;border-top:2px solid #e2e8f0;color:#94a3b8;font-size:10px;">🤖 AI Chatbot | ${new Date().toLocaleString('bn-BD')}</div></div>`;
+        const td = document.createElement('div'); td.innerHTML = hc; td.style.cssText = `position:fixed;top:-9999px;left:-9999px;width:${cw}mm;font-family:'Hind Siliguri','Noto Sans Bengali',sans-serif;background:white;z-index:-1;`; document.body.appendChild(td);
+        await new Promise(r => setTimeout(r, 500));
+        try { const cv = await html2canvas(td, { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' }); document.body.removeChild(td); const id = cv.toDataURL('image/png'), iw = cw, ih = (cv.height * iw) / cv.width, mp = ph - (mg * 2); let hl = ih, ps = 0, pg = 1; doc.addImage(id, 'PNG', mg, mg, iw, ih); hl -= mp; while (hl > 0) { ps = mp * pg; doc.addPage(); doc.addImage(id, 'PNG', mg, -(ps - mg), iw, ih); hl -= mp; pg++; } doc.save('All_Categories_QA_' + new Date().toISOString().slice(0,10) + '.pdf'); showToast('✅ পিডিএফ ডাউনলোড সম্পন্ন!'); } catch (e) { if (td.parentNode) document.body.removeChild(td); printAllQA(); }
+    };
+
+    function downloadCategoryPDFFallback(cat) { const cn = (CATEGORY_ICONS[cat] || { name: cat }).name, qs = getQuestionsByCategory(cat); const w = window.open('', '_blank', 'width=800,height=600'); let h = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${cn}</title><style>@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');body{font-family:'Hind Siliguri',sans-serif;padding:30px;color:#1e293b;line-height:1.8}.header{text-align:center;margin-bottom:25px;border-bottom:2px solid #6366f1;padding-bottom:15px}.header h1{color:#6366f1}.qa-item{background:#f8fafc;padding:15px;margin-bottom:15px;border-radius:10px;border-left:4px solid #10b981}.qa-item .q{font-weight:700;font-size:16px}.qa-item .a{color:#475569;margin-top:8px;white-space:pre-wrap}@media print{.qa-item{break-inside:avoid}}</style></head><body><div class="header"><h1>📚 ${cn}</h1><p>মোট: ${qs.length} টি | ${new Date().toLocaleDateString('bn-BD')}</p></div>`; qs.forEach((item, idx) => { h += `<div class="qa-item"><div class="q">${idx+1}. ${item.question}</div><div class="a">💡 ${item.answer.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '')}</div></div>`; }); h += `</body></html>`; w.document.write(h); w.document.close(); setTimeout(() => w.print(), 500); showToast('📥 প্রিন্ট উইন্ডো খোলা হয়েছে। PDF হিসেবে সেভ করুন।'); }
+
+    function escapeAttr(text) { return text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;').replace(/\n/g, '\\n').replace(/\r/g, ''); }
+
+    // ====== অ্যাডমিন ======
+    window.openAdminPanel = function() { document.getElementById('adminModal').classList.add('active'); renderPendingQuestions(); document.body.style.overflow = 'hidden'; };
+    window.closeAdminPanel = function() { document.getElementById('adminModal').classList.remove('active'); document.body.style.overflow = ''; };
+    function renderPendingQuestions() { const c = document.getElementById('pendingQuestionsList'); if (!pendingQuestions.length) { c.innerHTML = `<p style='color:#64748b;text-align:center;padding:35px;'><i class='fas fa-check-circle' style='font-size:2.5rem;color:#10b981;display:block;margin-bottom:12px;'></i><strong>সব শেষ!</strong><br/>কোনো অপেক্ষমাণ নেই 🎉</p>`; return; } let h = `<div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;"><button class="smart-btn teach-btn" onclick="viewCategoryQuestions('${currentCategory}')" style="font-size:0.8rem;padding:8px 14px;"><i class="fas fa-list"></i> "${(CATEGORY_ICONS[currentCategory]||{name:currentCategory}).name}" এর সব প্রশ্ন</button><button class="smart-btn" onclick="downloadCategoryPDF('${currentCategory}')" style="font-size:0.8rem;padding:8px 14px;background:#f43f5e;color:white;"><i class="fas fa-file-pdf"></i> PDF</button><button class="smart-btn" onclick="printCategoryQA('${currentCategory}')" style="font-size:0.8rem;padding:8px 14px;background:#f59e0b;color:white;"><i class="fas fa-print"></i> প্রিন্ট</button></div>`; h += pendingQuestions.map((item, i) => `<div class="pending-question"><div class="question-text"><span class="category-tag">${(CATEGORY_ICONS[item.category]||{name:item.category}).name}</span><span>${escapeHtml(item.question)}</span></div><textarea class="answer-input" placeholder="✍️ উত্তর লিখুন..." id="answerInput${i}" rows="3"></textarea><div class="button-group"><button class="save-answer-btn" onclick="saveAnswerFromAdmin(${i})"><i class="fas fa-save"></i> সংরক্ষণ</button><button class="delete-btn" onclick="removePending(${i})"><i class="fas fa-trash"></i> মুছুন</button></div></div>`).join(''); c.innerHTML = h; }
+    window.saveAnswerFromAdmin = async function(i) { const inp = document.getElementById(`answerInput${i}`), ans = inp.value.trim(); if (!ans) { inp.style.borderColor='#f43f5e'; inp.placeholder='⚠️ উত্তর লিখুন!'; inp.focus(); setTimeout(() => { inp.style.borderColor='#e2e8f0'; inp.placeholder='✍️ উত্তর লিখুন...'; }, 2500); return; } const item = pendingQuestions[i]; await saveToSheet('addRecord', item.category, item.question, ans); if (!knowledgeBase[item.category]) knowledgeBase[item.category] = {}; knowledgeBase[item.category][normalizeText(item.question)] = ans; if (!CATEGORY_ICONS[item.category]) CATEGORY_ICONS[item.category] = { icon: 'fa-folder', color: 'linear-gradient(135deg,#6366f1,#8b5cf6)', name: item.category }; saveToLocalStorage(); updateKnowledgeStats(); renderCategoryList(); if (waitingForAnswer && lastQuestion === item.question) { waitingForAnswer = false; lastQuestion = ''; currentMatches = []; } pendingQuestions.splice(i, 1); savePendingToLocal(); updatePendingCount(); renderPendingQuestions(); };
+    window.removePending = function(i) { const item = pendingQuestions[i]; if (confirm('🗑️ মুছে ফেলতে চান?')) { if (waitingForAnswer && lastQuestion === item.question) { waitingForAnswer = false; lastQuestion = ''; currentMatches = []; } pendingQuestions.splice(i, 1); savePendingToLocal(); updatePendingCount(); renderPendingQuestions(); } };
+
+    document.getElementById('userInput').addEventListener('keydown', function(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); } });
+    document.getElementById('adminModal').addEventListener('click', function(e) { if (e.target === this) closeAdminPanel(); });
+    document.addEventListener('click', function(e) { const t = document.getElementById('helpTooltip'); if (t.style.display === 'block' && !t.contains(e.target) && !e.target.closest('.subject-chip[onclick*="showHelp"]')) hideHelp(); });
+    window.addEventListener('resize', function() { const s = document.getElementById('sidebarPanel'); if (window.innerWidth > 768) { s.style.boxShadow='none'; s.classList.remove('collapsed'); } else s.classList.add('collapsed'); });
+    window.addEventListener('beforeunload', function() { waitingForAnswer = false; lastQuestion = ''; currentMatches = []; currentMatchIndex = 0; pendingCategorySelection = null; });
+    window.testSheetConnection = async function() { await saveToSheet('addPending', 'general', 'টেস্ট ' + new Date().toISOString(), ''); console.log('✅ সম্পন্ন'); };
+
+    init();
+    console.log('✅ চ্যাটবট প্রস্তুত! 🚀');
+})();
+// ]]>
+</script>
+</body>
+</html>
